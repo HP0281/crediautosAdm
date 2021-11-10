@@ -1,0 +1,71 @@
+<!-- Logo sidebar -->
+<a routerLink="/dashboard" class="logo">
+    <img src="assets/images/logoicon.svg" alt="" class="logo-icon mt-1">
+    <div class="logo-text">
+        <h5 class="fs22 mb-0">AdminUX <sup class="badge badge-danger">PRO</sup></h5>
+        <p class="text-uppercase fs11">Admin Dashboard</p>
+    </div>
+</a>
+<!-- Logo sidebar ends -->
+
+<!-- Navigation menu sidebar-->
+<h6 class="subtitle fs11">Navigation Menu</h6>
+<ul class="nav flex-column">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0)" (click)="addExpandClass('dashboard')"><i class="material-icons icon">dashboard</i><span>Dashboard</span> <i class="material-icons arrow">expand_more</i></a>
+        <div class="nav flex-column" [class.d-block]="showMenu === 'dashboard'">
+            <div class="nav-item" routerLink="/dashboard"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Dashboard</span></a></div>
+            <div class="nav-item" routerLink="/dashboardnetworking" [routerLinkActive]="['active']"><a class="nav-link"><span>Networking</span></a></div>
+        </div>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0)" (click)="addExpandClass('pages')"><i class="material-icons icon">turned_in_not</i><span>Pages</span> <i class="material-icons arrow">expand_more</i></a>
+            <div class="nav flex-column" [class.d-block]="showMenu === 'pages'">
+            <div class="nav-item"  [routerLink]="['/login']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Login</span></a></div>
+            <div class="nav-item"  [routerLink]="['/signup']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Signup</span></a></div>
+            <div class="nav-item"  [routerLink]="['/not-found']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Not Found</span></a></div>
+            <div class="nav-item"  [routerLink]="['/error']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Server Error</span></a></div>
+            <div class="nav-item"  [routerLink]="['/access-denied']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Access Denied</span></a></div>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0)" (click)="addExpandClass('controls')"><i class="material-icons icon">storage</i><span>Components</span> <i class="material-icons arrow">expand_more</i></a>
+            <div class="nav flex-column" [class.d-block]="showMenu === 'controls'">
+            <div class="nav-item"  [routerLink]="['/charts']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Charts</span></a></div>
+            <div class="nav-item"  [routerLink]="['/tables']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Tables</span></a></div>
+            <div class="nav-item"  [routerLink]="['/forms']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Forms</span></a></div>
+            <div class="nav-item"  [routerLink]="['/bs-element']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Bootstrap Element</span></a></div>
+            <div class="nav-item"  [routerLink]="['/grid']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Bootstrap grid</span></a></div>
+            <div class="nav-item"  [routerLink]="['/components']"  [routerLinkActive]="['active']"><a class="nav-link" ><span>Component</span></a></div>
+        </div>
+    </li>
+</ul>
+
+<!-- Navigation menu sidebar ends -->
+<br>
+<!-- Upgrade notification -->
+<div class="row mx-0 upgrad-box">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="fs15 font-weight-light mb-3">Upgrade <a class="close-btn"><i class="material-icons">close</i></a></h4>
+                <p class="text-mute">01:45 hrs remaining of your trial period</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Upgrade notification ends -->
+
+<!-- Setting link -->
+<ul class="nav flex-column">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0)" (click)="addExpandClass('settings')"><i class="material-icons icon">settings_applications</i><span>Settings</span> <i class="material-icons arrow">expand_more</i></a>
+        <div class="nav flex-column" [class.d-block]="showMenu === 'settings'">
+            <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Profile Setting</span></a></div>
+            <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Privacy</span></a></div>
+            <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Email</span></a></div>
+        </div>
+    </li>
+</ul>
+<!-- Setting link -->
