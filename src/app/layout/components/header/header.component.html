@@ -6,696 +6,75 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- search starts -->
-            <form class="form-inline search mr-auto">
-                <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search" />
+            <!-- <form class="form-inline search mr-auto">
+                <input class="form-control form-control-sm" type="search" placeholder="buscar" aria-label="Search" />
                 <button class="btn btn-link btn-sm" type="submit"><i class="material-icons">search</i></button>
-            </form>
+            </form>-->
             <!-- search ends -->
 
             <!-- large desktop market rates starts -->
             <div class="mx-auto d-none d-xxl-inline">
-                <div class="row mx-0">
-                    <div class="col-auto pr-0 align-self-center"><i class="material-icons vm">public</i></div>
-                    <div class="col-auto">
-                        <h5 class="fs15 font-weight-normal mb-0">
-                            Market <span class="text-danger mx-1"><i class="material-icons vm">arrow_drop_down</i></span> 254608 $
-                        </h5>
-                        <p class="fs11"><span>Live</span> <span class="text-danger">-0.1%</span> <span>(2487 $)</span></p>
-                    </div>
-                    <div class="col-auto border-left-dashed">
-                        <h5 class="fs15 font-weight-normal mb-0">
-                            Update <span class="text-success mx-1"><i class="material-icons vm">arrow_drop_up</i></span> 254608 $
-                        </h5>
-                        <p class="fs11"><span>Live</span> <span class="text-success">+0.1%</span> <span>(2487 $)</span></p>
-                    </div>
-                </div>
+
             </div>
             <!-- large desktop market rates ends -->
 
             <!-- icons dropwdowns starts -->
             <ul class="navbar-nav ml-auto">
                 <!-- flag dropdown-->
-                <li class="nav-item dropdown select-flag" ngbDropdown>
-                    <a class="nav-link dropdown-toggle active" href="javascript:void(0)" ngbDropdownToggle>
-                        <span class="flag-icon flag-icon-in"></span>
-                    </a>
-                    <div class="dropdown-menu" ng-click="$event.stopPropagation()" ngbDropdownMenu>
-                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('en')">
-                            <span class="flag-icon flag-icon-us"></span> <span class="ml-2"> English</span>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('fr')">
-                            <span class="flag-icon flag-icon-fr"></span> <span class="ml-2">French</span>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('ur')">
-                            <span class="flag-icon flag-icon-iq"></span> <span class="ml-2">Urdu</span>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('es')">
-                            <span class="flag-icon flag-icon-es"></span> <span class="ml-2">Spanish</span>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('it')">
-                            <span class="flag-icon flag-icon-it"></span> <span class="ml-2">Italian</span>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('fa')">
-                            <span class="flag-icon flag-icon-af"></span> <span class="ml-2">Farsi</span>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('de')">
-                            <span class="flag-icon flag-icon-de"></span> <span class="ml-2">German</span>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('zh-CHS')">
-                            <span class="flag-icon flag-icon-ch"></span> <span class="ml-2">Chinese</span>
-                        </a>
-                    </div>
-                </li>
+
 
                 <!-- applicatio quicklinks dropdown-->
-                <li class="nav-item dropdown d-none d-sm-flex" ngbDropdown>
-                    <a class="nav-link dropdown-toggle active" href="javascript:void(0)" ngbDropdownToggle>
-                        <i class="material-icons">apps</i>
-                    </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-center no-defaults pt-0 overflow-hidden"
-                        ng-click="$event.stopPropagation()"
-                        ngbDropdownMenu
-                    >
-                        <div class="position-relative text-center rounded">
-                            <div class="background" style="background-image: url(assets/images/background-part.png);"></div>
-                            <div class="pt-4 pb-5 text-white">
-                                <h5 class="font-weight-normal">Quick Access</h5>
-                                <p>Get Quick access to your<br />favorite applications</p>
-                                <br />
-                            </div>
-                        </div>
-                        <div class="row mx-0 top-60">
-                            <div class="col-12 col-md-11 mx-auto">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="card border-0 shadow mb-3">
-                                            <div class="card-body text-center">
-                                                <i class="avatar avatar-40 material-icons text-template-primary my-3">favorite</i>
-                                                <p>Dashboard</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="card border-0 shadow mb-3">
-                                            <div class="card-body text-center">
-                                                <i class="avatar avatar-40 material-icons bg-light-warning text-warning my-3">style</i>
-                                                <p>Sidebar</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="card border-0 shadow mb-3">
-                                            <div class="card-body text-center">
-                                                <i class="avatar avatar-40 material-icons bg-light-danger text-danger my-3"
-                                                    >library_books</i
-                                                >
-                                                <p>Pages</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="card border-0 shadow mb-3">
-                                            <div class="card-body text-center">
-                                                <i class="avatar avatar-40 material-icons bg-light-success text-success my-3">poll</i>
-                                                <p>Charts</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+
 
                 <!-- cart dropdown-->
-                <li class="nav-item dropdown d-none d-sm-flex" ngbDropdown>
-                    <a
-                        class="nav-link dropdown-toggle active"
-                        href="javascript:void(0)"
-                        ng-click="$event.stopPropagation()"
-                        ngbDropdownToggle
-                    >
-                        <i class="material-icons">local_mall</i>
-                        <span class="counter-small bg-danger"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-center no-defaults pt-0 overflow-hidden" ngbDropdownMenu>
-                        <div class="position-relative text-center rounded">
-                            <div class="background h-150" style="background-image: url(assets/images/background-part.png);"></div>
-                            <div class="pt-4 pb-5 text-white">
-                                <h5 class="font-weight-normal">Your Cart</h5>
-                                <p>Checkout your cart items</p>
-                                <br />
-                            </div>
-                        </div>
-                        <div class="row mx-0 top-60 z-2">
-                            <div class="col-12 mx-auto">
-                                <ul class="list-group list-group-flush bg-white rounded shadow overflow-hidden mb-3">
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-auto pr-0 align-self-center">
-                                                <figure class="product-image-small mb-0">
-                                                    <img src="assets/images/image-4.png" alt="" class="vm" />
-                                                </figure>
-                                            </div>
-                                            <div class="col">
-                                                <a href="javascript:void(0)" class="text-dark mb-1 d-block">Computer</a>
-                                                <h6 class="text-success font-weight-normal mb-0">$ 120.00</h6>
-                                                <a href="" class="text-danger">Remove</a>
-                                            </div>
-                                            <div class="col-auto align-self-center">
-                                                <input
-                                                    type="text"
-                                                    class="form-control py-0 form-control-sm w-35"
-                                                    placeholder=""
-                                                    value="1"
-                                                />
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-auto pr-0 align-self-center">
-                                                <figure class="product-image-small mb-0">
-                                                    <img src="assets/images/image-5.png" alt="" class="vm" />
-                                                </figure>
-                                            </div>
-                                            <div class="col">
-                                                <a href="javascript:void(0)" class="text-dark mb-1 d-block">Table Fan</a>
-                                                <h6 class="text-success font-weight-normal mb-0">$ 120.00</h6>
-                                                <a href="" class="text-danger">Remove</a>
-                                            </div>
-                                            <div class="col-auto align-self-center">
-                                                <input
-                                                    type="text"
-                                                    class="form-control py-0 form-control-sm w-35"
-                                                    placeholder=""
-                                                    value="1"
-                                                />
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item text-center">
-                                        <a href="">+5 more</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="dropdown-item border-top">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <span class="avatar avatar-30 material-icons text-template-primary">local_activity</span>
-                                </div>
-                                <div class="col px-0">
-                                    <div class="form-group mb-0 float-label active">
-                                        <input type="text" class="form-control form-control-sm" required="" placeholder="Coupan Code" />
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <button class="btn btn-primary btn-sm px-0 text-white">
-                                        <i class="material-icons md-18">arrow_forward</i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown-item border-top">
-                            <div class="row ">
-                                <div class="col-4">
-                                    <p class="text-secondary mb-1 small">Sub Total</p>
-                                    <h6 class="mb-0">$540.00</h6>
-                                </div>
-                                <div class="col-4 px-0 text-center">
-                                    <p class="text-secondary mb-1 small">Tax</p>
-                                    <h6 class="mb-0">$40.00</h6>
-                                </div>
-                                <div class="col-4 text-right">
-                                    <p class="text-secondary mb-1 small">Discount</p>
-                                    <h6 class="mb-0">-$100.00</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown-item border-top text-center">
-                            <p class="text-secondary my-1">Net Payable</p>
-                            <h3 class="mb-0">$400.00</h3>
-                            <a href="javascript:void(0)" class="btn btn-primary text-white btn-block mt-3"
-                                ><span>Checkout</span><i class="material-icons md-18">arrow_forward</i></a
-                            >
-                        </div>
-                    </div>
-                </li>
+
 
                 <!-- task dropdown-->
-                <li class="nav-item dropdown" ngbDropdown>
-                    <a class="nav-link dropdown-toggle active" href="javascript:void(0)" ngbDropdownToggle>
-                        <i class="material-icons">view_day</i>
-                    </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-center no-defaults pt-0 overflow-hidden"
-                        ng-click="$event.stopPropagation()"
-                        ngbDropdownMenu
-                    >
-                        <div class="position-relative text-center rounded">
-                            <div class="background" style="background-image: url(assets/images/background-part.png);"></div>
-                            <div class="py-3 text-white">
-                                <h5 class="font-weight-normal mb-3">Tasks</h5>
-                                <div class="px-3">
-                                    <ul class="nav nav-pills tab-white nav-fill" id="tasks" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="pills-home-tab" (click)="t.select('pills-home')">Task</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-profile-tab" (click)="t.select('pills-profile')">Activity</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-contact-tab" (click)="t.select('pills-contact')">Alert</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <ngb-tabset #t="ngbTabset" class="tasktab">
-                            <ngb-tab class="show active" id="pills-home">
-                                <ng-template ngbTabContent>
-                                    <div class="scroll-y h-320 d-block">
-                                        <div class="dropdown-item status-border border-warning" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="checktask1" />
-                                                        <label class="custom-control-label" for="checktask1"></label>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">6:33 | Attend Meeting</p>
-                                                    <p class="small text-mute">Meeting with team regarding new project live integration.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-item status-border border-danger" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="checktask2" />
-                                                        <label class="custom-control-label" for="checktask2"></label>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">7:33 | Drink Water</p>
-                                                    <p class="small text-mute">Reminder for drinking water is very important.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-item status-border border-warning" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="checktask3" />
-                                                        <label class="custom-control-label" for="checktask3"></label>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">8:00 | work for timesheet</p>
-                                                    <p class="small text-mute">
-                                                        Working for calendar module in timesheet. First entry and secondly for display
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-item status-border border-success" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="checktask4" />
-                                                        <label class="custom-control-label" for="checktask4"></label>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">10:45 | Reverse proccess Training</p>
-                                                    <p class="small text-mute mb-2">
-                                                        Must attend training which is basically the most advisable to setup role and
-                                                        descipline.
-                                                    </p>
-                                                    <figure class="avatar avatar-20"><img src="assets/images/user1.png" alt="" /></figure>
-                                                    <figure class="avatar avatar-20"><img src="assets/images/user2.png" alt="" /></figure>
-                                                    <figure class="avatar avatar-20"><img src="assets/images/user3.png" alt="" /></figure>
-                                                    <figure class="avatar avatar-20">20+</figure>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-item status-border border-primary" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="checktask5" />
-                                                        <label class="custom-control-label" for="checktask5"></label>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">6:33 | Attend Meeting</p>
-                                                    <p class="small text-mute">Meeting with team regarding new project live integration.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item border-top">
-                                        <button class="btn btn-primary text-white btn-block mt-2">
-                                            <span>Complete</span><i class="material-icons md-18">arrow_forward</i>
-                                        </button>
-                                    </div>
-                                </ng-template>
-                            </ngb-tab>
-                            <ngb-tab id="pills-profile">
-                                <ng-template ngbTabContent>
-                                    <div class="scroll-y h-320 d-block">
-                                        <a class="dropdown-item" href="javascript:void(0)" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto">
-                                                    <div class="timeline-circle-wrap">
-                                                        <div class="timeline-circle border-warning"><span class="bg-warning"></span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">We become world most valauble</p>
-                                                    <p class="small text-mute">Thank you for all of your support and well wishes</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:void(0)" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto">
-                                                    <div class="timeline-circle-wrap">
-                                                        <div class="timeline-circle border-danger"><span class="bg-danger"></span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">Team Closer</p>
-                                                    <p class="small text-mute mb-1">Maxartkiller Team</p>
-                                                    <figure class="avatar avatar-30"><img src="assets/images/user1.png" alt="" /></figure>
-                                                    <figure class="avatar avatar-30"><img src="assets/images/user2.png" alt="" /></figure>
-                                                    <figure class="avatar avatar-30"><img src="assets/images/user3.png" alt="" /></figure>
-                                                    <figure class="avatar avatar-30"><img src="assets/images/user4.png" alt="" /></figure>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:void(0)" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto">
-                                                    <div class="timeline-circle-wrap">
-                                                        <div class="timeline-circle border-success"><span class="bg-success"></span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">Final Amendments are done</p>
-                                                    <p class="small text-mute">Creative visual hierarchy completed</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:void(0)" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto">
-                                                    <div class="timeline-circle-wrap">
-                                                        <div class="timeline-circle border-primary"><span class="bg-primary"></span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">Vision deployment done</p>
-                                                    <p class="small text-mute">UX designer worked upon timline</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:void(0)" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto">
-                                                    <div class="timeline-circle-wrap">
-                                                        <div class="timeline-circle border-info"><span class="bg-info"></span></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <p class="mb-0">Critical Bug resolved</p>
-                                                    <p class="small text-mute">Cleared list for bugs and development.</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </ng-template>
-                            </ngb-tab>
-                            <ngb-tab id="pills-contact">
-                                <ng-template ngbTabContent>
-                                    <div class="scroll-y h-320 d-block">
-                                        <a
-                                            class="dropdown-item border-top new"
-                                            href="javascript:void(0)"
-                                            ng-click="$event.stopPropagation()"
-                                        >
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <i class="material-icons text-template-primary">local_mall</i>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <p class="mb-0">New Order received</p>
-                                                        </div>
-                                                        <div class="col-auto pl-0">
-                                                            <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                                        </div>
-                                                    </div>
-                                                    <p class="small text-mute">
-                                                        Order from Anand Mhatva recieved for Electronics with 6 quanity.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item border-top " href="javascript:void(0)" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <i class="material-icons text-template-primary">account_balance_wallet</i>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <p class="mb-0">Balance has benn added</p>
-                                                        </div>
-                                                        <div class="col-auto pl-0">
-                                                            <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                                        </div>
-                                                    </div>
-                                                    <p class="small text-mute">
-                                                        Order from Anand Mhatva recieved for Electronics with 6 quanity.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item border-top " href="javascript:void(0)" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <i class="material-icons text-template-primary">account_circle</i>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <p class="mb-0">Friend request received</p>
-                                                        </div>
-                                                        <div class="col-auto pl-0">
-                                                            <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                                        </div>
-                                                    </div>
-                                                    <p class="small text-mute">
-                                                        New friend request received from Mickey John from Australia
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item border-top" href="javascript:void(0)" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <i class="material-icons text-template-primary">check_circle</i>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <p class="mb-0">Email Updated</p>
-                                                        </div>
-                                                        <div class="col-auto pl-0">
-                                                            <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                                        </div>
-                                                    </div>
-                                                    <p class="small text-mute">Your email change request has been successfully updated</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item border-top " href="javascript:void(0)" ng-click="$event.stopPropagation()">
-                                            <div class="row">
-                                                <div class="col-auto align-self-center">
-                                                    <i class="material-icons text-template-primary">account_balance_wallet</i>
-                                                </div>
-                                                <div class="col pl-0">
-                                                    <div class="row mb-1">
-                                                        <div class="col">
-                                                            <p class="mb-0">Balance has benn added</p>
-                                                        </div>
-                                                        <div class="col-auto pl-0">
-                                                            <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                                        </div>
-                                                    </div>
-                                                    <p class="small text-mute">
-                                                        Order from Anand Mhatva recieved for Electronics with 6 quanity.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </ng-template>
-                            </ngb-tab>
-                        </ngb-tabset>
-                    </div>
-                </li>
 
-                <!-- message dropdown-->
+
+
+                <a *ngIf="isEmpresa">
+                    <div *ngIf="estadoEmpresa;else elseEmpresaEstado"> <button class="btn btn-success" (click)="cambiarEstadoEmpresa()">Abierto</button></div>
+                    <ng-template #elseEmpresaEstado>
+                        <div> <button class="btn btn-danger" (click)="cambiarEstadoEmpresa()">Cerrado</button></div>
+                    </ng-template>
+                </a>
+
+
                 <li class="nav-item dropdown" ngbDropdown>
                     <a class="nav-link dropdown-toggle active" href="javascript:void(0)" ngbDropdownToggle>
                         <i class="material-icons">email</i>
-                        <span class="counter bg-danger">1</span>
+                        <span class="counter bg-danger">4</span>
                     </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-sm-left dropdown-menu-center no-defaults pt-0 overflow-hidden"
-                        ng-click="$event.stopPropagation()"
-                        ngbDropdownMenu
-                    >
+
+                    <div class="dropdown-menu dropdown-menu-sm-left dropdown-menu-center no-defaults pt-0 overflow-hidden" ng-click="$event.stopPropagation()" ngbDropdownMenu>
                         <div class="position-relative text-center rounded">
                             <div class="background" style="background-image: url(assets/images/background-part.png);"></div>
                             <div class="py-3 text-white">
-                                <h5 class="font-weight-normal">Messages</h5>
-                                <p>Updates and Status</p>
+                                <h5 class="font-weight-normal">Mensajes</h5>
+                                <p>Actualizaciones y estado</p>
                             </div>
                         </div>
                         <div class="scroll-y h-320 d-block">
                             <a class="dropdown-item border-top new" href="javascript:void(0)">
-                                <div class="row">
+                                <div class="row" *ngFor="let message of messages">
                                     <div class="col-auto align-self-center">
                                         <i class="material-icons text-template-primary">local_mall</i>
                                     </div>
                                     <div class="col pl-0">
                                         <div class="row mb-1">
                                             <div class="col">
-                                                <p class="mb-0">New Order received</p>
+                                                <p class="mb-0">id Usuario: nueva notificacion</p>
                                             </div>
                                             <div class="col-auto pl-0">
                                                 <p class="small text-mute text-trucated mt-1">2/12/2019</p>
                                             </div>
                                         </div>
-                                        <p class="small text-mute">Order from Anand Mhatva recieved for Electronics with 6 quanity.</p>
+                                        <p class="small text-mute">ingreso mensaje</p>
                                     </div>
                                 </div>
                             </a>
-                            <a class="dropdown-item border-top " href="javascript:void(0)">
-                                <div class="row">
-                                    <div class="col-auto align-self-center">
-                                        <i class="material-icons text-template-primary">account_balance_wallet</i>
-                                    </div>
-                                    <div class="col pl-0">
-                                        <div class="row mb-1">
-                                            <div class="col">
-                                                <p class="mb-0">Balance has benn added</p>
-                                            </div>
-                                            <div class="col-auto pl-0">
-                                                <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                            </div>
-                                        </div>
-                                        <p class="small text-mute">Order from Anand Mhatva recieved for Electronics with 6 quanity.</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item border-top " href="javascript:void(0)">
-                                <div class="row">
-                                    <div class="col-auto align-self-center">
-                                        <i class="material-icons text-template-primary">account_circle</i>
-                                    </div>
-                                    <div class="col pl-0">
-                                        <div class="row mb-1">
-                                            <div class="col">
-                                                <p class="mb-0">Friend request received</p>
-                                            </div>
-                                            <div class="col-auto pl-0">
-                                                <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                            </div>
-                                        </div>
-                                        <p class="small text-mute">New friend request received from Mickey John from Australia</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item border-top" href="javascript:void(0)">
-                                <div class="row">
-                                    <div class="col-auto align-self-center">
-                                        <i class="material-icons text-template-primary">check_circle</i>
-                                    </div>
-                                    <div class="col pl-0">
-                                        <div class="row mb-1">
-                                            <div class="col">
-                                                <p class="mb-0">Email Updated</p>
-                                            </div>
-                                            <div class="col-auto pl-0">
-                                                <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                            </div>
-                                        </div>
-                                        <p class="small text-mute">Your email change request has been successfully updated</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item border-top " href="javascript:void(0)">
-                                <div class="row">
-                                    <div class="col-auto align-self-center">
-                                        <i class="material-icons text-template-primary">account_balance_wallet</i>
-                                    </div>
-                                    <div class="col pl-0">
-                                        <div class="row mb-1">
-                                            <div class="col">
-                                                <p class="mb-0">Balance has benn added</p>
-                                            </div>
-                                            <div class="col-auto pl-0">
-                                                <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                            </div>
-                                        </div>
-                                        <p class="small text-mute">Order from Anand Mhatva recieved for Electronics with 6 quanity.</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item border-top " href="javascript:void(0)">
-                                <div class="row">
-                                    <div class="col-auto align-self-center">
-                                        <i class="material-icons text-template-primary">account_circle</i>
-                                    </div>
-                                    <div class="col pl-0">
-                                        <div class="row mb-1">
-                                            <div class="col">
-                                                <p class="mb-0">Friend request received</p>
-                                            </div>
-                                            <div class="col-auto pl-0">
-                                                <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                            </div>
-                                        </div>
-                                        <p class="small text-mute">New friend request received from Mickey John from Australia</p>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item border-top" href="javascript:void(0)">
-                                <div class="row">
-                                    <div class="col-auto align-self-center">
-                                        <i class="material-icons text-template-primary">check_circle</i>
-                                    </div>
-                                    <div class="col pl-0">
-                                        <div class="row mb-1">
-                                            <div class="col">
-                                                <p class="mb-0">Email Updated</p>
-                                            </div>
-                                            <div class="col-auto pl-0">
-                                                <p class="small text-mute text-trucated mt-1">2/12/2019</p>
-                                            </div>
-                                        </div>
-                                        <p class="small text-mute">Your email change request has been successfully updated</p>
-                                    </div>
-                                </div>
-                            </a>
+
                         </div>
                     </div>
                 </li>
@@ -704,78 +83,52 @@
                 <li class="nav-item dropdown ml-0 ml-sm-4" ngbDropdown>
                     <a class="nav-link dropdown-toggle profile-link active" href="javascript:void(0)" ngbDropdownToggle>
                         <figure class="rounded avatar avatar-30">
-                            <img src="assets/images/user1.png" alt="" />
+                            <img  src="" alt="admin" />
+                          
                         </figure>
                         <div class="username-text ml-2 mr-2 d-none d-lg-inline-block">
-                            <h6 class="username"><span>Welcome,</span>Maxartkiller</h6>
+                            <h6 class="username"><span>Bienvenido,</span>usuario prueba</h6>
                         </div>
                         <figure class="rounded avatar avatar-30 d-none d-md-inline-block">
                             <i class="material-icons">expand_more</i>
                         </figure>
                     </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-right w-300 pt-0 overflow-hidden"
-                        ng-click="$event.stopPropagation()"
-                        ngbDropdownMenu
-                    >
+                    <div class="dropdown-menu dropdown-menu-right w-300 pt-0 overflow-hidden" ng-click="$event.stopPropagation()" ngbDropdownMenu>
                         <div class="position-relative text-center rounded py-5">
                             <div class="background" style="background-image: url(assets/images/background-part.png);"></div>
                         </div>
                         <div class="text-center mb-3 top-60 z-2">
-                            <figure class="avatar avatar-120 mx-auto shadow"><img src="assets/images/user1.png" alt="" /></figure>
+                            <figure class="avatar avatar-120 mx-auto shadow">
+                                <img  src="" alt="admin" />
+                               
+                            </figure>
                         </div>
-                        <h5 class="text-center mb-0">Maxartkiller</h5>
-                        <p class="text-center">UX Designer</p>
-                        <p class="text-center text-secondary fs13">Delhi, India</p>
+                        <h5 class="text-center mb-0">Administrador</h5>
+                        <p class="text-center">Administrador</p>
+                        <p class="text-center text-secondary fs13">Yopal,Casanare</p>
                         <a class="dropdown-item border-top" href="javascript:void(0)">
                             <div class="row">
                                 <div class="col-auto align-self-center">
-                                    <i class="material-icons text-success">account_box</i>
+                                    <i class="material-icons">account_box</i>
                                 </div>
-                                <div class="col pl-0">
-                                    <p class="mb-0">My Profile</p>
-                                    <p class="small text-mute text-trucated">Update details and information</p>
+                                <div class="col pl-0" (click)="modificarMiPerfil(miPerfilModal)">
+                                    <p class="mb-0">Mi perfil</p>
+                                    <p class="small text-mute text-trucated">Actualizar detalles e información</p>
                                 </div>
                                 <div class="col-auto align-self-center text-right pl-0">
                                     <i class="material-icons text-mute small">chevron_right</i>
                                 </div>
                             </div>
                         </a>
-                        <a class="dropdown-item border-top" href="javascript:void(0)">
-                            <div class="row">
-                                <div class="col-auto align-self-center">
-                                    <i class="material-icons text-info">account_balance_wallet</i>
-                                </div>
-                                <div class="col pl-0">
-                                    <p class="mb-0">My Wallet</p>
-                                    <p class="small text-mute text-trucated">Add Money or withdrow</p>
-                                </div>
-                                <div class="col-auto align-self-center text-right pl-0">
-                                    <i class="material-icons text-mute small">chevron_right</i>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="dropdown-item border-top" href="javascript:void(0)">
-                            <div class="row">
-                                <div class="col-auto align-self-center">
-                                    <i class="material-icons text-warning">date_range</i>
-                                </div>
-                                <div class="col pl-0">
-                                    <p class="mb-0">My Schedule</p>
-                                    <p class="small text-mute text-trucated">Appointments and schedules</p>
-                                </div>
-                                <div class="col-auto align-self-center text-right pl-0">
-                                    <i class="material-icons text-mute small">chevron_right</i>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="dropdown-item border-top" [routerLink]="['/login']">
-                            <div class="row">
+
+
+                        <a class="dropdown-item border-top">
+                            <div class="row" (click)="logOut()">
                                 <div class="col-auto align-self-center">
                                     <i class="material-icons text-danger">exit_to_app</i>
                                 </div>
                                 <div class="col pl-0">
-                                    <p class="mb-0 text-danger">Logout</p>
+                                    <p class="mb-0 text-danger">Cerrar sesion</p>
                                 </div>
                                 <div class="col-auto align-self-center text-right pl-0">
                                     <i class="material-icons text-mute small text-danger">chevron_right</i>
@@ -790,3 +143,124 @@
     </nav>
     <!-- Header ends -->
 </div>
+<ng-template #miPerfilModal>
+    <div class="container main-container" id="main-container">
+        <div class="row">
+            <div class="col-12 col-md-11 col-lg-10 col-xl-8 mx-auto align-self-center">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 mx-auto">
+                                <div class="row ">
+                                    <div class="col-lg-12 col-md-12 text-center">
+                                        <img src="../../../../../assets/imageLogo/IsologotipoCromaticoVectorial.png" alt="" class="w-50px mt-4">
+                                        <h4 class="mt-3 mb-1">Modificar Perfil</h4>
+                                        <p class="text-mute">usuario</p>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <p class="mt-3 mb-1">guardar los datos personales el usuario no se puede modificar</p>
+                                <br>
+                                <h5 class="m-0">Datos</h5>
+                                <form class="form">
+                                    <div class="row ">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                <label>Usuario</label>
+                                                <input type="text" class="form-control" name="nombreUsuario" placeholder="" value="user1" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="row ">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                <label>email</label>
+                                                <input type="text" class="form-control" name="email" [(ngModel)]="usuario.email" placeholder="" value="{{usuario.email}}">
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                    <div class="row ">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group ">
+                                                <label>Telefono</label>
+                                                <input type="text" class="form-control" name="telefono" placeholder="" value="000-000">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group ">
+                                                <label>ROL</label>
+                                                <input type="text" class="form-control" name="rol" placeholder="" value="admin" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row ">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group ">
+
+                                                <button class="btn btn-outline-dark" (click)="openChangePass(changePasswordModal)">Cambiar contraseña</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-outline-dark" (click)="cancelar()">Cancelar</button>
+                        <button class="btn btn-primary float-right" (click)="guardar()">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #changePasswordModal>
+    <div class="card-body">
+        <h3>Cambiar password </h3>
+        <div class="card mb-2 overflow-hidden">
+            <div class="card-body p-0">
+                <label class="sr-only">ingresar nueva password</label>
+                <input type="text" class="form-control rounded-0 border-0 text-center"  name="passwordNueva" placeholder="password Nueva" required="">
+                <label class="sr-only">confirmar nueva password</label>
+                <input type="text" class="form-control rounded-0 border-0 text-center"  name="confirmacionPassword" placeholder="confirmar password" required="">
+            </div>
+        </div>
+        <div class="">
+            <a class=" btn btn-primary btn-block" (click)="confirmarPassw()">Confirmar <i class="material-icons md-18">arrow_forward</i></a>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #loadModal>
+    asdasdasd
+    <div class="center-loader">
+        <strong>Guardando
+            <span class="loader__dot">.</span>
+            <span class="loader__dot">.</span>
+            <span class="loader__dot">.</span></strong>
+    </div>
+</ng-template>
+<ng-template #tramitandoModal>
+    <div class="modal-content">
+        <div class="modal-header">
+            <br>
+        </div>
+        <div class="modal-body text-center">
+            <div class=" center-loader" *ngIf="tramitando">
+                <strong>Tramitando
+                    <span class="loader__dot">.</span>
+                    <span class="loader__dot">.</span>
+                    <span class="loader__dot">.</span></strong>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <br>
+        </div>
+    </div>
+
+</ng-template>

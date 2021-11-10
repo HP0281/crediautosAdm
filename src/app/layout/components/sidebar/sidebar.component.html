@@ -60,11 +60,11 @@
 <!-- Setting link -->
 <ul class="nav flex-column">
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="javascript:void(0)" (click)="addExpandClass('settings')"><i class="material-icons icon">settings_applications</i><span>Settings</span> <i class="material-icons arrow">expand_more</i></a>
+        <a class="nav-link dropdown-toggle" href="javascript:void(0)" (click)="addExpandClass('settings')"><i class="material-icons icon">settings_applications</i><span>Usuarios</span> <i class="material-icons arrow">expand_more</i></a>
         <div class="nav flex-column" [class.d-block]="showMenu === 'settings'">
-            <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Profile Setting</span></a></div>
-            <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Privacy</span></a></div>
-            <div class="nav-item"><a class="nav-link" href="javascript:void(0)"><span>Email</span></a></div>
+            <div class="nav-item"><a class="nav-link" ><span>Gestionar usuarios</span></a></div>
+            <div class="nav-item" [routerLink]="['/usuario']" [routerLinkActive]="['active']"><a class="nav-link"><span>Usuarios</span></a></div>
+
         </div>
     </li>
 </ul>

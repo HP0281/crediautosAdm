@@ -1,0 +1,109 @@
+<div class="center-loader" *ngIf="loader">
+    <strong>Cargando
+        <span class="loader__dot">.</span>
+        <span class="loader__dot">.</span>
+        <span class="loader__dot">.</span></strong>
+</div>
+
+<button style="margin-bottom: 10px; margin-left: 16px;" class="btn btn-warning text-white" (click)="ngOnInit()">
+    <i class="material-icons text-white">restore_page
+    </i> Refrescar Tabla
+</button>
+
+
+<div class="container table-responsive">
+
+    <div class="card min" *ngIf="!loader">
+        <div class="card-header">
+            <h3>USUARIOS</h3>
+
+        </div>
+        <table class="table datatable display w-100 dataTable no-footer dtr-inline collapsed" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1001px;">
+            <input class="form-control" type="text"  placeholder="buscar usuario" >
+
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">NOMBRE</th>
+                            <th class="text-center">EMAIL</th>
+                            <th class="text-center"> ROL</th>
+                            <th class="text-center"> ESTADO</th>
+                            <th class="text-center"> ACCION</th>
+                            <th class="text-center"> ESTADO DOMICILIARIO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr  class="text-center">
+                            <td>asd</td>
+                            <td>asd</td>
+                            <td>asd</td>
+                            <td>asd</td>
+                            <td>asd</td>
+                            <td>
+                                <div >
+                                </div>
+                                <ng-template >
+                                    <ng-template><button disabled style="margin: 10px" class="btn btn-dark">Inactivaraaaa</button> </ng-template>
+                                    <ng-template><button disabled style="margin: 10px" class="btn btn-dark">Activaraaaa</button>
+                                    </ng-template>
+                                </ng-template>
+
+
+                                <ng-template >
+                                    <button (click)="editarUsuario(usuario)" class="btn btn-warning">Editar</button>
+                                    <div >
+                                    </div>
+                                    <ng-template ><button (click)="inactivarUsuario(usuario)" style="margin: 10px" class="btn btn-danger">Inactivar</button>
+                                    </ng-template>
+                                    <ng-template ><button (click)="activarUsuario(usuario)" style="margin: 10px" class="btn btn-light">Activar</button></ng-template>
+                                </ng-template>
+                            </td>
+                            <td *ngIf="usuario.estadoDomiciliario==disponile;else elseDiponible">
+                                <button (click)="cambiarEstadoDomiciliarioNoDisp(usuario,modalProcesando)" class="btn btn-success">Disponible</button>
+                            </td>
+                            <ng-template >
+                                <td *ngIf="usuario.estadoDomiciliario==noDisponile;else elseEstado">
+                                    <button (click)="cambiarEstadoDomiciliarioDisp(usuario,modalProcesando)" class="btn btn-warning">No Disponible</button>
+                                </td>
+                            </ng-template>
+                            <ng-template >
+                                <td>asd</td>
+                            </ng-template>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <pagination-controls  responsive="true">
+                </pagination-controls>-->
+            </div>
+            <div *ngIf="failEliminado" class="float-left">
+                <p class="p-3 bg-danger text-white rounded">Error: {{msjErr}}</p>
+            </div>
+            <div *ngIf="eliminado" class="float-left">
+                <p class="p-3 bg-success text-white rounded">OK: {{msjOK}}</p>
+            </div>
+            <div *ngIf="failActualizado" class="float-left">
+                <p class="p-3 bg-danger text-white rounded" style="margin: 10px">Error: {{msjErrAC}}</p>
+            </div>
+            <div *ngIf="actualizado" class="float-left">
+                <p class="p-3 bg-success text-white rounded" style="margin: 10px">OK: {{msjOKAC}}</p>
+            </div>
+        </table>
+
+
+    </div>
+
+</div>
+<ng-template #modalProcesando>
+    <div class="card-body">
+        <div class="center-loader">
+            <strong>Guardando estado
+            <span class="loader__dot">.</span>
+            <span class="loader__dot">.</span>
+            <span class="loader__dot">.</span></strong>
+        </div>
+    </div>
+</ng-template>

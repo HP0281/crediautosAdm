@@ -1,0 +1,79 @@
+<div class="center-loader" *ngIf="loader">
+    <strong>Cargando usuario
+        <span class="loader__dot">.</span>
+        <span class="loader__dot">.</span>
+        <span class="loader__dot">.</span></strong>
+</div>
+<div class="container col-md-6" *ngIf="!loader">
+    <div class="card-header">
+        <h3>Usuario</h3>
+
+    </div>
+    <div class="card-body">
+        <form action="">
+            <label for="">Selecciona un rol de usuario</label>
+            <select class="form-control" name="idProductIdIngreso" [(ngModel)]="opcionSeleccionado" name="opcionSeleccionado" (change)="capturar()">
+                <option selected="true">{{usuario.rol.rolNombre}}</option>
+                <option *ngFor="let rol of roles">
+                    {{rol.rolNombre}}
+                </option>
+            </select>
+            <div *ngIf="empresa; then thenBlock else elseBlock">
+
+            </div>
+            <ng-template #elseBlock></ng-template>
+            <ng-template #thenBlock>
+                <label for="">Selecciona una empresa de usuario</label>
+                <select class="form-control" name="empresaSeleccionada" [(ngModel)]="empresaSeleccionada" name="empresaSeleccionada" (change)="capturarEmpresa()">
+
+                    <option *ngFor="let empresa of empresas" style="margin-block: 10px">
+                        {{empresa.razonSocial}}
+                    </option>
+                </select>
+            </ng-template>
+
+            <div class="form-group">
+                <label for="">nombre</label>
+                <input type="text" class="form-control" (input)="validadorNombre($event)" [(ngModel)]="usuario.nombreUsuario" name="nombre">
+            </div>
+            <div class="form-group">
+                <label for="">email</label>
+                <input type="email" class="form-control" [(ngModel)]="usuario.email" name="email">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary" style="width: 100%;" (click)="consignar(changePasswordModal)">
+                    Cambiar la contraseña</button>
+            </div>
+            <button class="btn btn-primary float-left mr-3" style="width: 30%;" (click)="volver()">Volver</button>
+            <button (click)="actualizarUsuario(usuario)" style="width: 64%;" class="btn btn-danger">Actualizar</button>
+
+
+
+
+        </form>
+        <div *ngIf="failActualizado" style=" width: 100%;" class="float-left">
+            <p class="p-3 bg-danger text-center text-white rounded" style="margin-top: 10px">Error: {{msjErr}}</p>
+        </div>
+        <div *ngIf="actualizado" style=" width: 100%;" class="float-left">
+            <p class="p-3 bg-info text-center text-white rounded" style="margin-top: 10px">OK: {{msjOK}}</p>
+        </div>
+    </div>
+</div>
+<ng-template #changePasswordModal>
+    <div class="card-body">
+        <h3>Cambiar password </h3>
+        <div class="card mb-2 overflow-hidden">
+            <div class="card-body p-0">
+                <label class="sr-only">ingresar password</label>
+                <input *ngIf="!isAdministrador" type="number" class="form-control rounded-0 border-0 text-center" [(ngModel)]="password" name="password" placeholder="ingresar password" required="">
+                <label class="sr-only">ingresar nueva password</label>
+                <input type="text" class="form-control rounded-0 border-0 text-center" [(ngModel)]="passwordNueva" name="passwordNueva" placeholder="password Nueva" required="">
+                <label class="sr-only">confirmar nueva password</label>
+                <input type="text" class="form-control rounded-0 border-0 text-center" [(ngModel)]="confirmacionPassword" name="confirmacionPassword" placeholder="confirmar password" required="">
+            </div>
+        </div>
+        <div class="">
+            <a class=" btn btn-primary btn-block" (click)="confirmarPassw()">Confirmar <i class="material-icons md-18">arrow_forward</i></a>
+        </div>
+    </div>
+</ng-template>

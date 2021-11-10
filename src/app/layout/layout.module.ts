@@ -9,7 +9,7 @@ import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SubHeaderComponent } from './components/subheader/subheader.component';
+
 
 
 @NgModule({
@@ -23,6 +23,6 @@ import { SubHeaderComponent } from './components/subheader/subheader.component';
         NgbDatepickerModule,
         GaugeChartModule
     ],
-    declarations: [LayoutComponent, SidebarComponent, HeaderComponent, FooterComponent, SubHeaderComponent ]
+    declarations: [LayoutComponent, SidebarComponent, HeaderComponent, FooterComponent ]
 })
 export class LayoutModule {}
