@@ -1,0 +1,23 @@
+nav a{
+      text-decoration:none;
+      font-size:14px;
+      z-index: 5;
+      vertical-align: inherit;
+      }
+            
+nav li{
+      display:inline-block;
+      text-align:left;
+      position:relative;
+      z-index: 5;
+}
+            
+nav li>ul{
+      display:none;
+      }
+
+nav li:hover>ul{
+      display:block;
+      position:absolute;
+      
+}
