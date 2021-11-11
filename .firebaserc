@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crediautos-53fae": {
+      "hosting": {
+        "test-ng7": [
+          "crediautos-53fae"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crediautos-53fae"
+  }
+}

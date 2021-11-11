@@ -8,14 +8,12 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
-import { environment } from 'src/environments/environment';
-import { AngularFireAuthModule, provideAuth,getAuth } from '@angular/fire/auth';
-import { AngularFireStorageModule, provideStorage,getStorage } from "@angular/fire/storage";
-import { AngularFirestore, provideFirestore,getFirestore } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from "@angular/fire/storage";
+import { AngularFirestore} from "@angular/fire/firestore";
 import { AngularFireModule } from '@angular/fire';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+
 import { environment } from '../environments/environment';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
 
 
 
@@ -29,7 +27,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule,
-        AngularFireStorageModule
+        AngularFireStorageModule,
+   
     ],
     declarations: [AppComponent],
     providers: [AuthGuard, AngularFirestore],
