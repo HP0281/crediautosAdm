@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
+import { AuthServiceService } from '../services/auth-service.service';
 
 @Component({
     selector: 'app-login',
@@ -9,8 +10,9 @@ import { routerTransition } from '../router.animations';
     animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
-
-    constructor(public router: Router) {}
+    user:any;
+    constructor(public router: Router,
+        private auth: AuthServiceService,) {}
 
     ngOnInit() {
         const marginTops: any = document.querySelector('.footer').clientHeight;
@@ -28,4 +30,15 @@ export class LoginComponent implements OnInit {
     onLoggedin() {
         localStorage.setItem('isLoggedin', 'true');
     }
+    googleAuth(){
+        this.auth.googleAuth();
+        this.auth.getUser().subscribe(resp => {
+        this.user = resp;
+        if (this.user) {
+            this.router.navigate(['/inicio']);
+        }
+    })
+    }
+
+
 }
