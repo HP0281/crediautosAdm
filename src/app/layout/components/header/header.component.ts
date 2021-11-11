@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 
 @Component({
@@ -10,9 +11,11 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class HeaderComponent implements OnInit {
-
-    constructor(private translate: TranslateService, public router: Router) {
+    name: string;
+    constructor(private translate: TranslateService, public router: Router,
+        private auth: AuthServiceService) {
         this.router.events.subscribe(val => {});
+        this.name = this.auth._userinfo.displayName;
     }
 
     ngOnInit() {
@@ -26,5 +29,8 @@ export class HeaderComponent implements OnInit {
 
     changeLang(language: string) {
         this.translate.use(language);
+    }
+    logOut(){
+        this.auth.logOut();
     }
 }

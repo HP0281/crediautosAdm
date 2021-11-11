@@ -28,14 +28,14 @@ export class LoginComponent implements OnInit {
     }
 
     onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
     }
     googleAuth(){
         this.auth.googleAuth();
         this.auth.getUser().subscribe(resp => {
-        this.user = resp;
-        if (this.user) {
-            this.router.navigate(['/inicio']);
+            this.user = resp;
+            if (this.user) {
+            localStorage.setItem('isLoggedin', 'true');
+            this.router.navigate(['/dashboard']);
         }
     })
     }
