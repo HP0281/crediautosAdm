@@ -12,6 +12,9 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 export class HeaderComponent implements OnInit {
     name: string;
+    isEmpresa=true;
+    messages:any;
+
     constructor(private translate: TranslateService, public router: Router,
         private auth: AuthServiceService) {
         this.router.events.subscribe(val => {});
@@ -32,5 +35,8 @@ export class HeaderComponent implements OnInit {
     }
     logOut(){
         this.auth.logOut();
+    }
+    modificarMiPerfil(modal){
+        
     }
 }
