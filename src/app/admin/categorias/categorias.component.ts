@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CategoriasService } from 'src/app/services/categorias.service';
 
 @Component({
   selector: 'app-categorias',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categorias.component.css']
 })
 export class CategoriasComponent implements OnInit {
+  constructor(){
 
-  constructor() { }
-
-  ngOnInit(): void {
   }
 
+  ngOnInit(){
+    
+  }
 }
