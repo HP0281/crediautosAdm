@@ -1,1 +1,13 @@
-<p>list-category works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="info">
+            <mat-card *ngFor="let category of categories">
+                <mat-card-title>{{ category.name }}</mat-card-title>
+                <mat-card-actions align="end">
+                    <button mat-button (click)="onEditar(category.id)">Editar</button>
+                    <button mat-button (click)="onEliminar(category.id)" >Eliminar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
