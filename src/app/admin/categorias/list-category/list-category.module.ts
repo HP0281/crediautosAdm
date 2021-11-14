@@ -5,7 +5,9 @@ import { ListCategoryRoutingModule } from './list-category-routing.module';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 import { ListCategoryComponent } from './list-category.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ListCategoryComponent],
@@ -13,7 +15,9 @@ import { ListCategoryComponent } from './list-category.component';
     CommonModule,
     ListCategoryRoutingModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   exports: [
     ListCategoryComponent
