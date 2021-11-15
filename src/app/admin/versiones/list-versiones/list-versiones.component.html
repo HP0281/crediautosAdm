@@ -1,1 +1,62 @@
-<p>list-versiones works!</p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="marca">
+      <th mat-header-cell *matHeaderCellDef> Marca </th>
+      <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="modelo">
+      <th mat-header-cell *matHeaderCellDef> Modelo </th>
+      <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="version">
+        <th mat-header-cell *matHeaderCellDef> Version </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element"><button mat-button (click)="openEditModal(element.id, editModal, element.marca, element.modelo, element.name)">Editar</button> <button mat-button (click)="openDeleteModal(element.id, deleteModal)">Eliminar</button></td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <ng-template #editModal>
+    <div class="body">
+        <mat-card>
+            <mat-card-title>
+                Editar Version
+            </mat-card-title>
+            <mat-card-actions>
+                <form action="" [formGroup]="versionForm" >
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la Marca" formControlName="marca">
+                        <label for="floatingInput">Nombre de la Marca</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Nombre del Modelo" formControlName="modelo">
+                        <label for="floatingInput">Nombre del Modelo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la Version" formControlName="name">
+                        <label for="floatingInput">Nombre de la Version</label>
+                    </div>
+                    <button mat-button [disabled]="!versionForm.valid" (click)="onGuardar()">Guardar</button>
+                </form>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+  </ng-template>
+  <ng-template #deleteModal>
+    <mat-card>
+        <mat-card-title>
+            Desea continuar?
+        </mat-card-title>
+        <mat-card-actions align="end">
+            <button mat-button (click)="onEliminar()">Eliminar</button>
+        </mat-card-actions>
+    </mat-card>
+  </ng-template>

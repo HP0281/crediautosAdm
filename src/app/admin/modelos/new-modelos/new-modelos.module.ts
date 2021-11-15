@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { NewModelosRoutingModule } from './new-modelos-routing.module';
 import { NewModelosComponent } from './new-modelos.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [NewModelosComponent],
   imports: [
     CommonModule,
-    NewModelosRoutingModule
+    NewModelosRoutingModule,
+    ReactiveFormsModule
   ],
   exports:[NewModelosComponent]
 })

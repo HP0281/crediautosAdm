@@ -23,7 +23,8 @@ const routes: Routes = [
             { path: 'usuario', loadChildren: () => import('./components/modules/usuario/usuario.module').then(m => m.UsuarioModule)},
             { path: 'category', loadChildren: () => import('../admin/categorias/categorias.module').then(m => m.CategoriasModule)},
             { path: 'marcas', loadChildren: () => import('../admin/marcas/marcas.module').then(m => m.MarcasModule)},
-            { path: 'modelos', loadChildren: () => import('../admin/modelos/modelos.module').then(m => m.ModelosModule)}
+            { path: 'modelos', loadChildren: () => import('../admin/modelos/modelos.module').then(m => m.ModelosModule)},
+            { path: 'versiones', loadChildren: () => import('../admin/versiones/versiones.module').then(m => m.VersionesModule)}
         ]
     }
 ];
