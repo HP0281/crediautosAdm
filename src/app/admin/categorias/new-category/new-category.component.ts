@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriasService } from 'src/app/services/categorias.service';
 
 @Component({
@@ -12,16 +13,18 @@ export class NewCategoryComponent implements OnInit {
   categoryForm: FormGroup;
 
   constructor(private categoryService: CategoriasService, private fb: FormBuilder,
-    public dialogRef: MatDialogRef<NewCategoryComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+    private dialog: NgbModal) {
     this.initForm();
    }
 
   ngOnInit(): void {
   }
   
-  onGuardar(){
+  onGuardar(modal){
     if (this.categoryForm.valid) {
       this.categoryService.onSaveCategory(this.categoryForm.value, null);
+      this.dialog.open(modal);
+      this.categoryForm.reset();
     }
   }
 

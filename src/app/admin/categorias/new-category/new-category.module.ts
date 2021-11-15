@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     NewCategoryRoutingModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports: [NewCategoryComponent]
 })
 export class NewCategoryModule { }

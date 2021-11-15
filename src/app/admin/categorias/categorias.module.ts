@@ -10,6 +10,7 @@ import { ListCategoryComponent } from './list-category/list-category.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { ListCategoryModule } from './list-category/list-category.module';
+import { NewCategoryModule } from './new-category/new-category.module';
 
 
 
@@ -21,7 +22,8 @@ import { ListCategoryModule } from './list-category/list-category.module';
     ReactiveFormsModule,
     MatTabsModule,
     MatCardModule,
-    ListCategoryModule
+    ListCategoryModule,
+    NewCategoryModule
   ],
   exports: [
     MatTabsModule,
