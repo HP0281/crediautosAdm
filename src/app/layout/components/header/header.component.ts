@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 
+
+
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -15,10 +17,12 @@ export class HeaderComponent implements OnInit {
     constructor(private translate: TranslateService, public router: Router,
         private auth: AuthServiceService) {
         this.router.events.subscribe(val => {});
-        this.name = this.auth._userinfo.displayName;
+      
     }
 
     ngOnInit() {
+        this.name = this.auth._userinfo.displayName;
+        console.log("this.auth._userinfo.displayName",this.auth._userinfo.displayName);
     }
 
     toggleSidebar() {

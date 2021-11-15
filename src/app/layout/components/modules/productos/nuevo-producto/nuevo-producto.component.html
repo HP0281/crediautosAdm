@@ -1,0 +1,165 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Producto</h3>
+
+        </div>
+        <div class="card-body">
+            <form action="" #f="ngForm" novalidate>
+                <div>
+                    <div *ngIf="administrador; then thenBlock1 else elseBlock">
+                    </div>
+                    <ng-template #elseBlock></ng-template>
+                    <ng-template #thenBlock1>
+                        <label for="">Empresa</label>
+                        <div class="center-loader" *ngIf="loader">
+                            <strong>Cargando empresas
+                                <span class="loader__dot">.</span>
+                                <span class="loader__dot">.</span>
+                                <span class="loader__dot">.</span></strong>
+                        </div>
+                        <select *ngIf="!loader" class="form-control" name="empresaSeleccionada" [(ngModel)]="empresaSeleccionada" (change)="capturarEmpresa()">
+                            <option value="0">Selecciona una empresa</option>
+                            <option *ngFor="let empresa of empresas" style="margin-block: 10px">
+                                {{empresa.razonSocial}}
+                            </option>
+                        </select>
+                    </ng-template>
+                    <div *ngIf="empresaIs||administrador; then thenBlock2 else elseBlock2">
+                    </div>
+                    <ng-template #thenBlock2>
+                        <label for="let categoria of categorias">Categoria</label>
+                        <select class="form-control" name="categoriaSeleccionada" [(ngModel)]="categoriaSeleccionada" name="categoriaSeleccionada" (change)="capturarCategoria()">
+                            <option value="0">Selecciona una Categoria</option>
+                            <option *ngFor="let categoria of categorias" style="margin-block: 10px">
+                                {{categoria.nombreCategoria}}
+                            </option>
+                        </select>
+                    </ng-template>
+                    <ng-template #elseBlock2>
+                        <div class="center-loader" *ngIf="loaderCat&&!loader&&capturaEmpresa">
+                            <strong>Cargando categorias
+                                <span class=" loader__dot ">.</span>
+                                <span class="loader__dot ">.</span>
+                                <span class="loader__dot ">.</span></strong>
+                        </div>
+
+                    </ng-template>
+
+
+
+                </div>
+                <div class="form-group ">
+                    <label for=" ">Nombre Producto</label>
+                    <input type="text " class="form-control " [(ngModel)]="producto.nombreProducto " name="nombre" required>
+                </div>
+                <div class="form-group ">
+                    <label for=" ">Descripcion</label>
+                    <input type="text " class="form-control " [(ngModel)]="producto.descripcion " name="descripcion" required>
+                </div>
+                <div class="form-group ">
+                    <label for=" ">Stock</label>
+                    <input type="number" class="form-control " [(ngModel)]="producto.stockProducto " name="stockProducto" required>
+                </div>
+                <div class="form-group ">
+                    <label for=" ">Precio</label>
+                    <input type="number" class="form-control " [(ngModel)]="producto.valorProducto " name="valorProducto" required>
+                </div>
+                <h5>imagen por defecto</h5>
+                <input type="checkbox" (change)="checkBoxDefecto()" />
+                <div class="form-group ">
+                    <!-- <br>
+                    <input type="file" class="btn btn-dark " (change)="onFileChanged($event)">-->
+                    <hr>
+                    <div *ngIf="!imageCargada; else elseBlock3">
+                        <button *ngIf="isButtonImage" class="btn btn-success " (click)="seleccionarImagen(cargarImagen) ">Seleccionar imagen</button>
+                    </div>
+                    <ng-template #elseBlock3>
+                        <div class="card-img-top">
+                            <div class="background" *ngIf="imageCargada.retrievedImages">
+                                <img [src]="imageCargada.retrievedImages">
+
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-success " (click)="seleccionarImagen(cargarImagen) ">Cambiar imagen</button>
+                    </ng-template>
+                    <hr>
+
+                </div>
+
+                <div class="form-group ">
+                    <div class="form-group ">
+                        <div class="col-md-12 ">
+                            <div *ngIf=message>{{message}}</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container row ">
+                    <div class="col-md-12 ">
+                        <div *ngIf=retrievedImage>
+                            <img [src]="retrievedImage ">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-danger " (click)="guardarProducto() " [disabled]="!f.valid ">Guardar</button>
+
+            </form>
+            <div *ngIf="failCreado " class="float-left ">
+                <p class="p-3 bg-danger text-white rounded " style="margin: 10px ">Error: {{msjErr}}</p>
+            </div>
+            <div *ngIf="creado " class="float-left ">
+                <p class="p-3 bg-success text-white rounded " style="margin: 10px ">OK: {{msjOK}}</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<ng-template #cargarImagen>
+    <div class="card-body">
+        <h3>Selecciona una imagen de la galeria</h3>
+        <div class="center-loader" *ngIf="loader; else elseBlock">
+            <strong>Cargando imagenes
+                    <span class="loader__dot">.</span>
+                    <span class="loader__dot">.</span>
+                    <span class="loader__dot">.</span></strong>
+        </div>
+        <ng-template #elseBlock>
+            <div class="row">
+                <div class="col-6" *ngFor="let image of images">
+                    <div class="card text-center shadow-sm border-0 mb-4">
+                        <div class="offer bg-warning text-white right">Imagenes de usuario</div>
+                        <div class="card-img-top">
+                            <div class="background" *ngIf="image.retrievedImages">
+                                <img [src]="image.retrievedImages">
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="template-primary">Nombre imagen: {{image.name}}</h6>
+                            <div class="row my-3">
+                                <div class="col text-left">
+                                    <h5 class="font-weight-light mb-0"> </h5>
+                                </div>
+
+                            </div>
+
+                            <div class="row my-3">
+                                <div class="col text-left">
+                                    <h5><button type="button" (click)="selecionImagen(image)" class="btn btn-success float-right" style="margin-left: 10px;">Seleccionar</button></h5>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </ng-template>
+
+    </div>
+</ng-template>

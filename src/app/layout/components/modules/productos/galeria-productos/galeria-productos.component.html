@@ -1,0 +1,92 @@
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-body">
+        <div class="row ">
+            <div class="col-lg-12 col-md-12 text-center">
+
+                <h1 class="my-4">
+                    <font style="vertical-align: inherit;">Recuerde que las imagenes mas optimas son de tamaños de 1024x1024 pixeles</font>
+
+                </h1>
+                <h2 class="my-4">
+
+
+
+                    <font style="vertical-align: inherit;">Selecciona imagen (Tamaño maximo 5mb)</font>
+
+                </h2>
+            </div>
+        </div>
+        <br>
+        <div class="row ">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group ">
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group ">
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+        </div>
+        <div class="container row">
+
+        </div>
+
+        <div class="center-loader" *ngIf="loader; else elseBlock">
+            <strong>Cargando imagen
+                    <span class="loader__dot">.</span>
+                    <span class="loader__dot">.</span>
+                    <span class="loader__dot">.</span></strong>
+        </div>
+        <ng-template #elseBlock>
+            <div class="container row">
+                <div class="col-md-6">
+                    <input type="file" (change)="onFileChanged($event)" placeholder="imagen">
+                </div>
+                <div class="col-md-6" *ngIf="selectedFile">
+                    <input type="button" (click)="cagarImagen()" value="Cargar">
+                </div>
+            </div>
+        </ng-template>
+
+        <hr />
+        <div class="container row">
+            <div class="col-md-12">
+                <div *ngIf=message>{{message}}</div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- <div class="container row" *ngFor="let image of images">
+        <div class="col-md-12">
+            <div *ngIf="image.retrievedImages">
+                <img [src]="image.retrievedImages">
+            </div>
+        </div>
+    </div>-->
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 " *ngFor="let image of images">
+            <div class="card text-center shadow-sm border-0 mb-4">
+                <div class="offer bg-warning text-white right">Imagenes de usuario</div>
+                <div class="card-img-top">
+                    <div class="background" *ngIf="image.retrievedImages">
+                        <img [src]="image.retrievedImages">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col text-left">
+                        <!--<h5><button type="button" (click)="ordenarProducto(producto,confirmarModal)" class="btn btn-outline-light float-right" style="margin-left: 10px;">Borrar</button></h5>-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,102 @@
+<div>
+    <div class="row submenu">
+        <div class="container-fluid" id="submenu-container">
+            <div class="row">
+                <!-- Submenu section starts -->
+                <nav class="navbar col-12 ">
+
+                    <nav class={{isShow}}>
+                        <ul>
+                            <li><a class="btn dropdown-toggle btn-sm btn-primary">Menu</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item"><a (click)="listar()">
+                                        Listar productos
+                                    </a></li>
+                                    <li class="dropdown-item"><a (click)="nuevoProducto()">Ingresar Producto </a></li>
+                                    <li class="dropdown-item"><a (click)="galeriaImagenes()">
+                                        Galeria de Imagenes
+                                    </a></li>
+                                    <li class="dropdown-item"><a (click)="promociones()">
+                                        Promociones
+                                    </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!--div class={{isShow}}>
+                        <button (click)="show()" class="btn dropdown-toggle btn-sm btn-primary active" type="button">
+                          Tablero
+                      </button>
+                        <div class="dropdown-menu show">
+                            <a class="dropdown-item" (click)="listar()">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Listar productos</font>
+                                </font>
+                            </a>
+                            <a class="dropdown-item" (click)="nuevoProducto()">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Ingresar Producto </font>
+                                </font>
+                            </a>
+
+                            <a class="dropdown-item" (click)="galeriaImagenes()">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Galeria de Imagenes</font>
+                                </font>
+                            </a>
+                        </div>
+                    </div-->
+                    <ul class="nav nav-pills mr-auto d-none d-sm-flex">
+                        <li class="nav-item d-block d-sm-block d-md-none" (click)="listar()">
+                            <a class="nav-link active">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Menu </font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="listar()">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Listar productos</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="nuevoProducto()">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Ingresar Producto</font>
+                                </font>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="galeriaImagenes()">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Galeria imagenes </font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="promociones()">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Promociones </font>
+                                </font>
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+
+                </nav>
+                <!-- Submenu section ends -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<router-outlet></router-outlet>
+<hr>
