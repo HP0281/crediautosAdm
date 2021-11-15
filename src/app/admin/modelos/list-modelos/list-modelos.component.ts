@@ -25,7 +25,14 @@ export class ListModelosComponent implements OnInit {
     this.initForm();
   }
 
-  openModal(id:string, modal){
+  openEditModal(id:string, modal, marca: string, modelo: string){
+    this.idactual = id;
+    this.modeloform.get('marca').setValue(marca);
+    this.modeloform.get('name').setValue(modelo);
+    this.dialog.open(modal);
+  }
+
+  openDeleteModal(id:string, modal){
     this.idactual = id;
     this.dialog.open(modal);
   }
