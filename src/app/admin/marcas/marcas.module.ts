@@ -5,13 +5,23 @@ import { MarcasRoutingModule } from './marcas-routing.module';
 import { MarcasComponent } from './marcas.component';
 import { ListMarcasComponent } from './list-marcas/list-marcas.component';
 import { NewMarcasComponent } from './new-marcas/new-marcas.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { ListMarcasModule } from './list-marcas/list-marcas.module';
+import { NewMarcasModule } from './new-marcas/new-marcas.module';
 
 
 @NgModule({
-  declarations: [MarcasComponent, ListMarcasComponent, NewMarcasComponent],
+  declarations: [MarcasComponent],
   imports: [
     CommonModule,
-    MarcasRoutingModule
+    MarcasRoutingModule,
+    ReactiveFormsModule,
+    MatTabsModule,
+    MatCardModule,
+    ListMarcasModule,
+    NewMarcasModule
   ]
 })
 export class MarcasModule { }

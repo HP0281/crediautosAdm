@@ -1,1 +1,50 @@
-<p>list-marcas works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="info">
+            <mat-card *ngFor="let marca of marcas">
+                <mat-card-title>{{ marca.name }}</mat-card-title>
+                <mat-card-actions align="end">
+                    <button mat-button (click)="onEditar(marca.id, editmodal, marca.name )">Editar</button>
+                    <button mat-button (click)="openDeleteModal(deleteModal, marca.id, marca.name)" >Eliminar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<ng-template #editmodal>
+    <mat-card>
+        <mat-card-title>
+            Editar Categoria
+        </mat-card-title>
+        <mat-card-actions align="end">
+            <form action="" [formGroup]="marcaForm">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la categoria" formControlName="name">
+            </form>
+            <button mat-button (click)="onModalCancel()">Cancelar</button>
+            <button mat-button [disabled]="!marcaForm.valid" (click)="onGuardar(marcaeditid, confirModal)">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</ng-template>
+<ng-template #deleteModal>
+    <mat-card *ngIf="!isloading && !icon">
+        <mat-card-title>
+            Eliminar Categoria
+        </mat-card-title>
+        <mat-card-subtitle>
+            Esta a punto de eliminar la siguiente Marca: 
+        </mat-card-subtitle>
+        <mat-card-content>
+            {{ deletemarca }}
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button (click)="onEliminar(marcaDeleteid)">Eliminar</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-spinner *ngIf="isloading"></mat-spinner>
+    <mat-icon *ngIf="icon">check_circle</mat-icon>
+</ng-template>
+<ng-template #confirModal>
+    <mat-card>
+        <mat-card-title>Registro Modificado</mat-card-title>
+    </mat-card>
+</ng-template>

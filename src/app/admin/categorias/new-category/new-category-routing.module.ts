@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ModelosComponent } from './modelos.component';
+import { NewCategoryComponent } from './new-category.component';
 
-const routes: Routes = [{path: "", component: ModelosComponent}];
+const routes: Routes = [{
+  path:"", component: NewCategoryComponent
+}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ModelosRoutingModule { }
+export class NewCategoryRoutingModule { }

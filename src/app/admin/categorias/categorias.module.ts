@@ -7,13 +7,27 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NewCategoryComponent } from './new-category/new-category.component';
 import { ListCategoryComponent } from './list-category/list-category.component';
 
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { ListCategoryModule } from './list-category/list-category.module';
+import { NewCategoryModule } from './new-category/new-category.module';
+
+
 
 @NgModule({
-  declarations: [CategoriasComponent, NewCategoryComponent, ListCategoryComponent],
+  declarations: [CategoriasComponent],
   imports: [
     CommonModule,
     CategoriasRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule,
+    MatCardModule,
+    ListCategoryModule,
+    NewCategoryModule
+  ],
+  exports: [
+    MatTabsModule,
+    MatCardModule
   ]
 })
 export class CategoriasModule { }
