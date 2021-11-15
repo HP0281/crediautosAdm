@@ -39,11 +39,13 @@ export class CategoriasService {
       }
     })
    }
-   private getCategories():void{
+   public getCategories():any{
      this.categories = this.categoriasCollection.snapshotChanges().pipe(
         map(actions => actions.map(a => a.payload.doc.data() as Category))
         
      );
-     console.log("categorias", this.categories);
+    
+     
+     return this.categories;
    }
 }

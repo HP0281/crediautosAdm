@@ -1,1 +1,50 @@
-<p>list-category works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="info">
+            <mat-card *ngFor="let category of categories">
+                <mat-card-title>{{ category.name }}</mat-card-title>
+                <mat-card-actions align="end">
+                    <button mat-button (click)="onEditar(category.id, editmodal, category.name )">Editar</button>
+                    <button mat-button (click)="openDeleteModal(deleteModal, category.id, category.name)" >Eliminar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<ng-template #editmodal>
+    <mat-card>
+        <mat-card-title>
+            Editar Categoria
+        </mat-card-title>
+        <mat-card-actions align="end">
+            <form action="" [formGroup]="categoryForm">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la categoria" formControlName="name">
+            </form>
+            <button mat-button (click)="onModalCancel()">Cancelar</button>
+            <button mat-button [disabled]="!categoryForm.valid" (click)="onGuardar(categoryeditid, confirModal)">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</ng-template>
+<ng-template #deleteModal>
+    <mat-card *ngIf="!isloading && !icon">
+        <mat-card-title>
+            Eliminar Categoria
+        </mat-card-title>
+        <mat-card-subtitle>
+            Esta a punto de eliminar la siguiente categoria: 
+        </mat-card-subtitle>
+        <mat-card-content>
+            {{ deleteCategory }}
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button (click)="onEliminar(categoryDeleteid)">Eliminar</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-spinner *ngIf="isloading"></mat-spinner>
+    <mat-icon *ngIf="icon">check_circle</mat-icon>
+</ng-template>
+<ng-template #confirModal>
+    <mat-card>
+        <mat-card-title>Registro Creado</mat-card-title>
+    </mat-card>
+</ng-template>

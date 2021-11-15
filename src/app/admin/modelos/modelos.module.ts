@@ -6,12 +6,23 @@ import { ModelosComponent } from './modelos.component';
 import { NewModelosComponent } from './new-modelos/new-modelos.component';
 import { ListModelosComponent } from './list-modelos/list-modelos.component';
 
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import { ListModelosModule } from './list-modelos/list-modelos.module';
+import { NewModelosModule } from './new-modelos/new-modelos.module';
+
 
 @NgModule({
-  declarations: [ModelosComponent, NewModelosComponent, ListModelosComponent],
+  declarations: [ModelosComponent],
   imports: [
     CommonModule,
-    ModelosRoutingModule
+    ModelosRoutingModule,
+    MatTabsModule,
+    MatCardModule,
+    MatTableModule,
+    ListModelosModule,
+    NewModelosModule
   ]
 })
 export class ModelosModule { }
