@@ -24,7 +24,10 @@ const routes: Routes = [
             { path: 'category', loadChildren: () => import('../admin/categorias/categorias.module').then(m => m.CategoriasModule)},
             { path: 'marcas', loadChildren: () => import('../admin/marcas/marcas.module').then(m => m.MarcasModule)},
             { path: 'modelos', loadChildren: () => import('../admin/modelos/modelos.module').then(m => m.ModelosModule)},
-            { path: 'versiones', loadChildren: () => import('../admin/versiones/versiones.module').then(m => m.VersionesModule)}
+            { path: 'versiones', loadChildren: () => import('../admin/versiones/versiones.module').then(m => m.VersionesModule)},
+            { path: 'vehiculos', loadChildren: () => import('../admin/vehiculos/vehiculos.module').then(m => m.VehiculosModule)},
+            {path:"editar/vehicle", loadChildren: () => import('../admin/vehiculos/new-vehicles/new-vehicles.module').then(m => m.NewVehiclesModule)},
+            {path:"ver/vehicle", loadChildren: () => import('../admin/vehiculos/new-vehicles/new-vehicles.module').then(m => m.NewVehiclesModule)}
         ]
     }
 ];
