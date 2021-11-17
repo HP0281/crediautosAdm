@@ -41,10 +41,18 @@ export class ListarProductosComponent implements OnInit {
 
   }
   promocion(event, cambiandoModal) {
-    this.serviceModal.open(cambiandoModal)
     console.log(event);
+    event.promocion = !event.promocion;
+    this.vehicleService.onSaveVehicle(event, event.id);
+    this.serviceModal.open(cambiandoModal);
     this.loaderEstado = true;
     
+  }
+  status(vehicle, modal){
+    vehicle.status = !vehicle.status;
+    this.vehicleService.onSaveVehicle(vehicle, vehicle.id);
+    this.serviceModal.open(modal);
+    this.loaderEstado = true;
   }
   inactivarProducto(producto) {
     if (confirm("esta seguro de inactivar?")) {
