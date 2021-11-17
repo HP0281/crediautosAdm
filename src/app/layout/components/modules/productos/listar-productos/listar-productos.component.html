@@ -20,13 +20,14 @@
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>ID producto</th>
                         <th>Marca</th>
                         <th>Modelo</th>
                         <th>Año</th>
                         <th>Placa</th>
                         <th>Estado Producto</th>
+                        <th>Promocion</th>
                         <th>Valor</th>
                         <th>Accion</th>
                     </tr>
@@ -38,12 +39,18 @@
                         <td>{{vehicle.modelo}}</td>
                         <td>{{vehicle.year}}</td>
                         <td>{{vehicle.placa}}</td>
-                        <td>Proximamente</td>
+                        <td>  <label class="switch-wrap switch-success ml-2">
+                            <input type="checkbox" checked (change)="promocion($event,cambiandoModal)" />
+                            <div class="switch"></div>
+                        </label></td>
+                        <td><label class="switch-wrap switch-danger ml-2">
+                            <input type="checkbox" checked />
+                            <div class="switch"></div>
+                        </label></td>
                         <td>{{vehicle.valor}}</td>
                         <td>
                             <button (click)="modificarProducto(vehicle)" style="margin: 10px" class="btn btn-primary">Modificar</button>
-                            
-                            
+
                         </td>
                     </tr>
                 </tbody>
@@ -63,4 +70,13 @@
             <p class="p-3 bg-success text-white rounded" style="margin: 10px">OK: {{msjOK}}</p>
         </div>-->
     </div>
+    
 </div>
+<ng-template #cambiandoModal>
+    <div class="center-loader" *ngIf="loaderEstado">
+        <strong>Cambiando estado
+                <span class="loader__dot">.</span>
+                <span class="loader__dot">.</span>
+                <span class="loader__dot">.</span></strong>
+    </div>
+</ng-template>

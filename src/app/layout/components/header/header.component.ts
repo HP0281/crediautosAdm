@@ -41,6 +41,8 @@ export class HeaderComponent implements OnInit {
     }
     logOut(){
         this.auth.logOut();
+        this.router.navigate(["login"]);
+
     }
     modificarMiPerfil(modal){
         

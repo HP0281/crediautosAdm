@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Vehicle } from 'src/app/models/vehicle.interface';
 import { VehiclesService } from 'src/app/services/vehicles.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -16,56 +18,64 @@ export class ListarProductosComponent implements OnInit {
   retrieveResonse: any;
   base64Data: any;
   retrievedImage: any;
-  filterProducto='';
-  vehicles:Vehicle[];
+  filterProducto = '';
+  vehicles: Vehicle[];
   administrador = false;
-  empresaIs=false;
-
+  empresaIs = false;
+  loader = false;
+  loaderEstado=false;
   constructor(
-    private router:Router,
-    private vehicleService:VehiclesService) { }
-    loader=false;
+    private router: Router,
+    private vehicleService: VehiclesService,
+    private serviceModal: NgbModal) { }
+
   ngOnInit() {
     this.cargarProductos();
 
   }
-  ActivarProducto(producto){
-    if(confirm("esta seguro de Activar?")){
-      producto.estadoProducto="Activo";
-    
+  ActivarProducto(producto) {
+    if (confirm("esta seguro de Activar?")) {
+      producto.estadoProducto = "Activo";
+
     }
+
+  }
+  promocion(event, cambiandoModal) {
+    this.serviceModal.open(cambiandoModal)
+    console.log(event);
+    this.loaderEstado = true;
     
   }
-  inactivarProducto(producto){
-    if(confirm("esta seguro de inactivar?")){
-      producto.estadoProducto="Inactivo";
-      
+  inactivarProducto(producto) {
+    if (confirm("esta seguro de inactivar?")) {
+      producto.estadoProducto = "Inactivo";
+
     }
-    
+
   }
   cargarProductos() {
-    this.loader=true;
+    this.loader = true;
     console.log("metodo de listar productos oinit");
-    this.vehicleService.vehicles.subscribe(data=>{
-      this.vehicles=data;
-      this.loader=false;
-      console.log("data",data);
+    this.vehicleService.vehicles.subscribe(data => {
+      this.vehicles = data;
+      this.loader = false;
+      console.log("data", data);
     })
-    
+
   }
-  cargarImagenes(){
-    
+  cargarImagenes() {
+
   }
 
-  modificarProducto(vehicle){
-    localStorage.setItem("idVehicle",vehicle.id+"");
+  modificarProducto(vehicle) {
+    localStorage.setItem("idVehicle", vehicle.id + "");
     this.router.navigate(["productos/editar-producto"]);
   }
-  
+
   isAdmin() {
-   
+
   }
   isEmpresa() {
-    
+
   }
 }

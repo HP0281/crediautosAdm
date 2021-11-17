@@ -30,17 +30,6 @@
 
 
                 <!-- task dropdown-->
-
-
-
-                <a *ngIf="isEmpresa">
-                    <div *ngIf="estadoEmpresa;else elseEmpresaEstado"> <button class="btn btn-success" (click)="cambiarEstadoEmpresa()">Abierto</button></div>
-                    <ng-template #elseEmpresaEstado>
-                        <div> <button class="btn btn-danger" (click)="cambiarEstadoEmpresa()">Cerrado</button></div>
-                    </ng-template>
-                </a>
-
-
                 <li class="nav-item dropdown" ngbDropdown>
                     <a class="nav-link dropdown-toggle active" href="javascript:void(0)" ngbDropdownToggle>
                         <i class="material-icons">email</i>
@@ -128,7 +117,7 @@
                                     <i class="material-icons text-danger">exit_to_app</i>
                                 </div>
                                 <div class="col pl-0">
-                                    <p class="mb-0 text-danger">Cerrar sesion</p>
+                                    <p class="mb-0 text-danger" >Cerrar sesion</p>
                                 </div>
                                 <div class="col-auto align-self-center text-right pl-0">
                                     <i class="material-icons text-mute small text-danger">chevron_right</i>

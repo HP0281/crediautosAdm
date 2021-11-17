@@ -31,7 +31,10 @@ export class AuthServiceService {
   }
 
   logOut(){
+    window.localStorage.setItem("isLoggedin","false");
+   
     return this.auth.auth.signOut();
+
   }
 
   verificarEmail(){
