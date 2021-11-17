@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { Vehicle } from 'src/app/models/vehicle.interface';
+import { VehiclesService } from 'src/app/services/vehicles.service';
 
 
 @Component({
@@ -15,17 +17,17 @@ export class ListarProductosComponent implements OnInit {
   base64Data: any;
   retrievedImage: any;
   filterProducto='';
-  
+  vehicles:Vehicle[];
   administrador = false;
   empresaIs=false;
 
   constructor(
-    private router:Router) { }
+    private router:Router,
+    private vehicleService:VehiclesService) { }
     loader=false;
   ngOnInit() {
     this.cargarProductos();
-    this.isAdmin();
-    this.isEmpresa();
+
   }
   ActivarProducto(producto){
     if(confirm("esta seguro de Activar?")){
@@ -44,15 +46,19 @@ export class ListarProductosComponent implements OnInit {
   cargarProductos() {
     this.loader=true;
     console.log("metodo de listar productos oinit");
-    
+    this.vehicleService.vehicles.subscribe(data=>{
+      this.vehicles=data;
+      this.loader=false;
+      console.log("data",data);
+    })
     
   }
   cargarImagenes(){
     
   }
 
-  modificarProducto(producto){
-    localStorage.setItem("idProducto",producto.idProducto+"");
+  modificarProducto(vehicle){
+    localStorage.setItem("idVehicle",vehicle.id+"");
     this.router.navigate(["productos/editar-producto"]);
   }
   

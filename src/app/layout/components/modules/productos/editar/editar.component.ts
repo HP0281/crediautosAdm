@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VehiclesService } from 'src/app/services/vehicles.service';
 
 
 
@@ -10,13 +11,22 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./editar.component.css']
 })
 export class EditarComponent implements OnInit {
+  valor1=null;
+  valor2=null;
+  resultado=null;
+  opcion1=false;
+  opcion2=false;
+  opcion3=false;
+  opcion4=false;
+
+  
 
   loader=false;
 
   idProducto:number;
   administrador = false;
  
-
+  id;
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
@@ -29,15 +39,19 @@ export class EditarComponent implements OnInit {
   msjOK = '';
 
   categoriaSeleccionada="";
-  constructor(private serviceModal:NgbModal,) { }
+  constructor(private serviceModal:NgbModal,private vehicleService:VehiclesService) { }
 
   ngOnInit() {
     this.editar();
+    this.vehicleService.getVehiclesById(this.id).subscribe(data=>{
+      console.log("vehicle:",data)
+      this.loader=false;
+    });
   }
   editar() {
     this.loader=true;
-    let id = localStorage.getItem("idProducto");
-   
+    this.id = localStorage.getItem("idVehicle");
+    
     // console.log("el usuario es"+usu)
   }
   isAdmin() {

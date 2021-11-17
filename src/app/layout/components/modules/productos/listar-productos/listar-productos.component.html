@@ -16,39 +16,34 @@
             <h3>LISTADO DE PRODUCTOS</h3>
 
         </div>
-        <input class="form-control" type="text" name="filterProducto" placeholder="buscar producto" [(ngModel)]="filterProducto">
+        <input class="form-control" type="text" name="filterProducto" placeholder="buscar producto">
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>ID producto</th>
-                        <th>Nombre</th>
-                        <th>Categoria</th>
-                        <th>Empresa</th>
-                        <th>Descripcion</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Año</th>
+                        <th>Placa</th>
                         <th>Estado Producto</th>
-                        <th>Stock </th>
-                        <th>Valor </th>
-                        <th>Accion </th>
+                        <th>Valor</th>
+                        <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let producto of productos | listarProducto:filterProducto" class="text-center">
-                        <td>{{producto.idProducto}}</td>
-                        <td>{{producto.nombreProducto}}</td>
-                        <td>{{producto.categoria.nombreCategoria}}</td>
-                        <td>{{producto.empresa.razonSocial}}</td>
-                        <td>{{producto.descripcion}}</td>
-                        <td>{{producto.estadoProducto}}</td>
-                        <td>{{producto.stockProducto}}</td>
-                        <td>{{(producto.valorProducto)}}</td>
-
+                    <tr *ngFor="let vehicle of vehicles" class="text-center">
+                        <td>{{vehicle.id}}</td>
+                        <td>{{vehicle.marca}}</td>
+                        <td>{{vehicle.modelo}}</td>
+                        <td>{{vehicle.year}}</td>
+                        <td>{{vehicle.placa}}</td>
+                        <td>Proximamente</td>
+                        <td>{{vehicle.valor}}</td>
                         <td>
-                            <button (click)="modificarProducto(producto)" style="margin: 10px" class="btn btn-primary">Modificar</button>
-                            <button *ngIf="producto.estadoProducto=='Activo';else elseInactivo" (click)="inactivarProducto(producto)" style="margin: 10px" class="btn btn-danger">inactivar</button>
-                            <ng-template #elseInactivo>
-                                <button (click)="ActivarProducto(producto)" style="margin: 10px" class="btn btn-success">Activar</button>
-                            </ng-template>
+                            <button (click)="modificarProducto(vehicle)" style="margin: 10px" class="btn btn-primary">Modificar</button>
+                            
+                            
                         </td>
                     </tr>
                 </tbody>
