@@ -21,6 +21,7 @@ const routes: Routes = [
             { path: 'components', loadChildren: () => import('./bs-component/bs-component.module').then(m => m.BsComponentModule) },
             { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) },
             { path: 'usuario', loadChildren: () => import('./components/modules/usuario/usuario.module').then(m => m.UsuarioModule)},
+            { path: 'productos', loadChildren: () => import('./components/modules/productos/productos.module').then(m => m.ProductosModule)},
             { path: 'category', loadChildren: () => import('../admin/categorias/categorias.module').then(m => m.CategoriasModule)},
             { path: 'marcas', loadChildren: () => import('../admin/marcas/marcas.module').then(m => m.MarcasModule)},
             { path: 'modelos', loadChildren: () => import('../admin/modelos/modelos.module').then(m => m.ModelosModule)},

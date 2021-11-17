@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { CategoriasService } from 'src/app/services/categorias.service';
+
 
 
 @Component({
@@ -16,12 +18,16 @@ export class HeaderComponent implements OnInit {
     messages:any;
 
     constructor(private translate: TranslateService, public router: Router,
-        private auth: AuthServiceService) {
+        private auth: AuthServiceService,
+        private categoriaService:CategoriasService) {
         this.router.events.subscribe(val => {});
-        this.name = this.auth._userinfo.displayName;
+      
     }
 
     ngOnInit() {
+        this.name = this.auth._userinfo.displayName;
+        console.log("this.auth._userinfo.displayName",this.auth._userinfo.displayName);
+        console.log(this.categoriaService.getCategories());
     }
 
     toggleSidebar() {
@@ -35,6 +41,8 @@ export class HeaderComponent implements OnInit {
     }
     logOut(){
         this.auth.logOut();
+        this.router.navigate(["login"]);
+
     }
     modificarMiPerfil(modal){
         

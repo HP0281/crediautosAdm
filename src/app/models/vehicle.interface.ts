@@ -16,12 +16,13 @@ export interface Vehicle{
  trasmision: number;
  traccion: number;
  marca: String;
- año: number;
+ year: number;
  combustible: number;
  financiable: Boolean;
  tipoventa?: String;
  categoria: String;
  placa: String;
+ valor:number;
  unicodueño: boolean;
  gps?: boolean;
  asientotabatible?: boolean;

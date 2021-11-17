@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Observable } from "rxjs";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-listar',
@@ -29,10 +30,14 @@ export class ListarComponent implements OnInit {
   loader:boolean = true;
   
   constructor(private router:Router,
-    private serviceModal: NgbModal) { }
+    private serviceModal: NgbModal,
+    private userService:UserServiceService) { }
 
   ngOnInit() {
-
+    this.userService.user.subscribe((resp:any)=>{
+      //this.categories = resp;
+      console.log("resp",resp)
+    })
   }
   editarUsuario(usuario){
     

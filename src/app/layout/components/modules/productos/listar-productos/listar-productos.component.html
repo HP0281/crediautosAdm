@@ -1,0 +1,82 @@
+<div class="center-loader" *ngIf="loader">
+    <strong>Cargando
+        <span class="loader__dot">.</span>
+        <span class="loader__dot">.</span>
+        <span class="loader__dot">.</span></strong>
+</div>
+
+<div class="container table-responsive" *ngIf="!loader">
+    <button style="margin-bottom: 10px; margin-left: 0px;" class="btn btn-warning text-white" (click)="ngOnInit()">
+        <i class="material-icons text-white">restore_page
+        </i> Refrescar Tabla
+    </button>
+
+    <div class="card min">
+        <div class="card-header">
+            <h3>LISTADO DE PRODUCTOS</h3>
+
+        </div>
+        <input class="form-control" type="text" name="filterProducto" placeholder="buscar producto">
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID producto</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Año</th>
+                        <th>Placa</th>
+                        <th>Estado Producto</th>
+                        <th>Promocion</th>
+                        <th>Valor</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vehicle of vehicles" class="text-center">
+                        <td>{{vehicle.id}}</td>
+                        <td>{{vehicle.marca}}</td>
+                        <td>{{vehicle.modelo}}</td>
+                        <td>{{vehicle.year}}</td>
+                        <td>{{vehicle.placa}}</td>
+                        <td>  <label class="switch-wrap switch-success ml-2">
+                            <input type="checkbox" checked (change)="promocion($event,cambiandoModal)" />
+                            <div class="switch"></div>
+                        </label></td>
+                        <td><label class="switch-wrap switch-danger ml-2">
+                            <input type="checkbox" checked />
+                            <div class="switch"></div>
+                        </label></td>
+                        <td>{{vehicle.valor}}</td>
+                        <td>
+                            <button (click)="modificarProducto(vehicle)" style="margin: 10px" class="btn btn-primary">Modificar</button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <!-- <div *ngIf="failEliminado" class="float-left">
+            <p class="p-3 bg-danger text-white rounded">Error: {{msjErr}}</p>
+        </div>
+        <div *ngIf="eliminado" class="float-left">
+            <p class="p-3 bg-success text-white rounded">OK: {{msjOK}}</p>
+        </div>
+        <div *ngIf="failActualizado" class="float-left">
+            <p class="p-3 bg-danger text-white rounded" style="margin: 10px">Error: {{msjErr}}</p>
+        </div>
+        <div *ngIf="actualizado" class="float-left">
+            <p class="p-3 bg-success text-white rounded" style="margin: 10px">OK: {{msjOK}}</p>
+        </div>-->
+    </div>
+    
+</div>
+<ng-template #cambiandoModal>
+    <div class="center-loader" *ngIf="loaderEstado">
+        <strong>Cambiando estado
+                <span class="loader__dot">.</span>
+                <span class="loader__dot">.</span>
+                <span class="loader__dot">.</span></strong>
+    </div>
+</ng-template>

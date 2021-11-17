@@ -30,9 +30,14 @@ export class LoginComponent implements OnInit {
     onLoggedin() {
     }
     googleAuth(){
+        
         this.auth.googleAuth();
         this.auth.getUser().subscribe(resp => {
             this.user = resp;
+            window.sessionStorage.setItem("auth",JSON.stringify(this.user));
+
+            console.log("JSON.stringify(this.user)",JSON.stringify(this.user));
+            console.log("this.user",this.user);
             if (this.user) {
             localStorage.setItem('isLoggedin', 'true');
             this.router.navigate(['/dashboard']);

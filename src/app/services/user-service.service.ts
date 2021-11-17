@@ -14,7 +14,7 @@ export class UserServiceService {
 
   constructor(private readonly afs: AngularFirestore) {
     this.usercollection = afs.collection<User>('users');
-    
+    this.getUsers();
    }
 
   onDeleteUser(vehicleid: string): Promise<void>{
@@ -40,9 +40,9 @@ export class UserServiceService {
     });
   }
   private getUsers(): void{
-    // this.user = this.usercollection.snapshotChanges().pipe(
-    //   map(actions => actions.map(a => a.payload.doc.data() as any))
-    // );
+    this.user = this.usercollection.snapshotChanges().pipe(
+       map(actions => actions.map(a => a.payload.doc.data() as any))
+     );
   }
   getUserById(id:string){
     return this.afs.collection(('users'), ref => ref.where('id', '==', id)).valueChanges();

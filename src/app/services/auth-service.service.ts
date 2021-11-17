@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 //import firebase from 'firebase/app';
 import * as firebase from 'firebase';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthServiceService {
   
   public _userinfo: any;
@@ -29,7 +31,10 @@ export class AuthServiceService {
   }
 
   logOut(){
+    window.localStorage.setItem("isLoggedin","false");
+   
     return this.auth.auth.signOut();
+
   }
 
   verificarEmail(){
@@ -41,7 +46,9 @@ export class AuthServiceService {
   }
 
   googleAuth(){
+    
     this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    firebase.auth.Auth.Persistence.LOCAL	
   }
 
   enviarcodigoTel(numero:string, appVerified:any){
