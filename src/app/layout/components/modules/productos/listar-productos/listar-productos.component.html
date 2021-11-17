@@ -40,11 +40,11 @@
                         <td>{{vehicle.year}}</td>
                         <td>{{vehicle.placa}}</td>
                         <td>  <label class="switch-wrap switch-success ml-2">
-                            <input type="checkbox" checked (change)="promocion($event,cambiandoModal)" />
+                            <input type="checkbox" [checked]="vehicle.status" (change)="status(vehicle,cambiandoModal)" />
                             <div class="switch"></div>
                         </label></td>
                         <td><label class="switch-wrap switch-danger ml-2">
-                            <input type="checkbox" checked />
+                            <input type="checkbox" [checked]="vehicle.promocion" (change)="promocion(vehicle,cambiandoModal)"/>
                             <div class="switch"></div>
                         </label></td>
                         <td>{{vehicle.valor}}</td>
