@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'nuevo-producto', loadChildren: () => import('./nuevo-producto/nuevo-producto.module').then(m => m.NuevoProductoModule)},
   { path: 'listar-productos', loadChildren: () => import('./listar-productos/listar-productos.module').then(m => m.ListarProductosModule)},
   { path: 'galeria-productos', loadChildren: () => import('./galeria-productos/galeria-productos.module').then(m => m.GaleriaProductosModule)},
-  { path: 'editar-producto', loadChildren: () => import('./editar/editar.module').then(m => m.EditarModule)},
   { path: 'promociones', loadChildren: () => import('./promociones/promociones/promociones.module').then(m => m.PromocionesModule)},
+  { path: 'editar-producto', loadChildren: () => import('../productos/nuevo-producto/nuevo-producto.module').then(m => m.NuevoProductoModule)},
   {path: '**', redirectTo: 'dasboard', pathMatch: 'full'}
 ]
   }
