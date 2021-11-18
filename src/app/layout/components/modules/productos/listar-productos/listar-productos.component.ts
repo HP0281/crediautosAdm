@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Vehicle } from 'src/app/models/vehicle.interface';
 import { VehiclesService } from 'src/app/services/vehicles.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { state } from '@angular/animations';
 
 
 
@@ -24,6 +25,12 @@ export class ListarProductosComponent implements OnInit {
   empresaIs = false;
   loader = false;
   loaderEstado=false;
+
+  navigationExtras : NavigationExtras = {
+    state:{
+      value:null
+    }
+  };
   constructor(
     private router: Router,
     private vehicleService: VehiclesService,
@@ -76,8 +83,10 @@ export class ListarProductosComponent implements OnInit {
   }
 
   modificarProducto(vehicle) {
-    localStorage.setItem("idVehicle", vehicle.id + "");
-    this.router.navigate(["productos/editar-producto"]);
+    //localStorage.setItem("idVehicle", vehicle.id + "");
+    this.navigationExtras.state.value = vehicle;
+    debugger
+    this.router.navigate(["productos/editar-producto"], this.navigationExtras);
   }
 
   isAdmin() {

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {NuevoProductoComponent}from './nuevo-producto.component';
 import{NuevoProductoRoutingModule}from './nuevo-producto-routing.module';
-import {FormsModule}from '@angular/forms';
+import {FormsModule, ReactiveFormsModule}from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -14,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     TranslateModule,
     NuevoProductoRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class NuevoProductoModule { }
