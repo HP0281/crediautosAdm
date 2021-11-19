@@ -3,4 +3,5 @@ export interface Version{
     nombre: string;
     marca: string;
     modelo: string;
+    category: string;
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CategoriasService } from 'src/app/services/categorias.service';
+import { MarcasService } from 'src/app/services/marcas.service';
 import { ModelosService } from 'src/app/services/modelos.service';
 
 @Component({
@@ -9,15 +11,26 @@ import { ModelosService } from 'src/app/services/modelos.service';
   styleUrls: ['./list-modelos.component.css']
 })
 export class ListModelosComponent implements OnInit {
-  displayedColumns: string[] = ['marca', 'modelo', 'actions'];
+  displayedColumns: string[] = ['category','marca', 'modelo', 'actions'];
   dataSource: any;
   modeloform: FormGroup;
   idactual:string;
+  
+  marcas:any[];
+  categories: any[];
 
   constructor(private modelosService: ModelosService,
-    private dialog: NgbModal, private fb: FormBuilder) {
+    private dialog: NgbModal, private fb: FormBuilder,
+    private marcaService: MarcasService,
+    private categoriaService: CategoriasService) {
     this.modelosService.modelos.subscribe(resp=>{
       this.dataSource = resp;
+    })
+    this.marcaService.marcas.subscribe(resp=>{
+      this.marcas = resp;
+    })
+    this.categoriaService.categories.subscribe(resp=>{
+      this.categories = resp;
     })
    }
 
@@ -25,10 +38,11 @@ export class ListModelosComponent implements OnInit {
     this.initForm();
   }
 
-  openEditModal(id:string, modal, marca: string, modelo: string){
+  openEditModal(id:string, modal, marca: string, modelo: string, category:string){
     this.idactual = id;
-    this.modeloform.get('marca').setValue(marca);
-    this.modeloform.get('name').setValue(modelo);
+    marca != null ? this.modeloform.get('marca').setValue(marca): "";
+    modelo != null ? this.modeloform.get('name').setValue(modelo): "";
+    category != null ? this.modeloform.get('category').setValue(category): "";
     this.dialog.open(modal);
   }
 
@@ -46,6 +60,7 @@ export class ListModelosComponent implements OnInit {
   }
   initForm(){
     this.modeloform = this.fb.group({
+      category: new FormControl('', [Validators.required]),
       marca: new FormControl('', [Validators.required]),
       name: new FormControl('',[Validators.required])
     })

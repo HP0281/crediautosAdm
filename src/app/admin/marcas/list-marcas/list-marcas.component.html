@@ -3,8 +3,9 @@
         <div class="info">
             <mat-card *ngFor="let marca of marcas">
                 <mat-card-title>{{ marca.name }}</mat-card-title>
+                <mat-card-description>{{ marca.category }}</mat-card-description>
                 <mat-card-actions align="end">
-                    <button mat-button (click)="onEditar(marca.id, editmodal, marca.name )">Editar</button>
+                    <button mat-button (click)="onEditar(marca.id, editmodal, marca.name, marca.category )">Editar</button>
                     <button mat-button (click)="openDeleteModal(deleteModal, marca.id, marca.name)" >Eliminar</button>
                 </mat-card-actions>
             </mat-card>
@@ -16,11 +17,26 @@
         <mat-card-title>
             Editar Categoria
         </mat-card-title>
-        <mat-card-actions align="end">
+        <mat-card-actions >
             <form action="" [formGroup]="marcaForm">
-                <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la categoria" formControlName="name">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                          <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                             formControlName="category" id="floatingSelect">
+                             <option [value]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
+                            </select>
+                            <label for="floatingSelect" class="lblfloat">Seleccionar categoria</label>
+                          </div>
+                    </div>
+                    <div class="col-6">
+                        
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la categoria" formControlName="name">
+
+                    </div>
+                </div>
             </form>
-            <button mat-button (click)="onModalCancel()">Cancelar</button>
+           
             <button mat-button [disabled]="!marcaForm.valid" (click)="onGuardar(marcaeditid, confirModal)">Guardar</button>
         </mat-card-actions>
     </mat-card>

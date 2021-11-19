@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CategoriasService } from 'src/app/services/categorias.service';
+import { MarcasService } from 'src/app/services/marcas.service';
+import { ModelosService } from 'src/app/services/modelos.service';
 import { VersionesService } from 'src/app/services/versiones.service';
 
 @Component({
@@ -9,27 +12,42 @@ import { VersionesService } from 'src/app/services/versiones.service';
   styleUrls: ['./list-versiones.component.css']
 })
 export class ListVersionesComponent implements OnInit {
-  
-  displayedColumns: string[] = ['marca', 'modelo','version', 'actions'];
+  marcas: any[];
+  modelos: any[];
+  categories: any[];
+  displayedColumns: string[] = ['category','marca', 'modelo','version', 'actions'];
   dataSource: any;
   idactual:string;
   versionForm: FormGroup;
 
   constructor(private versionService: VersionesService,
-    private fb: FormBuilder, private dialog: NgbModal) {
+    private fb: FormBuilder, private dialog: NgbModal,
+    private marcasSv: MarcasService,
+    private categoriaSv: CategoriasService,
+    private modelosSv: ModelosService) {
     this.versionService.versiones.subscribe(resp=> {
       this.dataSource = resp;
+    })
+    this.marcasSv.marcas.subscribe(resp=> {
+      this.marcas = resp;
+    })
+    this.categoriaSv.categories.subscribe(resp=> {
+      this.categories = resp;
+    })
+    this.modelosSv.modelos.subscribe(resp=> {
+      this.modelos = resp;
     })
    }
 
   ngOnInit(): void {
     this.initForm();
   }
-  openEditModal(id:string, modal, marca:string, modelo:string, version:string){
+  openEditModal(id:string, modal, marca:string, modelo:string, version:string, categoria:string){
     this.idactual = id;
-    this.versionForm.get('marca').setValue(marca);
-    this.versionForm.get('modelo').setValue(modelo);
-    this.versionForm.get('name').setValue(version);
+    marca != null ? this.versionForm.get('marca').setValue(marca): "";
+    modelo!= null ? this.versionForm.get('modelo').setValue(modelo): "";
+    version!= null ? this.versionForm.get('name').setValue(version): "";
+    categoria != null ? this.versionForm.get('category').setValue(categoria): "";
     this.dialog.open(modal);
 
   }
@@ -40,6 +58,7 @@ export class ListVersionesComponent implements OnInit {
 
   initForm(){
     this.versionForm = this.fb.group({
+      category: new FormControl('', [Validators.required]),
       marca: new FormControl('', [Validators.required]),
       modelo: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required])

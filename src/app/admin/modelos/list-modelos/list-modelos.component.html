@@ -1,5 +1,10 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Categoria </th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+
     <ng-container matColumnDef="marca">
       <th mat-header-cell *matHeaderCellDef> Marca </th>
       <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
@@ -12,21 +17,21 @@
   
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>  </th>
-      <td mat-cell *matCellDef="let element"><button mat-button (click)="openEditModal(element.id, editModal, element.marca, element.name)">Editar</button> <button mat-button (click)="openDeleteModal(element.id, deleteModal)">Eliminar</button></td>
+      <td mat-cell *matCellDef="let element"><button mat-button (click)="openEditModal(element.id, editModal, element.marca, element.name, element.category)">Editar</button> <button mat-button (click)="openDeleteModal(element.id, deleteModal)">Eliminar</button></td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   
-  <ng-template #editModal>
+  <ng-template #editModal >
     <div class="body">
         <mat-card>
             <mat-card-title>
                 Editar Modelo
             </mat-card-title>
             <mat-card-actions>
-                <form action="" [formGroup]="modeloform" >
+                <!-- <form action="" [formGroup]="modeloform" >
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la Marca" formControlName="marca">
                         <label for="floatingInput">Nombre de la Marca</label>
@@ -35,8 +40,38 @@
                         <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la Modelo" formControlName="name">
                         <label for="floatingInput">Nombre de la Modelo</label>
                     </div>
-                    <button mat-button [disabled]="!modeloform.valid" (click)="onGuardar()">Guardar</button>
-                </form>
+                  </form> -->
+                  <form [formGroup]="modeloform">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="form-floating mb-3">
+                              <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                              formControlName="category" id="floatingSelect">
+                              <option [value]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
+                            </select>
+                            <label for="floatingSelect" class="lblfloat">Seleccionar Categoria</label>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="form-floating mb-3">
+                            <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                               formControlName="marca" id="floatingSelect">
+                               <option [value]="marca.name" *ngFor="let marca of marcas">{{ marca.name }}</option>
+                              </select>
+                              <label for="floatingSelect" class="lblfloat">Seleccionar marca</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-8">
+                            <div class="form-floating mb-6">
+                              <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la modelo" formControlName="name">
+                              <label for="floatingInput">Nombre de la modelo</label>
+                            </div>
+                          </div>
+                  </div>
+                        <button mat-button [disabled]="!modeloform.valid" (click)="onGuardar()">Guardar</button>
+              </form>
             </mat-card-actions>
         </mat-card>
     </div>

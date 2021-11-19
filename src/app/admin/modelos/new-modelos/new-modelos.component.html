@@ -6,7 +6,16 @@
         <div class="form">
             <form [formGroup]="modeloForm">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-4">
+                        <div class="form-floating mb-3">
+                            <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                             formControlName="category" id="floatingSelect">
+                             <option [value]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
+                            </select>
+                            <label for="floatingSelect" class="lblfloat">Seleccionar Categoria</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
                         <div class="form-floating mb-3">
                             <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
                              formControlName="marca" id="floatingSelect">
@@ -15,7 +24,7 @@
                             <label for="floatingSelect" class="lblfloat">Seleccionar marca</label>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la modelo" formControlName="name">
                             <label for="floatingInput">Nombre de la modelo</label>

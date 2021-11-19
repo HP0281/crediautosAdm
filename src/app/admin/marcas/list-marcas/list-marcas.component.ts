@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CategoriasService } from 'src/app/services/categorias.service';
 import { MarcasService } from 'src/app/services/marcas.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { MarcasService } from 'src/app/services/marcas.service';
 })
 export class ListMarcasComponent implements OnInit {
   marcas: any[];
+  categories:any[];
   marcaForm: FormGroup;
   deletemarca: string;
   marcaDeleteid: string;
@@ -18,19 +20,25 @@ export class ListMarcasComponent implements OnInit {
   icon=false;
 
   constructor(private marcaService: MarcasService, private dialog: NgbModal,
-    private fb: FormBuilder) { 
+    private fb: FormBuilder,
+    private categoriaService: CategoriasService) { 
     this.marcaService.marcas.subscribe(resp => {
       this.marcas = resp;
+    })
+    this.categoriaService.categories.subscribe(resp => {
+      this.categories = resp;
     })
   }
 
   ngOnInit(): void {
   }
   
-  onEditar(id:string, editmodal, categoria:string){
+  onEditar(id:string, editmodal, marca:string, categoria:string){
     this.marcaeditid = id;
     this.initForm();
-    this.marcaForm.get('name').setValue(categoria);
+    marca != null ?this.marcaForm.get('name').setValue(marca): "";
+    categoria != null ? this.marcaForm.get('category').setValue(categoria): "";
+    
     this.dialog.open(editmodal)
     
   }
@@ -43,7 +51,8 @@ export class ListMarcasComponent implements OnInit {
 
   initForm(){
     this.marcaForm = this.fb.group({
-      name: new FormControl('', [Validators.required])
+      name: new FormControl('', [Validators.required]),
+      category : new FormControl('', [Validators.required])
     })
   }
   
