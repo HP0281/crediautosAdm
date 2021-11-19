@@ -9,12 +9,23 @@
                     <div class="col-6">
                         <div class="form-floating mb-3">
                             <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                             formControlName="category" id="floatingSelect" style="padding-top: 1.525rem;">
+                             <option [value]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
+                            </select>
+                            <label for="floatingSelect" class="lblfloat">Seleccionar categoria</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
                              formControlName="marca" id="floatingSelect" style="padding-top: 1.525rem;">
                              <option [value]="marca.name" *ngFor="let marca of marcas">{{ marca.name }}</option>
                             </select>
                             <label for="floatingSelect" class="lblfloat">Seleccionar marca</label>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-6">
                         <div class="form-floating mb-3">
                             <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
@@ -24,8 +35,6 @@
                             <label for="floatingSelect" class="lblfloat">Seleccionar modelo</label>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-6">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la version" formControlName="name">
