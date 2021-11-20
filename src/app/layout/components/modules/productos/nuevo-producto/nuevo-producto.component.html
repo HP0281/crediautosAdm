@@ -263,585 +263,576 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <a class="btn btn-desplegables" data-bs-toggle="collapse" href="#collapseMoreInfo"
-                                        role="button" aria-expanded="false" aria-controls="collapseMoreInfo">
-                                        <h6>Mas informacion</h6>
-                                        <i class="bi bi-caret-down"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row collapse" id="collapseMoreInfo">
-                                <div class="col-6 prueba">
-                                    Asegurado
-                                    <label class="switch-wrap switch-success ml-2">
-                                        <input type="checkbox"  formControlName="seguro"/>
-                                        <div class="switch"></div>
-                                    </label>
-                                </div>
-                                <div class="col-6 prueba">
-                                    Tecnicomecanica
-                                    <label class="switch-wrap switch-success ml-2">
-                                        <input type="checkbox"  formControlName="tecno"/>
-                                        <div class="switch"></div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
-                                        href="#collapseEquipamiento" role="button" aria-expanded="false"
-                                        aria-controls="collapseEquipamiento">
-                                        <h6>Equipamiento</h6>
-                                        <i class="bi bi-caret-down"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row collapse" id="collapseEquipamiento">
-                                <div class="col-6 prueba">
-                                    GPS
-                                    <label class="switch-wrap switch-success ml-2">
-                                        <input type="checkbox"  formControlName="gps"/>
-                                        <div class="switch"></div>
-                                    </label>
-                                </div>
-                                <div class="col-6 prueba">
-                                    Asiento trasero abatible
-                                        <label class="switch-wrap switch-success ml-2">
-                                            <input type="checkbox"  formControlName="asientotabatible"/>
-                                            <div class="switch"></div>
-                                        </label>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 prueba">
-                                        Techo corredizo
-                                        <label class="switch-wrap switch-success ml-2">
-                                            <input type="checkbox"  formControlName="techocorredizo"/>
-                                            <div class="switch"></div>
-                                        </label>
-                                    </div>
-                                    <div class="col-6 prueba">
-                                        Climatizador
-                                        <label class="switch-wrap switch-success ml-2">
-                                            <input type="checkbox"  formControlName="climatizador"/>
-                                            <div class="switch"></div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 prueba">
-                                        Porta equipaje en techo
-                                        <label class="switch-wrap switch-success ml-2">
-                                            <input type="checkbox"  formControlName="portaequipajet"/>
-                                            <div class="switch"></div>
-                                        </label>
-                                    </div>
-                                    <div class="col-6 prueba">
-                                        Camara de reverso
-                                        <label class="switch-wrap switch-success ml-2">
-                                            <input type="checkbox"  formControlName="camarareversa"/>
-                                            <div class="switch"></div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 prueba">
-                                        Banca
-                                        <label class="switch-wrap switch-success ml-2">
-                                            <input type="checkbox"  formControlName="banca"/>
-                                            <div class="switch"></div>
-                                        </label>
-                                    </div>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Mas informacion
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                Asegurado
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="seguro"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                Tecnicomecanica
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="tecno"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </mat-expansion-panel>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <a class="btn btn-desplegables" data-bs-toggle="collapse" href="#collapseSeguridad"
-                                        role="button" aria-expanded="false" aria-controls="collapseSeguridad">
-                                        <h6>Seguridad</h6>
-                                        <i class="bi bi-caret-down"></i>
-                                    </a>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <h6>Equipamiento</h6>
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                GPS
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="gps"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                Asiento trasero abatible
+                                                    <label class="switch-wrap switch-success ml-2">
+                                                        <input type="checkbox"  formControlName="asientotabatible"/>
+                                                        <div class="switch"></div>
+                                                    </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                Techo corredizo
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="techocorredizo"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                Climatizador
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="climatizador"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                Porta equipaje en techo
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="portaequipajet"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                Camara de reverso
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="camarareversa"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                Banca
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="banca"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
                                 </div>
                             </div>
-                            <div class="row collapse" id="collapseSeguridad">
+                            
+                            <div class="row">
                                 <div class="col-12">
-                                    <div class="row ">
-                                        <div class="col-6 prueba">
-                                            Frenos ABS
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="abs"/>
-                                                <div class="switch"></div>
-                                            </label>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <h6>Seguridad</h6>
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="row ">
+                                            <div class="col-6 prueba">
+                                                Frenos ABS
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="abs"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                Alarma
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="alarma"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="col-6 prueba">
-                                            Alarma
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="alarma"/>
-                                                <div class="switch"></div>
-                                            </label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                Faros antitinieblas delanteros
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="exploradorasd"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                Airbag para conductor y pasajero
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="airbag"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            Faros antitinieblas delanteros
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="exploradorasd"/>
-                                                <div class="switch"></div>
-                                            </label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                >Sensor de lluvia
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="sensorlluvia"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                Faros antitinieblas traseros
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="exploradorast"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="col-6 prueba">
-                                            Airbag para conductor y pasajero
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="airbag"/>
-                                                <div class="switch"></div>
-                                            </label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                Desempañador trasero
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="desempañadort"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                Barra anti vuelco
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="barraantivuelco"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            >Sensor de lluvia
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="sensorlluvia"/>
-                                                <div class="switch"></div>
-                                            </label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                Control de estabilidad
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="ctrestabilidad"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                Blindado
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="blindado"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="col-6 prueba">
-                                            Faros antitinieblas traseros
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="exploradorast"/>
-                                                <div class="switch"></div>
-                                            </label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                Vidrio de seguridad
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="vidrioseg"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            Desempañador trasero
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="desempañadort"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            Barra anti vuelco
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="barraantivuelco"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            Control de estabilidad
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="ctrestabilidad"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            Blindado
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="blindado"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            Vidrio de seguridad
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                    </mat-expansion-panel>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
-                                        href="#collapseConfort" role="button" aria-expanded="false"
-                                        aria-controls="collapseConfort">
-                                        <h6>Confort</h6>
-                                        <i class="bi bi-caret-down"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row collapse" id="collapseConfort">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Aire acondicionado</label>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <h6>Confort</h6>
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Aire acondicionado</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="aireacondicionado"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Regulacion de altura del volante</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Regulacion de altura del volante</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="regalturavolante"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Retrovisores electricos</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Retrovisores electricos</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="retrovisorelectrico"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Luces con regulacion automatica</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Luces con regulacion automatica</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="luzregautomatica"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Tapizado de cuero</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Tapizado de cuero</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="tapizadocuero"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Tapizado de semicuero</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Tapizado de semicuero</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="tapizadosemicuero"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Tapizado de tela</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Tapizado de tela</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="tapizadotela"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Sensor de parqueo</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Sensor de parqueo</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="sensorparqueo"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Vidrios electricos</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Vidrios electricos</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="vidrioselect"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Apertura remota de baul</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Apertura remota de baul</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="baulremoto"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Asientos electricos</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Asientos electricos</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="asientoelectricos"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Cierre centralizado de puertas</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Cierre centralizado de puertas</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="puertascentralizado"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Manuales</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Manuales</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="manuales"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Cierre automatico de vidrios</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Cierre automatico de vidrios</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="cierrevidriosauto"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
+                                    </mat-expansion-panel>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
-                                        href="#collapseSonido" role="button" aria-expanded="false"
-                                        aria-controls="collapseSonido">
-                                        <h6>Sonido</h6>
-                                        <i class="bi bi-caret-down"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row collapse" id="collapseSonido">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Bluetooth</label>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <h6>Sonido</h6>
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Bluetooth</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="bluetooth"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">DVD</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">DVD</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="dvd"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Reproductor de MP3</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Reproductor de MP3</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="repmp3"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Entrada USB</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Entrada USB</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="entradausb"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Equipo de sonido</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Equipo de sonido</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="eds"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                </div>    
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                   <a class="btn btn-desplegables" data-bs-toggle="collapse"
-                                        href="#collapseExterior" role="button" aria-expanded="false"
-                                        aria-controls="collapseExterior">
-                                        <h6>Equipamiento</h6>
-                                        <i class="bi bi-caret-down"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row collapse" id="collapseExterior">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Cubierta de platon</label>
-                                            </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Plana</label>
-                                            </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Estribos</label>
-                                            </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Spoiler</label>
-                                            </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Exploradoras</label>
-                                            </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Llantas nuevas</label>
-                                            </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Rines de lujo</label>
-                                            </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                    </mat-expansion-panel>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
-                                        href="#collapseGarantia" role="button" aria-expanded="false"
-                                        aria-controls="collapseGarantia">
-                                        <h6>Garantia y condiciones</h6>
-                                        <i class="bi bi-caret-down"></i>
-                                    </a>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <h6>Otros</h6>
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Cubierta de platon</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="cubiertaplaton"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Plana</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="plana"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Estribos</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="estribos"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Spoiler</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="spoiler"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Exploradoras</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="exploradoras"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Llantas nuevas</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="llantasn"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Rines de lujo</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="rineslujo"/>
+                                                    <div class="switch"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
                                 </div>
                             </div>
-                            <div class="row collapse" id="collapseGarantia">
+                            <div class="row">
                                 <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Garantia de fabrica</label>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <h6>Garantia y condiciones</h6>
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Garantia de fabrica</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="garfabrica"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Garantia mecanica</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Garantia mecanica</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="garmecanica"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Negociable</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Negociable</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="negociable"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Vempermuta</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Vempermuta</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="venpermuta"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Entrega a domicilio</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Entrega a domicilio</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="domicilio"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
-                                        </div>
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Test drive a domicilio</label>
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Test drive a domicilio</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="testdrivD"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 prueba">
-                                            <div>
-                                                <label for="dueñosi">Documentacion en casa</label>
+                                        <div class="row">
+                                            <div class="col-6 prueba">
+                                                <div>
+                                                    <label for="dueñosi">Documentacion en casa</label>
+                                                </div>
+                                                <label class="switch-wrap switch-success ml-2">
+                                                    <input type="checkbox"  formControlName="dochome"/>
+                                                    <div class="switch"></div>
+                                                </label>
                                             </div>
-                                            <label class="switch-wrap switch-success ml-2">
-                                                <input type="checkbox"  formControlName="vidrioseg"/>
-                                                <div class="switch"></div>
-                                            </label>
                                         </div>
-                                    </div>
+                                    </mat-expansion-panel>
                                 </div>
                             </div>
                         </form>

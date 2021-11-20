@@ -132,7 +132,8 @@ export class NuevoProductoComponent implements OnInit {
           this.progreso++;
           this.paso++;
           this.patchvalues();
-        }
+        };
+        break;
       case 'valor':
         console.log(this.valorform.get('valor').value)
         if(this.valorform.get('valor').value){
@@ -369,7 +370,7 @@ export class NuevoProductoComponent implements OnInit {
     this.asignarvalue('version', this.version );
     this.asignarvalue('year', this.year);
     this.asignarvalue('vendedor', this.auth._userinfo.uid);
-    
+    this.asignarvalue('categoria', this.category);
     this.asignarvalue('desc', this.vehicleForm.get('marcamodelo').value);
   }
   getCategories(){
