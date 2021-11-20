@@ -5,6 +5,7 @@ import {NuevoProductoComponent}from './nuevo-producto.component';
 import{NuevoProductoRoutingModule}from './nuevo-producto-routing.module';
 import {FormsModule, ReactiveFormsModule}from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     NuevoProductoRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatExpansionModule
   ]
 })
 export class NuevoProductoModule { }
