@@ -15,6 +15,7 @@ export class ListVersionesComponent implements OnInit {
   marcas: any[];
   modelos: any[];
   categories: any[];
+  pageActual: number = 1; 
   displayedColumns: string[] = ['category','marca', 'modelo','version', 'actions'];
   dataSource: any;
   idactual:string;

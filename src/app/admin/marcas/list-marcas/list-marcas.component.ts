@@ -18,6 +18,7 @@ export class ListMarcasComponent implements OnInit {
   marcaeditid: string;
   isloading=false;
   icon=false;
+  pageActual: number = 1;
 
   constructor(private marcaService: MarcasService, private dialog: NgbModal,
     private fb: FormBuilder,

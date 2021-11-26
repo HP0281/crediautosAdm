@@ -6,12 +6,14 @@ import { ListVehiclesComponent } from '../list-vehicles/list-vehicles.component'
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [ListVehiclesComponent],
   imports: [
     CommonModule,
     ListVehiclesRoutingModule,
+    NgxPaginationModule,
     MatTableModule,
     MatButtonModule
   ],

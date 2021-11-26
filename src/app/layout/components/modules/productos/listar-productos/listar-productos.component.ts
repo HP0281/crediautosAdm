@@ -25,6 +25,7 @@ export class ListarProductosComponent implements OnInit {
   empresaIs = false;
   loader = false;
   loaderEstado=false;
+  pageActual: number = 1;
 
   navigationExtras : NavigationExtras = {
     state:{

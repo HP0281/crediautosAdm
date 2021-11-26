@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="data" class="mat-elevation-z8">
+<table mat-table [dataSource]="data | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }" class="mat-elevation-z8">
     <ng-container matColumnDef="marca">
         <th mat-header-cell *matHeaderCellDef> Marca </th>
         <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
@@ -23,3 +23,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<pagination-controls id="listar" (pageChange)="pageActual = $event" responsive="true">
+</pagination-controls>

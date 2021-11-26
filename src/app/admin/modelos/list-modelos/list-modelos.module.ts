@@ -9,11 +9,13 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListModelosComponent } from './list-modelos.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [ListModelosComponent],
   imports: [
     CommonModule,
+    NgxPaginationModule,
     ListModelosRoutingModule,
     MatTableModule,
     MatButtonModule,

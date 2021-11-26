@@ -11,12 +11,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [ListMarcasComponent],
   imports: [
     CommonModule,
     ListMarcasRoutingModule,
+    NgxPaginationModule,
     MatCardModule,
     MatButtonModule,
     MatDialogModule,

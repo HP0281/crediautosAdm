@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-12">
         <div class="info">
-            <mat-card *ngFor="let marca of marcas">
+            <mat-card *ngFor="let marca of marcas | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }">
                 <mat-card-title>{{ marca.name }}</mat-card-title>
                 <mat-card-description>{{ marca.category }}</mat-card-description>
                 <mat-card-actions align="end">
@@ -9,6 +9,8 @@
                     <button mat-button (click)="openDeleteModal(deleteModal, marca.id, marca.name)" >Eliminar</button>
                 </mat-card-actions>
             </mat-card>
+            <pagination-controls id="listar" (pageChange)="pageActual = $event" responsive="true">
+            </pagination-controls>
         </div>
     </div>
 </div>

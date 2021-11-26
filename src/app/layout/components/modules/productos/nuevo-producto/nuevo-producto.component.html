@@ -44,16 +44,26 @@
             <div class="marca" *ngIf="progreso === 2">
                 <div class="target">
                     <h4>¿Cual es la marca?</h4>
-                    <input type="text" class="form-control" placeholder="Buscar marca">
+                    <input type="text" id="marca" class="form-control" placeholder="Buscar marca">
                     <div class="contenido-scroleable">
                         <span>MAS USADOS</span>
-                        <div class="list-group marcas">
-                            <button type="button" class="list-group-item list-group-item-action"
+                        <div class="list-group marcas" id="listmarca">
+                            <button type="button"  class="list-group-item list-group-item-action"
                                 (click)="onMarca(marca.name)" *ngFor="let marca of marcas">{{ marca.name }}</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <script>
+                $(document).ready(function(){
+                  $("#marca").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#listmarca *").filter(function() {
+                      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                  });
+                });
+                </script>
             <div class="modelo" *ngIf="progreso === 3">
                 <div class="target">
                     <h4>¿Cual es el modelo de tu {{ marca }}?</h4>

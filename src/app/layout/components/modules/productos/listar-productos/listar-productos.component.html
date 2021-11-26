@@ -33,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let vehicle of vehicles" class="text-center">
+                    <tr *ngFor="let vehicle of vehicles | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }"  class="text-center">
                         <td>{{vehicle.id}}</td>
                         <td>{{vehicle.marca}}</td>
                         <td>{{vehicle.modelo}}</td>
@@ -55,7 +55,8 @@
                     </tr>
                 </tbody>
             </table>
-
+            <pagination-controls id="listar" (pageChange)="pageActual = $event" responsive="true">
+                </pagination-controls>
         </div>
         <!-- <div *ngIf="failEliminado" class="float-left">
             <p class="p-3 bg-danger text-white rounded">Error: {{msjErr}}</p>

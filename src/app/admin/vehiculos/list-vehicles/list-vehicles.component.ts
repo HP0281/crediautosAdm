@@ -8,6 +8,8 @@ import { VehiclesInfoBasicService } from 'src/app/services/vehicles-info-basic.s
   styleUrls: ['./list-vehicles.component.css']
 })
 export class ListVehiclesComponent implements OnInit {
+  
+  pageActual: number = 1; 
   displayedColumns: string[] = ['marca', 'modelo', 'version', 'year', 'actions'];
   data: any;
 

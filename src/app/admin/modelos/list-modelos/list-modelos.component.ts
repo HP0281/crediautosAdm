@@ -15,7 +15,7 @@ export class ListModelosComponent implements OnInit {
   dataSource: any;
   modeloform: FormGroup;
   idactual:string;
-  
+  pageActual: number = 1; 
   marcas:any[];
   categories: any[];
 

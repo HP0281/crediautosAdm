@@ -8,12 +8,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [ListVersionesComponent],
   imports: [
     CommonModule,
     ListVersionesRoutingModule,
+    NgxPaginationModule,
     MatTableModule,
     MatButtonModule,
     MatCardModule, 
