@@ -35,3 +35,6 @@
 .min {
     min-width: min-content;
 }
+table{
+    width: 90%;
+}

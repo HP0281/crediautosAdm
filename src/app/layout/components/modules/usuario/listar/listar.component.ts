@@ -1,9 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable } from "rxjs";
+import { merge, Observable, of as observableOf } from "rxjs";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { HttpClient } from '@angular/common/http';
+import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-listar',
@@ -12,61 +16,27 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class ListarComponent implements OnInit {
 
-  eliminado = false;
-  failEliminado = false;
-  msjErr = '';
-  msjOK = '';
-  actualizado = false;
-  failActualizado = false;
-  msjErrAC = '';
-  msjOKAC = '';
-  pageActual: number =1;
-  filterUsuario='';
-  disponile="Disponible";
-  noDisponile="No disponible";
-  domiciliario="DOMICILIARIO";
+  displayedColumns: string[] = ['user', 'email', 'phone', 'rol', 'actions'];
+  data: any[] = [];
+  loader= false;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  loader:boolean = true;
+  resultsLength = 0;
+  isLoadingResults = true;
+  isRateLimitReached = false;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private userSv: UserServiceService) {}
+
+  ngAfterViewInit() {
   
-  constructor(private router:Router,
-    private serviceModal: NgbModal,
-    private userService:UserServiceService) { }
-
-  ngOnInit() {
-    this.userService.user.subscribe((resp:any)=>{
-      //this.categories = resp;
-      console.log("resp",resp)
-    })
   }
-  editarUsuario(usuario){
-    
-    localStorage.setItem("id_usuario",usuario.id+"");
-    this.router.navigate(["usuario/editar"]);
-    
+  ngOnInit(){
+    this.loader = true;
+    this.userSv.userAdmin.subscribe(resp=> {
+      this.data = resp;
+      this.loader = false;
+    });
   }
-
-  borrarUsuario(usuario){
-    if (confirm('¿Estás seguro?')) {
-     
-    }
-  }
-  inactivarUsuario(usuario){
-    //usuario.rol.id = this.getIdRol();
-   
-  }
-  activarUsuario(usuario){
-    
-  }
-  cambiarEstadoDomiciliarioDisp(usuario,modal){
-    this.serviceModal.open(modal);
-   
-  }
-  cambiarEstadoDomiciliarioNoDisp(usuario,modal){
-    this.serviceModal.open(modal);
-    usuario.estadoDomiciliario="No disponible";
-    
-    
-  }
-  
 }

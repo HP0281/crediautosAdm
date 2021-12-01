@@ -5,6 +5,8 @@ import{ListarRoutingModule}from './listar-routing.module';
 import {ListarComponent}from './listar.component';
 
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinner, MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
 
 
 
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     TranslateModule,
     ListarRoutingModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatProgressSpinnerModule
   ]
 })
 
