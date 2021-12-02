@@ -8,6 +8,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { UserComponent } from 'src/app/admin/modals/user/user.component';
 
 @Component({
   selector: 'app-listar',
@@ -27,7 +29,8 @@ export class ListarComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private userSv: UserServiceService) {}
+  constructor(private userSv: UserServiceService,
+     public dialog: MatDialog) {}
 
   ngAfterViewInit() {
   
@@ -37,6 +40,32 @@ export class ListarComponent implements OnInit {
     this.userSv.userAdmin.subscribe(resp=> {
       this.data = resp;
       this.loader = false;
+      this.isLoadingResults = false;
     });
+  }
+  onVer(element:any): void{
+    console.log('elemento'+JSON.stringify(element))
+    const dialogRef = this.dialog.open(UserComponent, {
+      data: {  
+        user: {
+          name: element.nombre,
+        lastname: element.apname,
+        phone: element.phone,
+        email: element.email,
+        rol: element.rol,
+        psw: element.clave
+        },
+        editable: false
+      },
+    });
+    dialogRef.afterClosed().subscribe(result =>{
+
+    })
+  }
+  onEditar(element:any){
+
+  }
+  onDelete(id:any){
+
   }
 }

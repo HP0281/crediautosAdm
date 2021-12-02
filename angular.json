@@ -24,6 +24,7 @@
               "src/images/logoicon.png"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles/material-icons/material-icons.css",
               "src/assets/jquery-jvectormap/jquery-jvectormap-2.0.3.css",

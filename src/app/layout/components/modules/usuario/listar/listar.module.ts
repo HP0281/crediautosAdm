@@ -7,6 +7,10 @@ import {ListarComponent}from './listar.component';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinner, MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UserModule } from 'src/app/admin/modals/user/user.module';
+import { UserComponent } from 'src/app/admin/modals/user/user.component';
 
 
 
@@ -19,8 +23,13 @@ import { MatProgressSpinner, MatProgressSpinnerModule, MatSpinner } from '@angul
     ListarRoutingModule,
     FormsModule,
     MatTableModule,
-    MatProgressSpinnerModule
-  ]
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    UserModule,
+    MatDialogModule,
+  ],
+  exports: [ListarComponent],
+  entryComponents: [UserComponent]
 })
 
 export class ListarModule { }
