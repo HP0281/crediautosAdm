@@ -8014,25 +8014,25 @@ body{
     border-left:1px dashed #fff
 }
 .header,.submenu,table.dataTable>tbody>tr.child ul.dtr-details>li,.table tr:last-child td,.border-bottom,.list-group-item{
-    border-bottom:1px solid rgba(91,146,255,0.15) !important
+    border-bottom:1px solid rgba(255,0,0,0.4) !important
 }
 .status-border,.list-group-flush .list-group-item.status-border{
     border-left:4px solid #ffffff
 }
 .table th,.table td,hr,.footer,.border-top{
-    border-top:1px solid rgba(91,146,255,0.15) !important
+    border-top:1px solid rgba(255,0,0,0.4) !important
 }
 .list-group-item.status-border{
-    border-top:1px solid rgba(91,146,255,0.15) !important
+    border-top:1px solid rgba(255,0,0,0.4) !important
 }
 .border-left{
-    border-left:1px solid rgba(91,146,255,0.15) !important
+    border-left:1px solid rgba(255,0,0,0.4) !important
 }
 .border,.table-bordered,.table tbody tr td,.table thead tr th,.table tbody tr th,.fc-unthemed .fc-content,.fc-unthemed .fc-divider,.fc-unthemed .fc-list-heading td,.fc-unthemed .fc-list-view,.fc-unthemed .fc-popover,.fc-unthemed .fc-row,.fc-unthemed tbody,.fc-unthemed td,.fc-unthemed th,.fc-unthemed thead{
-    border-color:rgba(91,146,255,0.15) !important
+    border-color:rgba(255,0,0,0.5) !important
 }
 .border-right{
-    border-color:rgba(91,146,255,0.15) !important
+    border-color:rgba(255,0,0,0.5) !important
 }
 .material-icons.md-18{
     font-size:18px
@@ -8800,7 +8800,6 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon{
 .submenu .form-control,.submenu input[type="text"],.submenu input[type="email"],.submenu input[type="password"],.submenu input[type="tel"],.submenu input[type="date"],.submenu input[type="range"]{
     background-color:#eeeeee;
     border-color:#eeeeee;
-    color:#fff
 }
 .header-fill .header{
     color:#fff;
@@ -8852,7 +8851,7 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon{
 .header-fill .submenu .form-control,.header-fill .submenu input[type="text"],.header-fill .submenu input[type="email"],.header-fill .submenu input[type="password"],.header-fill .submenu input[type="tel"],.header-fill .submenu input[type="date"],.header-fill .submenu input[type="range"]{
     background-color:#eeeeee;
     border-color:#29387d;
-    color:#fff
+    
 }
 @media screen and (max-width: 992px){
     body.header-fixed-top.sidemenu-open .header-container{
@@ -8922,7 +8921,7 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon{
     white-space:normal
 }
 .dropdown .dropdown-menu .dropdown-item.new{
-    background-color:rgba(91,146,255,0.15)
+    background-color:rgba(255,0,0,0.4)
 }
 .dropdown .dropdown-menu .dropdown-item:active{
     background-color:#eeeeee
@@ -8945,7 +8944,7 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon{
 }
 .dropdown .dropdown-menu *::-webkit-scrollbar-track{
     border-radius:5px;
-    background:rgba(91,146,255,0.15)
+    background:rgba(255,0,0,0.4)
 }
 .dropdown .nav-pills.tab-white .nav-link{
     color:#fff
@@ -9212,7 +9211,7 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon{
 }
 .sw-main{
     z-index:0;
-    border:1px solid rgba(91,146,255,0.15);
+    border:1px solid rgba(255,0,0,0.4);
     -webkit-box-shadow:none;
     box-shadow:none
 }
@@ -9225,16 +9224,16 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon{
 }
 .sw-main>ul.step-anchor>li.active>a{
     color:#fff !important;
-    background-color:rgba(91,146,255,0.15) !important
+    background-color:rgba(255,0,0,0.4) !important
 }
 .sw-main .step-content{
     padding:30px 15px;
-    border:0px solid rgba(91,146,255,0.15);
+    border:0px solid rgba(255,0,0,0.4);
     background-color:transparent
 }
 .sw-main .sw-toolbar-bottom{
     padding:15px 15px;
-    border:0px solid rgba(91,146,255,0.15);
+    border:0px solid rgba(255,0,0,0.4);
     background-color:transparent
 }
 .sw-main.sw-theme-arrows>ul.step-anchor{
@@ -9994,7 +9993,7 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon{
     color:#000
 }
 .list-group-item.new{
-    background-color:rgba(91,146,255,0.15)
+    background-color:rgba(255,0,0,0.4)
 }
 .list-group-item.new p{
     color:#fff
@@ -10040,8 +10039,7 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon{
     color:#fff
 }
 .table thead tr th{
-    color:#fff;
-    border:0 none;
+    color:#000;
     font-weight:400;
     padding:0.75rem 0.5rem
 }

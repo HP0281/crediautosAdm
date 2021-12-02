@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-12">
+        <div class="info">
+            <mat-card *ngFor="let marca of marcas | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }">
+                <mat-card-title>{{ marca.name }}</mat-card-title>
+                <mat-card-description>{{ marca.category }}</mat-card-description>
+                <mat-card-actions align="end">
+                    <button mat-button (click)="onEditar(marca.id, editmodal, marca.name, marca.category )">Editar</button>
+                    <button mat-button (click)="openDeleteModal(deleteModal, marca.id, marca.name)" >Eliminar</button>
+                </mat-card-actions>
+            </mat-card>
+            <pagination-controls id="listar" (pageChange)="pageActual = $event" responsive="true">
+            </pagination-controls>
+        </div>
+    </div>
+</div>
+<ng-template #editmodal>
+    <mat-card>
+        <mat-card-title>
+            Editar Categoria
+        </mat-card-title>
+        <mat-card-actions >
+            <form action="" [formGroup]="marcaForm">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                          <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                             formControlName="category" id="floatingSelect">
+                             <option [value]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
+                            </select>
+                            <label for="floatingSelect" class="lblfloat">Seleccionar categoria</label>
+                          </div>
+                    </div>
+                    <div class="col-6">
+                        
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la categoria" formControlName="name">
+
+                    </div>
+                </div>
+            </form>
+           
+            <button mat-button [disabled]="!marcaForm.valid" (click)="onGuardar(marcaeditid, confirModal)">Guardar</button>
+        </mat-card-actions>
+    </mat-card>
+</ng-template>
+<ng-template #deleteModal>
+    <mat-card *ngIf="!isloading && !icon">
+        <mat-card-title>
+            Eliminar Categoria
+        </mat-card-title>
+        <mat-card-subtitle>
+            Esta a punto de eliminar la siguiente Tipo: 
+        </mat-card-subtitle>
+        <mat-card-content>
+            {{ deletemarca }}
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button (click)="onEliminar(marcaDeleteid)">Eliminar</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-spinner *ngIf="isloading"></mat-spinner>
+    <mat-icon *ngIf="icon">check_circle</mat-icon>
+</ng-template>
+<ng-template #confirModal>
+    <mat-card>
+        <mat-card-title>Registro Modificado</mat-card-title>
+    </mat-card>
+</ng-template>

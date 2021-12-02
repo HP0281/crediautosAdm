@@ -10,6 +10,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { ListMarcasModule } from './list-marcas/list-marcas.module';
 import { NewMarcasModule } from './new-marcas/new-marcas.module';
+import { ListlMarcasMotosModule } from './list-marcas-motos/listl-marcas-motos/listl-marcas-motos.module';
+import { ListTipoCamionModule } from './list-tipo-camion/list-tipo-camion/list-tipo-camion.module';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { NewMarcasModule } from './new-marcas/new-marcas.module';
     MatTabsModule,
     MatCardModule,
     ListMarcasModule,
-    NewMarcasModule
+    NewMarcasModule,
+    ListlMarcasMotosModule,
+    ListTipoCamionModule
   ]
 })
 export class MarcasModule { }

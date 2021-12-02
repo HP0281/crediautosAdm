@@ -35,6 +35,7 @@
         <a class="nav-link dropdown-toggle" href="javascript:void(0)" (click)="addExpandClass('settings')"><i class="material-icons icon">settings_applications</i><span>Gestionar usuarios</span> <i class="material-icons arrow">expand_more</i></a>
         <div class="nav flex-column" [class.d-block]="showMenu === 'settings'">
             <div class="nav-item" [routerLink]="['/usuario']" [routerLinkActive]="['active']"><a class="nav-link"><span>Usuarios</span></a></div>
+            <div class="nav-item" [routerLink]="['/clientes']" [routerLinkActive]="['active']"><a class="nav-link"><span>Clientes</span></a></div>
 
         </div>
     </li>

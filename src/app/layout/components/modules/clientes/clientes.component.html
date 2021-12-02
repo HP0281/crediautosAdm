@@ -1,0 +1,56 @@
+<div>
+    <div class="row submenu">
+        <div class="container-fluid" id="submenu-container">
+            <div class="row">
+                <!-- Submenu section starts -->
+                <nav class="navbar col-12 ">
+
+                    <nav class={{isShow}}>
+                        <ul>
+                            <li><a class="btn dropdown-toggle btn-sm btn-primary" >Menu</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item"><a (click)="Listar()">
+                                        Listar
+                                    </a></li>
+                                    <li class="dropdown-item"><a (click)="Nuevo()">Nuevo </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+
+                    <ul class="nav nav-pills mr-auto d-none d-sm-flex">
+                        <li class="nav-item d-block d-sm-block d-md-none" (click)="Listar()">
+                            <a class="nav-link active">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Menu</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="Listar()">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Listar</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="Nuevo()">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Nuevo</font>
+                                </font>
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+                </nav>
+                <!-- Submenu section ends -->
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<router-outlet></router-outlet>
+<hr>
