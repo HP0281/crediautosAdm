@@ -35,3 +35,14 @@
 .min {
     min-width: min-content;
 }
+table{
+    width: 90%;
+}
+mat-dialog-container {
+    width: 300px;
+    position: fixed;
+    top: 100;
+    display: flex;
+    margin: 0 auto;
+    z-index: 500;
+}
