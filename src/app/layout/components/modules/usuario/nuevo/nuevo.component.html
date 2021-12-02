@@ -1,65 +1,67 @@
-<div class="container col-md-6">
-    <div class="card">
-        <div class="card-header">
-            <h3>Usuario</h3>
-
-        </div>
-        <div class="card-body">
-            <form action="" #f="ngForm" novalidate>
-                <div>
-                    <label for="">Selecciona un rol de usuario</label>
-                    <div class="center-loader" *ngIf="loader">
-                        <strong>Cargando roles
-                            <span class="loader__dot">.</span>
-                            <span class="loader__dot">.</span>
-                            <span class="loader__dot">.</span></strong>
+<div class="container-fluid main">
+    <div class="formulario">
+        <mat-card>
+            <mat-card-title>Completa los datos del usuario a crear</mat-card-title>
+            <br>
+            <div class="example-container">
+                <form  [formGroup]="registroForm">
+                    <div class="row">
+                        <div class=" col-xs-12 col-sm-12 col-md-6">
+                            <mat-form-field >
+                                <mat-label>Nombre</mat-label>
+                                <input matInput type="text"  id="nombre" formControlName="nombre"
+                                required>
+                                <mat-error *ngIf="this.registroForm.valid">Nombre Requerido</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class=" col-xs-12 col-sm-12 col-md-6">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Apellidos</mat-label>
+                                <input matInput type="text"  id="apellidos" formControlName="apname" required>
+                                <mat-error *ngIf="this.registroForm.valid">Apellidos Requeridos</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class=" col-xs-12 col-sm-12 col-md-6">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Telefono</mat-label>
+                            <span matPrefix>+57 &nbsp;</span>
+                            <input type="tel" matInput placeholder="555-555-1234" id="telefono" formControlName="phone" required>
+                            <mat-icon matSuffix>mode_edit</mat-icon>
+                                <mat-error *ngIf="this.registroForm.valid">Telefono Requeridos</mat-error>
+                            </mat-form-field>
+                        </div>
                     </div>
-
-                    <select *ngIf="!loader" class="form-control"  (change)="capturar()">
-                        <option value="0">Selecciona un Rol</option>
-                        <option  style="margin-block: 10px">
-                            asd
-                        </option>
-                    </select>
-                    <div *ngIf="empresa; then thenBlock else elseBlock">
-
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Email</mat-label>
+                                <input type="email" matInput id="email" formControlName="email"
+                                       placeholder="Ex. pat@example.com" required>
+                                <mat-error *ngIf="this.registroForm.value && !this.registroForm.hasError('required')">
+                                    Por favor, introduce un correo electrónico válido
+                                </mat-error>
+                                <mat-error *ngIf="this.registroForm.valid">
+                                  Email is <strong>required</strong>
+                                </mat-error>
+                              </mat-form-field>
+                        </div>         
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Contraseña</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" id="clave" formControlName="clave">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" >
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
                     </div>
-                    <ng-template ></ng-template>
-                    <ng-template >
-                        <label for="">Selecciona una empresa de usuario</label>
-                        <select class="form-control" name="empresaSeleccionada" (change)="capturarEmpresa()">
-
-                            <option  style="margin-block: 10px">
-                                asd
-                            </option>
-                        </select>
-                    </ng-template>
-
-                </div>
-                <div class="form-group">
-                    <label for="">Nombre</label>
-                    <input type="text" class="form-control" (input)="validadorNombre($event)"  name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="">email</label>
-                    <input type="email" class="form-control"  name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="">Contraseña</label>
-                    <input type="password" class="form-control" name="password" required>
-                </div>
-
-                <button class="btn btn-danger" [disabled]="!f.valid">Guardar</button>
-
-            </form>
-            <div *ngIf="failCreado" class="float-left">
-                <p class="p-3 bg-danger text-white rounded" style="margin: 10px">Error: {{msjErr}}</p>
+                </form>
             </div>
-            <div *ngIf="creado" class="float-left">
-                <p class="p-3 bg-success text-white rounded" style="margin: 10px">OK: {{msjOK}}</p>
-            </div>
-
-        </div>
-
+            <mat-card-actions>
+            </mat-card-actions>
+        </mat-card>
+        <br><br>
+        <button mat-raised-button color="warn" [disabled]="!registroForm.valid"
+            (click)="onRegistrar(registroForm.get('email').value, registroForm.get('clave').value )">Continuar</button>
     </div>
 </div>

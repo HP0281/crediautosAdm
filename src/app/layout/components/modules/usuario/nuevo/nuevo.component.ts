@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
+import { User } from 'src/app/models/user.interface';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 
 @Component({
@@ -10,91 +14,52 @@ import { element } from 'protractor';
 })
 export class NuevoComponent implements OnInit {
 
-  opcionSeleccionado: string = '0';
-  empresaSeleccionada:String='0';
-  verSeleccion: string = '';
+  user : User;
+  hide = false; 
+  labelPosition: 'before' | 'after' = 'after';
 
-  empresa = false;
-  loader = true;
-
-  msjErr = '';
-  msjOK = '';
-  creado = false;
-  failCreado = false;
-
-
-
-  constructor(private router: Router) { }
-
-  ngOnInit() {
-    this.cargarRoles();
-    this.cargarEmpresas();
-  }
-
-  cargarEmpresas() {
-   
-  }
-  cargarRoles(): void {
-    
-  }
-  esEmailValido(email: string):boolean {
-    let mailValido = false;
-      'use strict';
-
-      var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-      if (email.match(EMAIL_REGEX)){
-        mailValido = true;
-      }
-    return mailValido;
+  registroForm: FormGroup;
+  constructor(private fb: FormBuilder, private userservice: UserServiceService,
+    private authservice: AuthServiceService) {
+    this.initform();
+   }
+  ngOnInit(): void {
   }
   
-  capturar() {
-
-    this.verSeleccion = this.opcionSeleccionado;
-    if (this.opcionSeleccionado == "EMPRESA") {
-      this.empresa = true;
-      
-    
-    } else this.empresa = false;
+  initform(){
+    this.registroForm = this.fb.group({
+      nombre: new FormControl('', [
+        Validators.required
+      ]),
+      apname:  new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
+      clave: new FormControl('', [Validators.required])
+    })
   }
-  capturarEmpresa() {
-   
-  
+  async onRegistrar(email: string, pass: string){
+    try {
+      await this.authservice.registrar(email, pass);
+      this.onGuardar();
+      this.registroForm.reset();
+    } catch (error) {
+      alert(error.message);
+    }
+    this.onGuardar();
   }
-  guardarUsuario() {
-    
+  onGuardar(){
+    if (this.registroForm.valid) {
+      const user = this.registroForm.value;
+      console.log(user)
+      const userid = null;
+      this.userservice.onSaveUserAdmin(this.registroForm.value);
+    }
   }
-
-  validadorNombre(event: any){
-    const pattern = /^[a-zA-Z ]*$/;   
-  //let inputChar = String.fromCharCode(event.charCode)
-  if (!pattern.test(event.target.value)) {
-    event.target.value = event.target.value.replace(/[^a-zA-Z ]/g, "");
-    this.failCreado = true;
-    this.msjErr ="solo se permiten letras en el nombre";
-    // invalid character, prevent input
-  }else{
-    this.failCreado = false;
-  }
-
-
-  }
-
-  getEmpresa(){
-  
-  }
-  guardarCaja() {
-    
-
-  }
-  getidSesion() {
-   
-
-  }
-
-  getIdRol() {
+  getErrorMessage() {
+    if (this.registroForm.get('nombre').hasError('required')) {
+      return 'You must enter a value';
+    }
  
-    
+    return this.registroForm.get('nombre').hasError('nombre') ? 'Not a valid nombre' : '';
   }
 }
