@@ -81,4 +81,9 @@ export class UserServiceService {
   getUserByIdAdmin(id:string){
     return this.afs.collection(('usersAdmin'), ref => ref.where('id', '==', id)).valueChanges();
   }
+  validateuserAdmin(email:string){
+    return this.afs.collection(('usersAdmin'), ref => ref.where('email', "==", email)).valueChanges().pipe(
+      map(actions => actions.map(a => a as User))
+    );
+  }
 }

@@ -7,9 +7,9 @@
                 <form  [formGroup]="registroForm">
                     <div class="row">
                         <div class=" col-xs-12 col-sm-12 col-md-6">
-                            <mat-form-field >
+                            <mat-form-field class="example-full-width" appearance="fill">
                                 <mat-label>Nombre</mat-label>
-                                <input matInput type="text"  id="nombre" formControlName="nombre"
+                                <input matInput type="text"  id="nombre" formControlName="name"
                                 required>
                                 <mat-error *ngIf="this.registroForm.valid">Nombre Requerido</mat-error>
                             </mat-form-field>
@@ -17,7 +17,7 @@
                         <div class=" col-xs-12 col-sm-12 col-md-6">
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <mat-label>Apellidos</mat-label>
-                                <input matInput type="text"  id="apellidos" formControlName="apname" required>
+                                <input matInput type="text"  id="apellidos" formControlName="lastname" required>
                                 <mat-error *ngIf="this.registroForm.valid">Apellidos Requeridos</mat-error>
                             </mat-form-field>
                         </div>
@@ -25,9 +25,17 @@
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <mat-label>Telefono</mat-label>
                             <span matPrefix>+57 &nbsp;</span>
-                            <input type="tel" matInput placeholder="555-555-1234" id="telefono" formControlName="phone" required>
+                            <input type="number" matInput placeholder="555-555-1234" id="telefono" formControlName="phone" required>
                             <mat-icon matSuffix>mode_edit</mat-icon>
                                 <mat-error *ngIf="this.registroForm.valid">Telefono Requeridos</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class=" col-xs-12 col-sm-12 col-md-6">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Rol</mat-label>
+                            <input type="text" matInput placeholder="Agente" autocapitalize="true" id="rol" formControlName="rol" required>
+                            <mat-icon matSuffix>mode_edit</mat-icon>
+                                <mat-error *ngIf="this.registroForm.valid">Rol Requerido</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
@@ -48,7 +56,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-6">
                             <mat-form-field class="example-full-width" appearance="fill">
                                 <mat-label>Contraseña</mat-label>
-                                <input matInput [type]="hide ? 'password' : 'text'" id="clave" formControlName="clave">
+                                <input matInput [type]="hide ? 'password' : 'text'" id="clave" formControlName="psw">
                                 <button mat-icon-button matSuffix (click)="hide = !hide" >
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
@@ -62,6 +70,6 @@
         </mat-card>
         <br><br>
         <button mat-raised-button color="warn" [disabled]="!registroForm.valid"
-            (click)="onRegistrar(registroForm.get('email').value, registroForm.get('clave').value )">Continuar</button>
+            (click)="onRegistrar(registroForm.get('email').value, registroForm.get('psw').value )">Continuar</button>
     </div>
 </div>

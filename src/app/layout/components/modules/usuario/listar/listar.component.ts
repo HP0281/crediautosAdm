@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { UserComponent } from 'src/app/admin/modals/user/user.component';
+import { ConfirmacionComponent } from 'src/app/admin/modals/confirmacion/confirmacion.component';
 
 @Component({
   selector: 'app-listar',
@@ -46,10 +47,11 @@ export class ListarComponent implements OnInit {
   onVer(element:any): void{
     console.log('elemento'+JSON.stringify(element))
     const dialogRef = this.dialog.open(UserComponent, {
+      width: '300px',
       data: {  
         user: {
-          name: element.nombre,
-        lastname: element.apname,
+        name: element.name,
+        lastname: element.lastname,
         phone: element.phone,
         email: element.email,
         rol: element.rol,
@@ -63,9 +65,37 @@ export class ListarComponent implements OnInit {
     })
   }
   onEditar(element:any){
-
+    const dialogRef = this.dialog.open(UserComponent, {
+      width: '300px',
+      data: {  
+        user: {
+        name: element.name,
+        lastname: element.lastname,
+        phone: element.phone,
+        email: element.email,
+        rol: element.rol,
+        psw: element.psw
+        }
+      },
+    });
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log('resultado modal '+JSON.stringify(result))
+      if (result) {
+        this.userSv.onSaveUserAdmin(result, element.id);
+      }
+    })
   }
   onDelete(id:any){
-
+    const dialogref = this.dialog.open(ConfirmacionComponent, {
+      width: '250px',
+      data: {
+        message: "Desea eliminar el Usuario seleccionado?"
+      }
+    });
+    dialogref.afterClosed().subscribe(result => {
+      if (result) {
+        this.userSv.onDeleteUserAdmin(id);
+      }
+    })
   }
 }

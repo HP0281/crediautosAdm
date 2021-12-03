@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UserModule } from 'src/app/admin/modals/user/user.module';
 import { UserComponent } from 'src/app/admin/modals/user/user.component';
+import { ConfirmacionModule } from 'src/app/admin/modals/confirmacion/confirmacion.module';
 
 
 
@@ -27,6 +28,7 @@ import { UserComponent } from 'src/app/admin/modals/user/user.component';
     MatButtonModule,
     UserModule,
     MatDialogModule,
+    ConfirmacionModule
   ],
   exports: [ListarComponent],
   entryComponents: [UserComponent]
