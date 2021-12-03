@@ -1,0 +1,9 @@
+.actions{
+    display: flex;
+    flex-direction: row;
+    padding: 25px 0;
+    justify-content: end;
+}
+.h6{
+    text-align: center;
+}

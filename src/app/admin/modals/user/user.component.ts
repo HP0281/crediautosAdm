@@ -15,7 +15,6 @@ export class UserComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<UserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb:FormBuilder) {
-      console.log('entro dialog')
 
      }
 
@@ -46,12 +45,12 @@ export class UserComponent implements OnInit {
   }
   onGuardar(){
     this.dialogRef.close({
-      name: this.direccionForm.get('name').value,
-      lastname: this.direccionForm.get('descripcion').value,
-      phone: this.direccionForm.get('phone').value,
-      email: this.direccionForm.get('email').value,
-      psw: this.direccionForm.get('psw').value,
-      rol: this.direccionForm.get('rol').value
+      name: this.userForm.get('name').value,
+      lastname: this.userForm.get('lastname').value,
+      phone: this.userForm.get('phone').value,
+      email: this.userForm.get('email').value,
+      psw: this.userForm.get('psw').value,
+      rol: this.userForm.get('rol').value
     });
   }
   initForm(){
