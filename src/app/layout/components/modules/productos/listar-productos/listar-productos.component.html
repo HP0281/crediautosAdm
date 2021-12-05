@@ -16,27 +16,29 @@
             <h3>LISTADO DE PRODUCTOS</h3>
 
         </div>
-        <input class="form-control" type="text" name="filterProducto" placeholder="buscar producto">
+        <input class="form-control" type="text" name="filterProducto" placeholder="Buscar Producto" [(ngModel)]="filterMarcas">
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
                     <tr class="text-center">
-                        <th>ID producto</th>
+                        <th>Vendedor</th>
                         <th>Marca</th>
                         <th>Modelo</th>
+                        <th>Version</th>
                         <th>Año</th>
                         <th>Placa</th>
-                        <th>Estado Producto</th>
+                        <th>Publicar</th>
                         <th>Promocion</th>
                         <th>Valor</th>
                         <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let vehicle of vehicles | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }"  class="text-center">
-                        <td>{{vehicle.id}}</td>
+                    <tr *ngFor="let vehicle of vehicles | filtarmarca:filterMarcas | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } "  class="text-center">
+                        <td>{{vehicle.Vendedor}}</td>
                         <td>{{vehicle.marca}}</td>
                         <td>{{vehicle.modelo}}</td>
+                        <td>{{vehicle.version}}</td>
                         <td>{{vehicle.year}}</td>
                         <td>{{vehicle.placa}}</td>
                         <td>  <label class="switch-wrap switch-success ml-2">
@@ -49,7 +51,10 @@
                         </label></td>
                         <td>{{vehicle.valor}}</td>
                         <td>
-                            <button (click)="modificarProducto(vehicle)" style="margin: 10px" class="btn btn-primary">Modificar</button>
+                            <button (click)="modificarProducto(vehicle)" class="btn"><i class="material-icons">
+                                edit</i></button>
+                            <a class="btn "><i class="material-icons">visibility</i></a>
+                            <a class="btn "><i class="material-icons">delete</i></a>
 
                         </td>
                     </tr>

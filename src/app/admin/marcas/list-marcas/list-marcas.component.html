@@ -1,7 +1,8 @@
 <div class="row">
     <div class="col-12">
         <div class="info">
-            <mat-card *ngFor="let marca of marcas | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }">
+            <input class="form-control" type="text" name="filterMarcas" placeholder="buscar Marca" [(ngModel)]="filterMarcas">
+            <mat-card *ngFor="let marca of marcas| paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual }  | marcas:filterMarcas ">
                 <mat-card-title>{{ marca.name }}</mat-card-title>
                 <mat-card-description>{{ marca.category }}</mat-card-description>
                 <mat-card-actions align="end">

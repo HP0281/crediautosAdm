@@ -7,6 +7,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PipesModule } from 'src/app/pipes/pipes.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ListVehiclesComponent],
@@ -15,7 +17,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ListVehiclesRoutingModule,
     NgxPaginationModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    PipesModule,
+    FormsModule
   ],
   exports: [ListVehiclesComponent]
 })

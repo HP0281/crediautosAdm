@@ -20,6 +20,7 @@ export class ListVersionesComponent implements OnInit {
   dataSource: any;
   idactual:string;
   versionForm: FormGroup;
+  filterVersiones: string ='';
 
   constructor(private versionService: VersionesService,
     private fb: FormBuilder, private dialog: NgbModal,

@@ -12,7 +12,7 @@ export class ListVehiclesComponent implements OnInit {
   pageActual: number = 1; 
   displayedColumns: string[] = ['marca', 'modelo', 'version', 'year', 'actions'];
   data: any;
-
+  filterVehicles: string='';
    navigationExtras: NavigationExtras = {
      state:{
        value: null

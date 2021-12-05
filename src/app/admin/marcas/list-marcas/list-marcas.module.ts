@@ -6,13 +6,14 @@ import { ListMarcasComponent } from './list-marcas.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import { PipesModule } from 'src/app/pipes/pipes.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [ListMarcasComponent],
@@ -26,7 +27,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    PipesModule,
+    FormsModule
   ],
   exports: [ListMarcasComponent]
 })

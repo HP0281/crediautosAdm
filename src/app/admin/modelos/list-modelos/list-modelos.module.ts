@@ -6,10 +6,11 @@ import { ListModelosRoutingModule } from './list-modelos-routing.module';
 import {MatTableModule} from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListModelosComponent } from './list-modelos.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import {PipesModule} from 'src/app/pipes/pipes.module';
 
 @NgModule({
   declarations: [ListModelosComponent],
@@ -20,7 +21,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatTableModule,
     MatButtonModule,
     MatCardModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    PipesModule
   ],
   exports:[ListModelosComponent]
 })

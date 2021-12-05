@@ -1,5 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["admin-marcas-marcas-module"],{
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.component.html":
+/*!*******************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.component.html ***!
+  \*******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n    hola\n    <div class=\"col-12\">\n        <div class=\"info\">\n            <mat-card *ngFor=\"let marca of marcas | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }\">\n                <mat-card-title>{{ marca.name }}</mat-card-title>\n                <mat-card-description>{{ marca.category }}</mat-card-description>\n                <mat-card-actions align=\"end\">\n                    <button mat-button (click)=\"onEditar(marca.id, editmodal, marca.name, marca.category )\">Editar</button>\n                    <button mat-button (click)=\"openDeleteModal(deleteModal, marca.id, marca.name)\" >Eliminar</button>\n                </mat-card-actions>\n            </mat-card>\n            <pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\n            </pagination-controls>\n        </div>\n    </div>\n</div>\n<ng-template #editmodal>\n    <mat-card>\n        <mat-card-title>\n            Editar Categoria\n        </mat-card-title>\n        <mat-card-actions >\n            <form action=\"\" [formGroup]=\"marcaForm\">\n                <div class=\"row\">\n                    <div class=\"col-6\">\n                        <div class=\"form-floating mb-3\">\n                          <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\n                             formControlName=\"category\" id=\"floatingSelect\">\n                             <option [value]=\"category.name\" *ngFor=\"let category of categories\">{{ category.name }}</option>\n                            </select>\n                            <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar categoria</label>\n                          </div>\n                    </div>\n                    <div class=\"col-6\">\n                        \n                    <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la categoria\" formControlName=\"name\">\n\n                    </div>\n                </div>\n            </form>\n           \n            <button mat-button [disabled]=\"!marcaForm.valid\" (click)=\"onGuardar(marcaeditid, confirModal)\">Guardar</button>\n        </mat-card-actions>\n    </mat-card>\n</ng-template>\n<ng-template #deleteModal>\n    <mat-card *ngIf=\"!isloading && !icon\">\n        <mat-card-title>\n            Eliminar Categoria\n        </mat-card-title>\n        <mat-card-subtitle>\n            Esta a punto de eliminar la siguiente Marca: \n        </mat-card-subtitle>\n        <mat-card-content>\n            {{ deletemarca }}\n        </mat-card-content>\n        <mat-card-actions align=\"end\">\n            <button mat-button (click)=\"onEliminar(marcaDeleteid)\">Eliminar</button>\n        </mat-card-actions>\n    </mat-card>\n    <mat-spinner *ngIf=\"isloading\"></mat-spinner>\n    <mat-icon *ngIf=\"icon\">check_circle</mat-icon>\n</ng-template>\n<ng-template #confirModal>\n    <mat-card>\n        <mat-card-title>Registro Modificado</mat-card-title>\n    </mat-card>\n</ng-template>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/admin/marcas/list-marcas/list-marcas.component.html":
 /*!***********************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/admin/marcas/list-marcas/list-marcas.component.html ***!
@@ -11,6 +22,17 @@ module.exports = "<div class=\"row\">\r\n    <div class=\"col-12\">\r\n        <
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.component.html":
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.component.html ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n    <div class=\"col-12\">\n        <div class=\"info\">\n            <mat-card *ngFor=\"let marca of marcas | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }\">\n                <mat-card-title>{{ marca.name }}</mat-card-title>\n                <mat-card-description>{{ marca.category }}</mat-card-description>\n                <mat-card-actions align=\"end\">\n                    <button mat-button (click)=\"onEditar(marca.id, editmodal, marca.name, marca.category )\">Editar</button>\n                    <button mat-button (click)=\"openDeleteModal(deleteModal, marca.id, marca.name)\" >Eliminar</button>\n                </mat-card-actions>\n            </mat-card>\n            <pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\n            </pagination-controls>\n        </div>\n    </div>\n</div>\n<ng-template #editmodal>\n    <mat-card>\n        <mat-card-title>\n            Editar Categoria\n        </mat-card-title>\n        <mat-card-actions >\n            <form action=\"\" [formGroup]=\"marcaForm\">\n                <div class=\"row\">\n                    <div class=\"col-6\">\n                        <div class=\"form-floating mb-3\">\n                          <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\n                             formControlName=\"category\" id=\"floatingSelect\">\n                             <option [value]=\"category.name\" *ngFor=\"let category of categories\">{{ category.name }}</option>\n                            </select>\n                            <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar categoria</label>\n                          </div>\n                    </div>\n                    <div class=\"col-6\">\n                        \n                    <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la categoria\" formControlName=\"name\">\n\n                    </div>\n                </div>\n            </form>\n           \n            <button mat-button [disabled]=\"!marcaForm.valid\" (click)=\"onGuardar(marcaeditid, confirModal)\">Guardar</button>\n        </mat-card-actions>\n    </mat-card>\n</ng-template>\n<ng-template #deleteModal>\n    <mat-card *ngIf=\"!isloading && !icon\">\n        <mat-card-title>\n            Eliminar Categoria\n        </mat-card-title>\n        <mat-card-subtitle>\n            Esta a punto de eliminar la siguiente Tipo: \n        </mat-card-subtitle>\n        <mat-card-content>\n            {{ deletemarca }}\n        </mat-card-content>\n        <mat-card-actions align=\"end\">\n            <button mat-button (click)=\"onEliminar(marcaDeleteid)\">Eliminar</button>\n        </mat-card-actions>\n    </mat-card>\n    <mat-spinner *ngIf=\"isloading\"></mat-spinner>\n    <mat-icon *ngIf=\"icon\">check_circle</mat-icon>\n</ng-template>\n<ng-template #confirModal>\n    <mat-card>\n        <mat-card-title>Registro Modificado</mat-card-title>\n    </mat-card>\n</ng-template>"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/admin/marcas/marcas.component.html":
 /*!******************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/admin/marcas/marcas.component.html ***!
@@ -18,7 +40,7 @@ module.exports = "<div class=\"row\">\r\n    <div class=\"col-12\">\r\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <div class=\"row submenu\">\r\n        <div class=\"container-fluid\">\r\n            <div class=\"row\">\r\n                <mat-tab-group mat-align-tabs=\"start\">\r\n                    <mat-tab label=\"Listar\">\r\n                        <app-list-marcas></app-list-marcas>\r\n                    </mat-tab>\r\n                    <mat-tab label=\"Nuevo\">\r\n                        <app-new-marcas></app-new-marcas>\r\n                    </mat-tab>\r\n                    <mat-tab label=\"Otros\">Content 3</mat-tab>\r\n                </mat-tab-group>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div>\r\n    <div class=\"row submenu\">\r\n        <div class=\"container-fluid\">\r\n            <div class=\"row\">\r\n                <mat-tab-group mat-align-tabs=\"start\">\r\n                    <mat-tab label=\"Listar Marcas carros\">\r\n                        <app-list-marcas></app-list-marcas>\r\n                    </mat-tab>\r\n                    <mat-tab label=\"Listar Marcas Motos\">\r\n                        <app-listl-marcas-motos></app-listl-marcas-motos>\r\n                    </mat-tab>\r\n                    <mat-tab label=\"Listar Tipos Camiones\">\r\n                        <app-list-tipo-camion></app-list-tipo-camion>\r\n                    </mat-tab>\r\n                    <mat-tab label=\"Nuevo\">\r\n                        <app-new-marcas></app-new-marcas>\r\n                    </mat-tab>\r\n                    <mat-tab label=\"Otros\">Content 3</mat-tab>\r\n                </mat-tab-group>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -30,6 +52,208 @@ module.exports = "<div>\r\n    <div class=\"row submenu\">\r\n        <div class
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"body\">\r\n    <div class=\"body-page\">\r\n        <div class=\"title\">\r\n            <h5>Agregar nueva Marca</h5>\r\n        </div>\r\n        <div class=\"form\">\r\n            <form [formGroup]=\"marcaForm\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-6\">\r\n                        <div class=\"form-floating mb-3\">\r\n                          <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                             formControlName=\"category\" id=\"floatingSelect\">\r\n                             <option [value]=\"category.name\" *ngFor=\"let category of categories\">{{ category.name }}</option>\r\n                            </select>\r\n                            <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar categoria</label>\r\n                          </div>\r\n                    </div>\r\n                    <div class=\"col-6\">\r\n                        <div class=\"form-floating mb-3\">\r\n                            <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la categoria\" formControlName=\"name\">\r\n                            <label for=\"floatingInput\">Nombre de la Marca</label>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </form>\r\n        </div>\r\n        <div class=\"button\">\r\n            <button [disabled]=\"!marcaForm.valid\" (click)=\"onGuardar(confirModal)\">Guardar</button>\r\n        </div>\r\n    </div>\r\n</div>\r\n<ng-template #confirModal>\r\n    <mat-card>\r\n        <mat-card-title>Registro Creado</mat-card-title>\r\n    </mat-card>\r\n</ng-template>"
+
+/***/ }),
+
+/***/ "./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos-routing.module.ts":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos-routing.module.ts ***!
+  \********************************************************************************************************/
+/*! exports provided: ListlMarcasMotosRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListlMarcasMotosRoutingModule", function() { return ListlMarcasMotosRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+
+
+var routes = [];
+var ListlMarcasMotosRoutingModule = /** @class */ (function () {
+    function ListlMarcasMotosRoutingModule() {
+    }
+    ListlMarcasMotosRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+        })
+    ], ListlMarcasMotosRoutingModule);
+    return ListlMarcasMotosRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.component.css":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.component.css ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".info{\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    width: 60%;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vbWFyY2FzL2xpc3QtbWFyY2FzLW1vdG9zL2xpc3RsLW1hcmNhcy1tb3Rvcy9saXN0bC1tYXJjYXMtbW90b3MuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGFBQWE7SUFDYixzQkFBc0I7SUFDdEIsdUJBQXVCO0lBQ3ZCLFVBQVU7SUFDVixpQkFBaUI7SUFDakIsa0JBQWtCO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vbWFyY2FzL2xpc3QtbWFyY2FzLW1vdG9zL2xpc3RsLW1hcmNhcy1tb3Rvcy9saXN0bC1tYXJjYXMtbW90b3MuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbmZve1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIHdpZHRoOiA2MCU7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxuICAgIG1hcmdpbi1yaWdodDogYXV0bztcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.component.ts":
+/*!***************************************************************************************************!*\
+  !*** ./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.component.ts ***!
+  \***************************************************************************************************/
+/*! exports provided: ListlMarcasMotosComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListlMarcasMotosComponent", function() { return ListlMarcasMotosComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm5/ng-bootstrap.js");
+/* harmony import */ var src_app_services_categorias_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/categorias.service */ "./src/app/services/categorias.service.ts");
+/* harmony import */ var src_app_services_marcas_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/marcas.service */ "./src/app/services/marcas.service.ts");
+
+
+
+
+
+
+var ListlMarcasMotosComponent = /** @class */ (function () {
+    function ListlMarcasMotosComponent(marcaService, dialog, fb, categoriaService) {
+        var _this = this;
+        this.marcaService = marcaService;
+        this.dialog = dialog;
+        this.fb = fb;
+        this.categoriaService = categoriaService;
+        this.isloading = false;
+        this.icon = false;
+        this.pageActual = 1;
+        this.marcaService.marcas.subscribe(function (resp) {
+            _this.marcas = resp;
+        });
+        this.categoriaService.categories.subscribe(function (resp) {
+            _this.categories = resp;
+        });
+    }
+    ListlMarcasMotosComponent.prototype.ngOnInit = function () {
+    };
+    ListlMarcasMotosComponent.prototype.onEditar = function (id, editmodal, marca, categoria) {
+        this.marcaeditid = id;
+        this.initForm();
+        marca != null ? this.marcaForm.get('name').setValue(marca) : "";
+        categoria != null ? this.marcaForm.get('category').setValue(categoria) : "";
+        this.dialog.open(editmodal);
+    };
+    ListlMarcasMotosComponent.prototype.openDeleteModal = function (deleteModal, marcaId, marca) {
+        this.deletemarca = marca;
+        this.marcaDeleteid = marcaId;
+        this.dialog.open(deleteModal);
+    };
+    ListlMarcasMotosComponent.prototype.initForm = function () {
+        this.marcaForm = this.fb.group({
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            category: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])
+        });
+    };
+    ListlMarcasMotosComponent.prototype.onGuardar = function (marcaId, modal) {
+        this.dialog.open(modal);
+        this.marcaService.onSaveMarca(this.marcaForm.value, marcaId);
+    };
+    ListlMarcasMotosComponent.prototype.onEliminar = function (id) {
+        var _this = this;
+        this.isloading = true;
+        this.icon = false;
+        this.marcaService.onDeleteMarca(id).then(function (resp) {
+            _this.isloading = false;
+            _this.icon = true;
+        });
+    };
+    ListlMarcasMotosComponent.ctorParameters = function () { return [
+        { type: src_app_services_marcas_service__WEBPACK_IMPORTED_MODULE_5__["MarcasService"] },
+        { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+        { type: src_app_services_categorias_service__WEBPACK_IMPORTED_MODULE_4__["CategoriasService"] }
+    ]; };
+    ListlMarcasMotosComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-listl-marcas-motos',
+            template: __webpack_require__(/*! raw-loader!./listl-marcas-motos.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.component.html"),
+            styles: [__webpack_require__(/*! ./listl-marcas-motos.component.css */ "./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.component.css")]
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_marcas_service__WEBPACK_IMPORTED_MODULE_5__["MarcasService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+            src_app_services_categorias_service__WEBPACK_IMPORTED_MODULE_4__["CategoriasService"]])
+    ], ListlMarcasMotosComponent);
+    return ListlMarcasMotosComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.module.ts":
+/*!************************************************************************************************!*\
+  !*** ./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.module.ts ***!
+  \************************************************************************************************/
+/*! exports provided: ListlMarcasMotosModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListlMarcasMotosModule", function() { return ListlMarcasMotosModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/progress-spinner.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+/* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/__ivy_ngcc__/dist/ngx-pagination.js");
+/* harmony import */ var _listl_marcas_motos_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./listl-marcas-motos-routing.module */ "./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos-routing.module.ts");
+/* harmony import */ var _listl_marcas_motos_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./listl-marcas-motos.component */ "./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.component.ts");
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ListlMarcasMotosModule = /** @class */ (function () {
+    function ListlMarcasMotosModule() {
+    }
+    ListlMarcasMotosModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [_listl_marcas_motos_component__WEBPACK_IMPORTED_MODULE_12__["ListlMarcasMotosComponent"]],
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                ngx_pagination__WEBPACK_IMPORTED_MODULE_10__["NgxPaginationModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
+                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"],
+                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_8__["MatProgressSpinnerModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"],
+                _listl_marcas_motos_routing_module__WEBPACK_IMPORTED_MODULE_11__["ListlMarcasMotosRoutingModule"]
+            ], exports: [_listl_marcas_motos_component__WEBPACK_IMPORTED_MODULE_12__["ListlMarcasMotosComponent"]]
+        })
+    ], ListlMarcasMotosModule);
+    return ListlMarcasMotosModule;
+}());
+
+
 
 /***/ }),
 
@@ -236,6 +460,208 @@ var ListMarcasModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion-routing.module.ts":
+/*!***************************************************************************************************!*\
+  !*** ./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion-routing.module.ts ***!
+  \***************************************************************************************************/
+/*! exports provided: ListTipoCamionRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListTipoCamionRoutingModule", function() { return ListTipoCamionRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+
+
+var routes = [];
+var ListTipoCamionRoutingModule = /** @class */ (function () {
+    function ListTipoCamionRoutingModule() {
+    }
+    ListTipoCamionRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+        })
+    ], ListTipoCamionRoutingModule);
+    return ListTipoCamionRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.component.css":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.component.css ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".info{\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    width: 60%;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vbWFyY2FzL2xpc3QtdGlwby1jYW1pb24vbGlzdC10aXBvLWNhbWlvbi9saXN0LXRpcG8tY2FtaW9uLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2Isc0JBQXNCO0lBQ3RCLHVCQUF1QjtJQUN2QixVQUFVO0lBQ1YsaUJBQWlCO0lBQ2pCLGtCQUFrQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL21hcmNhcy9saXN0LXRpcG8tY2FtaW9uL2xpc3QtdGlwby1jYW1pb24vbGlzdC10aXBvLWNhbWlvbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmluZm97XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgd2lkdGg6IDYwJTtcclxuICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gICAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xyXG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.component.ts":
+/*!**********************************************************************************************!*\
+  !*** ./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.component.ts ***!
+  \**********************************************************************************************/
+/*! exports provided: ListTipoCamionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListTipoCamionComponent", function() { return ListTipoCamionComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm5/ng-bootstrap.js");
+/* harmony import */ var src_app_services_categorias_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/categorias.service */ "./src/app/services/categorias.service.ts");
+/* harmony import */ var src_app_services_marcas_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/marcas.service */ "./src/app/services/marcas.service.ts");
+
+
+
+
+
+
+var ListTipoCamionComponent = /** @class */ (function () {
+    function ListTipoCamionComponent(marcaService, dialog, fb, categoriaService) {
+        var _this = this;
+        this.marcaService = marcaService;
+        this.dialog = dialog;
+        this.fb = fb;
+        this.categoriaService = categoriaService;
+        this.isloading = false;
+        this.icon = false;
+        this.pageActual = 1;
+        this.marcaService.marcas.subscribe(function (resp) {
+            _this.marcas = resp;
+        });
+        this.categoriaService.categories.subscribe(function (resp) {
+            _this.categories = resp;
+        });
+    }
+    ListTipoCamionComponent.prototype.ngOnInit = function () {
+    };
+    ListTipoCamionComponent.prototype.onEditar = function (id, editmodal, marca, categoria) {
+        this.marcaeditid = id;
+        this.initForm();
+        marca != null ? this.marcaForm.get('name').setValue(marca) : "";
+        categoria != null ? this.marcaForm.get('category').setValue(categoria) : "";
+        this.dialog.open(editmodal);
+    };
+    ListTipoCamionComponent.prototype.openDeleteModal = function (deleteModal, marcaId, marca) {
+        this.deletemarca = marca;
+        this.marcaDeleteid = marcaId;
+        this.dialog.open(deleteModal);
+    };
+    ListTipoCamionComponent.prototype.initForm = function () {
+        this.marcaForm = this.fb.group({
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            category: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])
+        });
+    };
+    ListTipoCamionComponent.prototype.onGuardar = function (marcaId, modal) {
+        this.dialog.open(modal);
+        this.marcaService.onSaveMarca(this.marcaForm.value, marcaId);
+    };
+    ListTipoCamionComponent.prototype.onEliminar = function (id) {
+        var _this = this;
+        this.isloading = true;
+        this.icon = false;
+        this.marcaService.onDeleteMarca(id).then(function (resp) {
+            _this.isloading = false;
+            _this.icon = true;
+        });
+    };
+    ListTipoCamionComponent.ctorParameters = function () { return [
+        { type: src_app_services_marcas_service__WEBPACK_IMPORTED_MODULE_5__["MarcasService"] },
+        { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"] },
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+        { type: src_app_services_categorias_service__WEBPACK_IMPORTED_MODULE_4__["CategoriasService"] }
+    ]; };
+    ListTipoCamionComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-list-tipo-camion',
+            template: __webpack_require__(/*! raw-loader!./list-tipo-camion.component.html */ "./node_modules/raw-loader/index.js!./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.component.html"),
+            styles: [__webpack_require__(/*! ./list-tipo-camion.component.css */ "./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.component.css")]
+        }),
+        Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_marcas_service__WEBPACK_IMPORTED_MODULE_5__["MarcasService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+            src_app_services_categorias_service__WEBPACK_IMPORTED_MODULE_4__["CategoriasService"]])
+    ], ListTipoCamionComponent);
+    return ListTipoCamionComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.module.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.module.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: ListTipoCamionModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListTipoCamionModule", function() { return ListTipoCamionModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/progress-spinner.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+/* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/__ivy_ngcc__/dist/ngx-pagination.js");
+/* harmony import */ var _list_tipo_camion_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./list-tipo-camion.component */ "./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.component.ts");
+/* harmony import */ var _list_tipo_camion_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./list-tipo-camion-routing.module */ "./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion-routing.module.ts");
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ListTipoCamionModule = /** @class */ (function () {
+    function ListTipoCamionModule() {
+    }
+    ListTipoCamionModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [_list_tipo_camion_component__WEBPACK_IMPORTED_MODULE_11__["ListTipoCamionComponent"]],
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                ngx_pagination__WEBPACK_IMPORTED_MODULE_10__["NgxPaginationModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
+                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"],
+                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_8__["MatProgressSpinnerModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"],
+                _list_tipo_camion_routing_module__WEBPACK_IMPORTED_MODULE_12__["ListTipoCamionRoutingModule"]
+            ], exports: [_list_tipo_camion_component__WEBPACK_IMPORTED_MODULE_11__["ListTipoCamionComponent"]]
+        })
+    ], ListTipoCamionModule);
+    return ListTipoCamionModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/admin/marcas/marcas-routing.module.ts":
 /*!*******************************************************!*\
   !*** ./src/app/admin/marcas/marcas-routing.module.ts ***!
@@ -336,6 +762,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
 /* harmony import */ var _list_marcas_list_marcas_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./list-marcas/list-marcas.module */ "./src/app/admin/marcas/list-marcas/list-marcas.module.ts");
 /* harmony import */ var _new_marcas_new_marcas_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./new-marcas/new-marcas.module */ "./src/app/admin/marcas/new-marcas/new-marcas.module.ts");
+/* harmony import */ var _list_marcas_motos_listl_marcas_motos_listl_marcas_motos_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./list-marcas-motos/listl-marcas-motos/listl-marcas-motos.module */ "./src/app/admin/marcas/list-marcas-motos/listl-marcas-motos/listl-marcas-motos.module.ts");
+/* harmony import */ var _list_tipo_camion_list_tipo_camion_list_tipo_camion_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./list-tipo-camion/list-tipo-camion/list-tipo-camion.module */ "./src/app/admin/marcas/list-tipo-camion/list-tipo-camion/list-tipo-camion.module.ts");
+
+
 
 
 
@@ -359,7 +789,9 @@ var MarcasModule = /** @class */ (function () {
                 _angular_material_tabs__WEBPACK_IMPORTED_MODULE_6__["MatTabsModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"],
                 _list_marcas_list_marcas_module__WEBPACK_IMPORTED_MODULE_8__["ListMarcasModule"],
-                _new_marcas_new_marcas_module__WEBPACK_IMPORTED_MODULE_9__["NewMarcasModule"]
+                _new_marcas_new_marcas_module__WEBPACK_IMPORTED_MODULE_9__["NewMarcasModule"],
+                _list_marcas_motos_listl_marcas_motos_listl_marcas_motos_module__WEBPACK_IMPORTED_MODULE_10__["ListlMarcasMotosModule"],
+                _list_tipo_camion_list_tipo_camion_list_tipo_camion_module__WEBPACK_IMPORTED_MODULE_11__["ListTipoCamionModule"]
             ]
         })
     ], MarcasModule);

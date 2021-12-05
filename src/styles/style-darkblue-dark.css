@@ -8031,6 +8031,9 @@ body{
 .border,.table-bordered,.table tbody tr td,.table thead tr th,.table tbody tr th,.fc-unthemed .fc-content,.fc-unthemed .fc-divider,.fc-unthemed .fc-list-heading td,.fc-unthemed .fc-list-view,.fc-unthemed .fc-popover,.fc-unthemed .fc-row,.fc-unthemed tbody,.fc-unthemed td,.fc-unthemed th,.fc-unthemed thead{
     border-color:rgba(255,0,0,0.5) !important
 }
+.material-icons {
+    color: #e51e1d!important;
+}
 .border-right{
     border-color:rgba(255,0,0,0.5) !important
 }

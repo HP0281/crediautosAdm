@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Modelo } from 'src/app/models/modelo.interface';
 import { CategoriasService } from 'src/app/services/categorias.service';
 import { MarcasService } from 'src/app/services/marcas.service';
 import { ModelosService } from 'src/app/services/modelos.service';
@@ -12,12 +13,13 @@ import { ModelosService } from 'src/app/services/modelos.service';
 })
 export class ListModelosComponent implements OnInit {
   displayedColumns: string[] = ['category','marca', 'modelo', 'actions'];
-  dataSource: any;
+  dataSource: Modelo[]=[];
   modeloform: FormGroup;
   idactual:string;
   pageActual: number = 1; 
   marcas:any[];
   categories: any[];
+  filterModelos='';
 
   constructor(private modelosService: ModelosService,
     private dialog: NgbModal, private fb: FormBuilder,

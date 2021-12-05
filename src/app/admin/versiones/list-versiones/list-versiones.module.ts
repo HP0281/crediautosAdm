@@ -6,9 +6,10 @@ import { ListVersionesComponent } from './list-versiones.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   declarations: [ListVersionesComponent],
@@ -19,7 +20,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatTableModule,
     MatButtonModule,
     MatCardModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule,
+    FormsModule
   ],
   exports: [ListVersionesComponent]
 })

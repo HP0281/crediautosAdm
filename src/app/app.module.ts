@@ -15,6 +15,7 @@ import { AngularFireModule } from '@angular/fire';
 
 import { environment } from '../environments/environment';
 import { MatCardModule } from '@angular/material/card';
+import { MarcasPipe } from './pipes/marcas.pipe';
 
 
 

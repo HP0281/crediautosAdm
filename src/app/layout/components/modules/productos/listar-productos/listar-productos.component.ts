@@ -26,6 +26,7 @@ export class ListarProductosComponent implements OnInit {
   loader = false;
   loaderEstado=false;
   pageActual: number = 1;
+  filterMarcas = '';
 
   navigationExtras : NavigationExtras = {
     state:{

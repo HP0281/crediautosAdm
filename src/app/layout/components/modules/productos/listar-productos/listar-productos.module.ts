@@ -7,9 +7,10 @@ import { ListarProductosComponent } from './listar-productos.component';
 import { ListarProductoRoutingModule } from './listar-producto-routing.module';
 import { ListarProductoPipe } from './pipe/listar-producto.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FiltarMarcaPipe } from './pipe/filtar-marca.pipe';
 
 @NgModule({
-  declarations: [ListarProductosComponent, ListarProductoPipe],
+  declarations: [ListarProductosComponent, ListarProductoPipe, FiltarMarcaPipe],
   imports: [
     CommonModule,
     TranslateModule,
@@ -18,6 +19,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HttpClientModule,
     NgxPaginationModule
 
-  ]
+  ],exports:[FiltarMarcaPipe]
 })
 export class ListarProductosModule { }

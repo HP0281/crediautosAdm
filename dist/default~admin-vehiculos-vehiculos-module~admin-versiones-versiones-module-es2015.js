@@ -128,6 +128,143 @@ ListVersionesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
 
 /***/ }),
 
+/***/ "./src/app/services/marcas.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/marcas.service.ts ***!
+  \********************************************/
+/*! exports provided: MarcasService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MarcasService", function() { return MarcasService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/firestore/es2015/index.js");
+
+
+
+
+let MarcasService = class MarcasService {
+    constructor(afs) {
+        this.afs = afs;
+        this.marcaCollection = afs.collection('marcas');
+        this.getMarcas();
+    }
+    onDeleteMarca(categoryId) {
+        return new Promise((resolve, reject) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            try {
+                const result = this.marcaCollection.doc(categoryId).delete();
+                resolve(result);
+            }
+            catch (error) {
+                reject(error.message);
+            }
+        }));
+    }
+    onSaveMarca(marca, marcaId) {
+        return new Promise((resolve, reject) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            try {
+                const id = marcaId || this.afs.createId();
+                const data = Object.assign({ id }, marca);
+                const result = yield this.marcaCollection.doc(id).set(data);
+                resolve(result);
+            }
+            catch (error) {
+                reject(error.message);
+            }
+        }));
+    }
+    getMarcas() {
+        console.log('get marcas');
+        this.marcas = this.marcaCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(actions => actions.map(a => a.payload.doc.data())));
+    }
+};
+MarcasService.ctorParameters = () => [
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] }
+];
+MarcasService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"]])
+], MarcasService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/modelos.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/modelos.service.ts ***!
+  \*********************************************/
+/*! exports provided: ModelosService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModelosService", function() { return ModelosService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/firestore/es2015/index.js");
+
+
+
+
+let ModelosService = class ModelosService {
+    constructor(afs) {
+        this.afs = afs;
+        this.modeloCollection = afs.collection('modelos');
+        this.getModelos();
+    }
+    onDeleteModelo(modeloId) {
+        return new Promise((resolve, reject) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            try {
+                const result = this.modeloCollection.doc(modeloId).delete();
+                resolve(result);
+            }
+            catch (error) {
+                reject(error.message);
+            }
+        }));
+    }
+    onSaveModelo(modelo, modeloId) {
+        return new Promise((resolve, reject) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            try {
+                const id = modeloId || this.afs.createId();
+                const data = Object.assign({ id }, modelo);
+                const result = yield this.modeloCollection.doc(id).set(data);
+                resolve(result);
+            }
+            catch (error) {
+                reject(error.message);
+            }
+        }));
+    }
+    getModelos() {
+        console.log('get modelos');
+        this.modelos = this.modeloCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(actions => actions.map(a => a.payload.doc.data())));
+    }
+    getModelosforMarca(marca) {
+        return this.afs.collection(('modelos'), ref => ref.where('marca', '==', marca)).valueChanges();
+    }
+};
+ModelosService.ctorParameters = () => [
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] }
+];
+ModelosService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"]])
+], ModelosService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/versiones.service.ts":
 /*!***********************************************!*\
   !*** ./src/app/services/versiones.service.ts ***!

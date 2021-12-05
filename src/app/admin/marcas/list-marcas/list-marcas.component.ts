@@ -19,6 +19,7 @@ export class ListMarcasComponent implements OnInit {
   isloading=false;
   icon=false;
   pageActual: number = 1;
+  filterMarcas='';
 
   constructor(private marcaService: MarcasService, private dialog: NgbModal,
     private fb: FormBuilder,
