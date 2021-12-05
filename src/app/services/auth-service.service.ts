@@ -22,7 +22,7 @@ export class AuthServiceService {
       return this.auth.authState;
    
   }
-  login(user: string, pass: string){
+  login(user: string, pass: string): Promise<any>{
     return this.auth.auth.signInWithEmailAndPassword(user, pass);
   }
   

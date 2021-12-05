@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
+import { ConfirmacionComponent } from 'src/app/admin/modals/confirmacion/confirmacion.component';
 import { User } from 'src/app/models/user.interface';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
@@ -20,7 +22,7 @@ export class NuevoComponent implements OnInit {
 
   registroForm: FormGroup;
   constructor(private fb: FormBuilder, private userservice: UserServiceService,
-    private authservice: AuthServiceService) {
+    private authservice: AuthServiceService, public dialog: MatDialog) {
     this.initform();
    }
   ngOnInit(): void {
@@ -28,13 +30,14 @@ export class NuevoComponent implements OnInit {
   
   initform(){
     this.registroForm = this.fb.group({
-      nombre: new FormControl('', [
+      name: new FormControl('', [
         Validators.required
       ]),
-      apname:  new FormControl('', [Validators.required]),
+      lastname:  new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
-      clave: new FormControl('', [Validators.required])
+      psw: new FormControl('', [Validators.required]),
+      rol: new FormControl('',[Validators.required])
     })
   }
   async onRegistrar(email: string, pass: string){
@@ -43,9 +46,20 @@ export class NuevoComponent implements OnInit {
       this.onGuardar();
       this.registroForm.reset();
     } catch (error) {
-      alert(error.message);
+      //alert(error.message);
+      const dialogref = this.dialog.open(ConfirmacionComponent, {
+        width: '250px',
+        data: {
+          message: error.message,
+          cancel: "Ok",
+          noresp: true
+        }
+
+      });
+      dialogref.afterClosed().subscribe(resp => {
+
+      })
     }
-    this.onGuardar();
   }
   onGuardar(){
     if (this.registroForm.valid) {

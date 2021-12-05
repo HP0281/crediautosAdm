@@ -28,7 +28,7 @@
             <!-- Number Column -->
             <ng-container matColumnDef="user">
               <th mat-header-cell *matHeaderCellDef>Usuario</th>
-              <td mat-cell *matCellDef="let row">{{row.nombre+" "+ row.apname}}</td>
+              <td mat-cell *matCellDef="let row">{{row.name+" "+ row.lastname}}</td>
             </ng-container>
       
             <!-- Title Column -->
@@ -48,7 +48,7 @@
               <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
                 Role
               </th>
-              <td mat-cell *matCellDef="let row"></td>
+              <td mat-cell *matCellDef="let row">{{ row.rol }}</td>
             </ng-container>
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
@@ -56,7 +56,7 @@
                 </th>
                 <td mat-cell *matCellDef="let row">
                     <button mat-button  (click)="onVer(row)">Detalle</button>
-                    <button mat-button (click)="onEdit(row)">Editar</button>
+                    <button mat-button (click)="onEditar(row)">Editar</button>
                     <button mat-button (click)="onDelete(row.id)">Eliminar</button>
                 </td>
               </ng-container>

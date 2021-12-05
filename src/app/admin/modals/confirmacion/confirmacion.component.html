@@ -1,0 +1,7 @@
+<div class="container">
+    <h6>{{message}}</h6>
+    <div class="actions">
+        <button mat-button (click)="noClick()">{{ cancel }}</button>
+        <button mat-button (click)="onContinue()" *ngIf="!noresp">{{ acept }}</button>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { ConfirmacionModule } from 'src/app/admin/modals/confirmacion/confirmacion.module';
 
 @NgModule({
   declarations: [NuevoComponent],
@@ -20,7 +21,8 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatCardModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    ConfirmacionModule
   ]
 })
 export class NuevoModule { }
