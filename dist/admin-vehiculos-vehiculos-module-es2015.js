@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"data | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }\" class=\"mat-elevation-z8\">\r\n    <ng-container matColumnDef=\"marca\">\r\n        <th mat-header-cell *matHeaderCellDef> Marca </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.marca}} </td>\r\n      </ng-container>\r\n      <ng-container matColumnDef=\"modelo\">\r\n        <th mat-header-cell *matHeaderCellDef> Modelo </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.modelo}} </td>\r\n      </ng-container>\r\n      <ng-container matColumnDef=\"version\">\r\n        <th mat-header-cell *matHeaderCellDef> Version </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.version}} </td>\r\n      </ng-container>\r\n      <ng-container matColumnDef=\"year\">\r\n        <th mat-header-cell *matHeaderCellDef>Año </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.year}} </td>\r\n      </ng-container>\r\n      <ng-container matColumnDef=\"actions\">\r\n        <th mat-header-cell *matHeaderCellDef>  </th>\r\n        <td mat-cell *matCellDef=\"let element\"> <button mat-button (click)=\"onVer(element)\">Ver</button> <button mat-button (click)=\"onEditar(element)\">Editar</button> <button mat-button>Eliminar</button></td>\r\n      </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n<pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n</pagination-controls>"
+module.exports = "<input class=\"form-control\" type=\"text\" name=\"filterVehicles\" placeholder=\"Buscar Vehiculo\" [(ngModel)]=\"filterVehicles\">\r\n<table class=\"table table-hover\">\r\n  <thead>\r\n    <tr class=\"text-center\">\r\n      <th>Categoria</th>\r\n      <th>Marca</th>\r\n      <th>Modelo</th>\r\n      <th>Version</th>\r\n      <th>Año</th>\r\n      <th>Accion</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr\r\n      *ngFor=\"let element of data | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } | marcas:filterVehicles\"\r\n      class=\"text-center\">\r\n      <td>{{element.categoria}}</td>\r\n      <td>{{element.marca}}</td>\r\n      <td>{{element.modelo}}</td>\r\n      <td>{{element.year}}</td>\r\n\r\n      <td>\r\n        <button class=\"btn\"\r\n          (click)=\"onEditar(element)\"><i class=\"material-icons\">edit</i></button>\r\n            <a class=\"btn \" (click)=\"onVer(element)\"><i class=\"material-icons\">visibility</i></a>\r\n        <a class=\"btn \"><i class=\"material-icons\">delete</i></a>\r\n\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n<pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n</pagination-controls>"
 
 /***/ }),
 
@@ -89,6 +89,7 @@ let ListVehiclesComponent = class ListVehiclesComponent {
         this.router = router;
         this.pageActual = 1;
         this.displayedColumns = ['marca', 'modelo', 'version', 'year', 'actions'];
+        this.filterVehicles = '';
         this.navigationExtras = {
             state: {
                 value: null
@@ -146,6 +147,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/table.js");
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
 /* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/__ivy_ngcc__/dist/ngx-pagination.js");
+/* harmony import */ var src_app_pipes_pipes_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/pipes/pipes.module */ "./src/app/pipes/pipes.module.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+
+
 
 
 
@@ -164,7 +169,9 @@ ListVehiclesModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _list_vehicles_routing_module__WEBPACK_IMPORTED_MODULE_3__["ListVehiclesRoutingModule"],
             ngx_pagination__WEBPACK_IMPORTED_MODULE_7__["NgxPaginationModule"],
             _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableModule"],
-            _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"]
+            _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"],
+            src_app_pipes_pipes_module__WEBPACK_IMPORTED_MODULE_8__["PipesModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"]
         ],
         exports: [_list_vehicles_list_vehicles_component__WEBPACK_IMPORTED_MODULE_4__["ListVehiclesComponent"]]
     })

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"center-loader\" *ngIf=\"loader\">\r\n    <strong>Cargando\r\n        <span class=\"loader__dot\">.</span>\r\n        <span class=\"loader__dot\">.</span>\r\n        <span class=\"loader__dot\">.</span></strong>\r\n</div>\r\n\r\n<div class=\"container table-responsive\" *ngIf=\"!loader\">\r\n    <button style=\"margin-bottom: 10px; margin-left: 0px;\" class=\"btn btn-warning text-white\" (click)=\"ngOnInit()\">\r\n        <i class=\"material-icons text-white\">restore_page\r\n        </i> Refrescar Tabla\r\n    </button>\r\n\r\n    <div class=\"card min\">\r\n        <div class=\"card-header\">\r\n            <h3>LISTADO DE PRODUCTOS</h3>\r\n\r\n        </div>\r\n        <input class=\"form-control\" type=\"text\" name=\"filterProducto\" placeholder=\"buscar producto\">\r\n        <div class=\"card-body\">\r\n            <table class=\"table table-hover\">\r\n                <thead>\r\n                    <tr class=\"text-center\">\r\n                        <th>ID producto</th>\r\n                        <th>Marca</th>\r\n                        <th>Modelo</th>\r\n                        <th>Año</th>\r\n                        <th>Placa</th>\r\n                        <th>Estado Producto</th>\r\n                        <th>Promocion</th>\r\n                        <th>Valor</th>\r\n                        <th>Accion</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let vehicle of vehicles | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }\"  class=\"text-center\">\r\n                        <td>{{vehicle.id}}</td>\r\n                        <td>{{vehicle.marca}}</td>\r\n                        <td>{{vehicle.modelo}}</td>\r\n                        <td>{{vehicle.year}}</td>\r\n                        <td>{{vehicle.placa}}</td>\r\n                        <td>  <label class=\"switch-wrap switch-success ml-2\">\r\n                            <input type=\"checkbox\" [checked]=\"vehicle.status\" (change)=\"status(vehicle,cambiandoModal)\" />\r\n                            <div class=\"switch\"></div>\r\n                        </label></td>\r\n                        <td><label class=\"switch-wrap switch-danger ml-2\">\r\n                            <input type=\"checkbox\" [checked]=\"vehicle.promocion\" (change)=\"promocion(vehicle,cambiandoModal)\"/>\r\n                            <div class=\"switch\"></div>\r\n                        </label></td>\r\n                        <td>{{vehicle.valor}}</td>\r\n                        <td>\r\n                            <button (click)=\"modificarProducto(vehicle)\" style=\"margin: 10px\" class=\"btn btn-primary\">Modificar</button>\r\n\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n            <pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n                </pagination-controls>\r\n        </div>\r\n        <!-- <div *ngIf=\"failEliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\">Error: {{msjErr}}</p>\r\n        </div>\r\n        <div *ngIf=\"eliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\">OK: {{msjOK}}</p>\r\n        </div>\r\n        <div *ngIf=\"failActualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\" style=\"margin: 10px\">Error: {{msjErr}}</p>\r\n        </div>\r\n        <div *ngIf=\"actualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\" style=\"margin: 10px\">OK: {{msjOK}}</p>\r\n        </div>-->\r\n    </div>\r\n    \r\n</div>\r\n<ng-template #cambiandoModal>\r\n    <div class=\"center-loader\" *ngIf=\"loaderEstado\">\r\n        <strong>Cambiando estado\r\n                <span class=\"loader__dot\">.</span>\r\n                <span class=\"loader__dot\">.</span>\r\n                <span class=\"loader__dot\">.</span></strong>\r\n    </div>\r\n</ng-template>"
+module.exports = "<div class=\"center-loader\" *ngIf=\"loader\">\r\n    <strong>Cargando\r\n        <span class=\"loader__dot\">.</span>\r\n        <span class=\"loader__dot\">.</span>\r\n        <span class=\"loader__dot\">.</span></strong>\r\n</div>\r\n\r\n<div class=\"container table-responsive\" *ngIf=\"!loader\">\r\n    <button style=\"margin-bottom: 10px; margin-left: 0px;\" class=\"btn btn-warning text-white\" (click)=\"ngOnInit()\">\r\n        <i class=\"material-icons text-white\">restore_page\r\n        </i> Refrescar Tabla\r\n    </button>\r\n\r\n    <div class=\"card min\">\r\n        <div class=\"card-header\">\r\n            <h3>LISTADO DE PRODUCTOS</h3>\r\n\r\n        </div>\r\n        <input class=\"form-control\" type=\"text\" name=\"filterProducto\" placeholder=\"Buscar Producto\" [(ngModel)]=\"filterMarcas\">\r\n        <div class=\"card-body\">\r\n            <table class=\"table table-hover\">\r\n                <thead>\r\n                    <tr class=\"text-center\">\r\n                        <th>Vendedor</th>\r\n                        <th>Marca</th>\r\n                        <th>Modelo</th>\r\n                        <th>Version</th>\r\n                        <th>Año</th>\r\n                        <th>Placa</th>\r\n                        <th>Publicar</th>\r\n                        <th>Promocion</th>\r\n                        <th>Valor</th>\r\n                        <th>Accion</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let vehicle of vehicles | filtarmarca:filterMarcas | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } \"  class=\"text-center\">\r\n                        <td>{{vehicle.Vendedor}}</td>\r\n                        <td>{{vehicle.marca}}</td>\r\n                        <td>{{vehicle.modelo}}</td>\r\n                        <td>{{vehicle.version}}</td>\r\n                        <td>{{vehicle.year}}</td>\r\n                        <td>{{vehicle.placa}}</td>\r\n                        <td>  <label class=\"switch-wrap switch-success ml-2\">\r\n                            <input type=\"checkbox\" [checked]=\"vehicle.status\" (change)=\"status(vehicle,cambiandoModal)\" />\r\n                            <div class=\"switch\"></div>\r\n                        </label></td>\r\n                        <td><label class=\"switch-wrap switch-danger ml-2\">\r\n                            <input type=\"checkbox\" [checked]=\"vehicle.promocion\" (change)=\"promocion(vehicle,cambiandoModal)\"/>\r\n                            <div class=\"switch\"></div>\r\n                        </label></td>\r\n                        <td>{{vehicle.valor}}</td>\r\n                        <td>\r\n                            <button (click)=\"modificarProducto(vehicle)\" class=\"btn\"><i class=\"material-icons\">\r\n                                edit</i></button>\r\n                            <a class=\"btn \"><i class=\"material-icons\">visibility</i></a>\r\n                            <a class=\"btn \"><i class=\"material-icons\">delete</i></a>\r\n\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n            <pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n                </pagination-controls>\r\n        </div>\r\n        <!-- <div *ngIf=\"failEliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\">Error: {{msjErr}}</p>\r\n        </div>\r\n        <div *ngIf=\"eliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\">OK: {{msjOK}}</p>\r\n        </div>\r\n        <div *ngIf=\"failActualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\" style=\"margin: 10px\">Error: {{msjErr}}</p>\r\n        </div>\r\n        <div *ngIf=\"actualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\" style=\"margin: 10px\">OK: {{msjOK}}</p>\r\n        </div>-->\r\n    </div>\r\n    \r\n</div>\r\n<ng-template #cambiandoModal>\r\n    <div class=\"center-loader\" *ngIf=\"loaderEstado\">\r\n        <strong>Cambiando estado\r\n                <span class=\"loader__dot\">.</span>\r\n                <span class=\"loader__dot\">.</span>\r\n                <span class=\"loader__dot\">.</span></strong>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -90,6 +90,7 @@ var ListarProductosComponent = /** @class */ (function () {
         this.loader = false;
         this.loaderEstado = false;
         this.pageActual = 1;
+        this.filterMarcas = '';
         this.navigationExtras = {
             state: {
                 value: null
@@ -186,6 +187,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _listar_producto_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./listar-producto-routing.module */ "./src/app/layout/components/modules/productos/listar-productos/listar-producto-routing.module.ts");
 /* harmony import */ var _pipe_listar_producto_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pipe/listar-producto.pipe */ "./src/app/layout/components/modules/productos/listar-productos/pipe/listar-producto.pipe.ts");
 /* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/__ivy_ngcc__/dist/ngx-pagination.js");
+/* harmony import */ var _pipe_filtar_marca_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pipe/filtar-marca.pipe */ "./src/app/layout/components/modules/productos/listar-productos/pipe/filtar-marca.pipe.ts");
+
 
 
 
@@ -201,7 +204,7 @@ var ListarProductosModule = /** @class */ (function () {
     }
     ListarProductosModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_listar_productos_component__WEBPACK_IMPORTED_MODULE_6__["ListarProductosComponent"], _pipe_listar_producto_pipe__WEBPACK_IMPORTED_MODULE_8__["ListarProductoPipe"]],
+            declarations: [_listar_productos_component__WEBPACK_IMPORTED_MODULE_6__["ListarProductosComponent"], _pipe_listar_producto_pipe__WEBPACK_IMPORTED_MODULE_8__["ListarProductoPipe"], _pipe_filtar_marca_pipe__WEBPACK_IMPORTED_MODULE_10__["FiltarMarcaPipe"]],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateModule"],
@@ -209,10 +212,50 @@ var ListarProductosModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
                 ngx_pagination__WEBPACK_IMPORTED_MODULE_9__["NgxPaginationModule"]
-            ]
+            ], exports: [_pipe_filtar_marca_pipe__WEBPACK_IMPORTED_MODULE_10__["FiltarMarcaPipe"]]
         })
     ], ListarProductosModule);
     return ListarProductosModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/layout/components/modules/productos/listar-productos/pipe/filtar-marca.pipe.ts":
+/*!************************************************************************************************!*\
+  !*** ./src/app/layout/components/modules/productos/listar-productos/pipe/filtar-marca.pipe.ts ***!
+  \************************************************************************************************/
+/*! exports provided: FiltarMarcaPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FiltarMarcaPipe", function() { return FiltarMarcaPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+var FiltarMarcaPipe = /** @class */ (function () {
+    function FiltarMarcaPipe() {
+    }
+    FiltarMarcaPipe.prototype.transform = function (value, arg) {
+        var resultProduct = [];
+        for (var _i = 0, value_1 = value; _i < value_1.length; _i++) {
+            var Vehicle = value_1[_i];
+            if (Vehicle.marca.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+                //console.log("si");
+                resultProduct.push(Vehicle);
+            }
+        }
+        return resultProduct;
+    };
+    FiltarMarcaPipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+            name: 'filtarmarca'
+        })
+    ], FiltarMarcaPipe);
+    return FiltarMarcaPipe;
 }());
 
 

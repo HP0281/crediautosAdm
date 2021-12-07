@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid main\">\r\n    <div class=\"formulario\">\r\n        <mat-card>\r\n            <mat-card-title>Completa los datos del usuario a crear</mat-card-title>\r\n            <br>\r\n            <div class=\"example-container\">\r\n                <form  [formGroup]=\"registroForm\">\r\n                    <div class=\"row\">\r\n                        <div class=\" col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field >\r\n                                <mat-label>Nombre</mat-label>\r\n                                <input matInput type=\"text\"  id=\"nombre\" formControlName=\"nombre\"\r\n                                required>\r\n                                <mat-error *ngIf=\"this.registroForm.valid\">Nombre Requerido</mat-error>\r\n                            </mat-form-field>\r\n                        </div>\r\n                        <div class=\" col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Apellidos</mat-label>\r\n                                <input matInput type=\"text\"  id=\"apellidos\" formControlName=\"apname\" required>\r\n                                <mat-error *ngIf=\"this.registroForm.valid\">Apellidos Requeridos</mat-error>\r\n                            </mat-form-field>\r\n                        </div>\r\n                        <div class=\" col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Telefono</mat-label>\r\n                            <span matPrefix>+57 &nbsp;</span>\r\n                            <input type=\"tel\" matInput placeholder=\"555-555-1234\" id=\"telefono\" formControlName=\"phone\" required>\r\n                            <mat-icon matSuffix>mode_edit</mat-icon>\r\n                                <mat-error *ngIf=\"this.registroForm.valid\">Telefono Requeridos</mat-error>\r\n                            </mat-form-field>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Email</mat-label>\r\n                                <input type=\"email\" matInput id=\"email\" formControlName=\"email\"\r\n                                       placeholder=\"Ex. pat@example.com\" required>\r\n                                <mat-error *ngIf=\"this.registroForm.value && !this.registroForm.hasError('required')\">\r\n                                    Por favor, introduce un correo electrónico válido\r\n                                </mat-error>\r\n                                <mat-error *ngIf=\"this.registroForm.valid\">\r\n                                  Email is <strong>required</strong>\r\n                                </mat-error>\r\n                              </mat-form-field>\r\n                        </div>         \r\n                        <div class=\"col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Contraseña</mat-label>\r\n                                <input matInput [type]=\"hide ? 'password' : 'text'\" id=\"clave\" formControlName=\"clave\">\r\n                                <button mat-icon-button matSuffix (click)=\"hide = !hide\" >\r\n                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n                                </button>\r\n                            </mat-form-field>\r\n                        </div>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n            <mat-card-actions>\r\n            </mat-card-actions>\r\n        </mat-card>\r\n        <br><br>\r\n        <button mat-raised-button color=\"warn\" [disabled]=\"!registroForm.valid\"\r\n            (click)=\"onRegistrar(registroForm.get('email').value, registroForm.get('clave').value )\">Continuar</button>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container-fluid main\">\r\n    <div class=\"formulario\">\r\n        <mat-card>\r\n            <mat-card-title>Completa los datos del usuario a crear</mat-card-title>\r\n            <br>\r\n            <div class=\"example-container\">\r\n                <form  [formGroup]=\"registroForm\">\r\n                    <div class=\"row\">\r\n                        <div class=\" col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Nombre</mat-label>\r\n                                <input matInput type=\"text\"  id=\"nombre\" formControlName=\"name\"\r\n                                required>\r\n                                <mat-error *ngIf=\"this.registroForm.valid\">Nombre Requerido</mat-error>\r\n                            </mat-form-field>\r\n                        </div>\r\n                        <div class=\" col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Apellidos</mat-label>\r\n                                <input matInput type=\"text\"  id=\"apellidos\" formControlName=\"lastname\" required>\r\n                                <mat-error *ngIf=\"this.registroForm.valid\">Apellidos Requeridos</mat-error>\r\n                            </mat-form-field>\r\n                        </div>\r\n                        <div class=\" col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Telefono</mat-label>\r\n                            <span matPrefix>+57 &nbsp;</span>\r\n                            <input type=\"number\" matInput placeholder=\"555-555-1234\" id=\"telefono\" formControlName=\"phone\" required>\r\n                            <mat-icon matSuffix>mode_edit</mat-icon>\r\n                                <mat-error *ngIf=\"this.registroForm.valid\">Telefono Requeridos</mat-error>\r\n                            </mat-form-field>\r\n                        </div>\r\n                        <div class=\" col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Rol</mat-label>\r\n                            <input type=\"text\" matInput placeholder=\"Agente\" autocapitalize=\"true\" id=\"rol\" formControlName=\"rol\" required>\r\n                            <mat-icon matSuffix>mode_edit</mat-icon>\r\n                                <mat-error *ngIf=\"this.registroForm.valid\">Rol Requerido</mat-error>\r\n                            </mat-form-field>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"row\">\r\n                        <div class=\"col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Email</mat-label>\r\n                                <input type=\"email\" matInput id=\"email\" formControlName=\"email\"\r\n                                       placeholder=\"Ex. pat@example.com\" required>\r\n                                <mat-error *ngIf=\"this.registroForm.value && !this.registroForm.hasError('required')\">\r\n                                    Por favor, introduce un correo electrónico válido\r\n                                </mat-error>\r\n                                <mat-error *ngIf=\"this.registroForm.valid\">\r\n                                  Email is <strong>required</strong>\r\n                                </mat-error>\r\n                              </mat-form-field>\r\n                        </div>         \r\n                        <div class=\"col-xs-12 col-sm-12 col-md-6\">\r\n                            <mat-form-field class=\"example-full-width\" appearance=\"fill\">\r\n                                <mat-label>Contraseña</mat-label>\r\n                                <input matInput [type]=\"hide ? 'password' : 'text'\" id=\"clave\" formControlName=\"psw\">\r\n                                <button mat-icon-button matSuffix (click)=\"hide = !hide\" >\r\n                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\r\n                                </button>\r\n                            </mat-form-field>\r\n                        </div>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n            <mat-card-actions>\r\n            </mat-card-actions>\r\n        </mat-card>\r\n        <br><br>\r\n        <button mat-raised-button color=\"warn\" [disabled]=\"!registroForm.valid\"\r\n            (click)=\"onRegistrar(registroForm.get('email').value, registroForm.get('psw').value )\">Continuar</button>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -69,18 +69,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var src_app_services_auth_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth-service.service */ "./src/app/services/auth-service.service.ts");
-/* harmony import */ var src_app_services_user_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/user-service.service */ "./src/app/services/user-service.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_admin_modals_confirmacion_confirmacion_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/admin/modals/confirmacion/confirmacion.component */ "./src/app/admin/modals/confirmacion/confirmacion.component.ts");
+/* harmony import */ var src_app_services_auth_service_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/auth-service.service */ "./src/app/services/auth-service.service.ts");
+/* harmony import */ var src_app_services_user_service_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/user-service.service */ "./src/app/services/user-service.service.ts");
+
+
 
 
 
 
 
 let NuevoComponent = class NuevoComponent {
-    constructor(fb, userservice, authservice) {
+    constructor(fb, userservice, authservice, dialog) {
         this.fb = fb;
         this.userservice = userservice;
         this.authservice = authservice;
+        this.dialog = dialog;
         this.hide = false;
         this.labelPosition = 'after';
         this.initform();
@@ -89,13 +94,14 @@ let NuevoComponent = class NuevoComponent {
     }
     initform() {
         this.registroForm = this.fb.group({
-            nombre: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
             ]),
-            apname: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            lastname: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
             phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
-            clave: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])
+            psw: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            rol: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])
         });
     }
     onRegistrar(email, pass) {
@@ -106,9 +112,18 @@ let NuevoComponent = class NuevoComponent {
                 this.registroForm.reset();
             }
             catch (error) {
-                alert(error.message);
+                //alert(error.message);
+                const dialogref = this.dialog.open(src_app_admin_modals_confirmacion_confirmacion_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmacionComponent"], {
+                    width: '250px',
+                    data: {
+                        message: error.message,
+                        cancel: "Ok",
+                        noresp: true
+                    }
+                });
+                dialogref.afterClosed().subscribe(resp => {
+                });
             }
-            this.onGuardar();
         });
     }
     onGuardar() {
@@ -128,8 +143,9 @@ let NuevoComponent = class NuevoComponent {
 };
 NuevoComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: src_app_services_user_service_service__WEBPACK_IMPORTED_MODULE_4__["UserServiceService"] },
-    { type: src_app_services_auth_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthServiceService"] }
+    { type: src_app_services_user_service_service__WEBPACK_IMPORTED_MODULE_6__["UserServiceService"] },
+    { type: src_app_services_auth_service_service__WEBPACK_IMPORTED_MODULE_5__["AuthServiceService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] }
 ];
 NuevoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -137,8 +153,8 @@ NuevoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         template: __webpack_require__(/*! raw-loader!./nuevo.component.html */ "./node_modules/raw-loader/index.js!./src/app/layout/components/modules/usuario/nuevo/nuevo.component.html"),
         styles: [__webpack_require__(/*! ./nuevo.component.css */ "./src/app/layout/components/modules/usuario/nuevo/nuevo.component.css")]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_services_user_service_service__WEBPACK_IMPORTED_MODULE_4__["UserServiceService"],
-        src_app_services_auth_service_service__WEBPACK_IMPORTED_MODULE_3__["AuthServiceService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_services_user_service_service__WEBPACK_IMPORTED_MODULE_6__["UserServiceService"],
+        src_app_services_auth_service_service__WEBPACK_IMPORTED_MODULE_5__["AuthServiceService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]])
 ], NuevoComponent);
 
 
@@ -166,6 +182,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
 /* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
 /* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js");
+/* harmony import */ var src_app_admin_modals_confirmacion_confirmacion_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/admin/modals/confirmacion/confirmacion.module */ "./src/app/admin/modals/confirmacion/confirmacion.module.ts");
+
 
 
 
@@ -191,7 +209,8 @@ NuevoModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"],
             _angular_material_card__WEBPACK_IMPORTED_MODULE_8__["MatCardModule"],
             _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"],
-            _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"]
+            _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInputModule"],
+            src_app_admin_modals_confirmacion_confirmacion_module__WEBPACK_IMPORTED_MODULE_11__["ConfirmacionModule"]
         ]
     })
 ], NuevoModule);

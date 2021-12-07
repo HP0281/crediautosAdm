@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"dataSource | paginate: {id:'listar', itemsPerPage: 4, currentPage: pageActual }\" class=\"mat-elevation-z8\">\r\n\r\n  <ng-container matColumnDef=\"category\">\r\n    <th mat-header-cell *matHeaderCellDef> Categoria </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.category}} </td>\r\n  </ng-container>\r\n\r\n    <ng-container matColumnDef=\"marca\">\r\n      <th mat-header-cell *matHeaderCellDef> Marca </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.marca}} </td>\r\n    </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"modelo\">\r\n      <th mat-header-cell *matHeaderCellDef> Modelo </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"actions\">\r\n      <th mat-header-cell *matHeaderCellDef>  </th>\r\n      <td mat-cell *matCellDef=\"let element\"><button mat-button (click)=\"openEditModal(element.id, editModal, element.marca, element.name, element.category)\">Editar</button> <button mat-button (click)=\"openDeleteModal(element.id, deleteModal)\">Eliminar</button></td>\r\n    </ng-container>\r\n  \r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n  <pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n  </pagination-controls>\r\n  \r\n  <ng-template #editModal >\r\n    <div class=\"body\">\r\n        <mat-card>\r\n            <mat-card-title>\r\n                Editar Modelo\r\n            </mat-card-title>\r\n            <mat-card-actions>\r\n                <!-- <form action=\"\" [formGroup]=\"modeloform\" >\r\n                    <div class=\"form-floating mb-3\">\r\n                        <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la Marca\" formControlName=\"marca\">\r\n                        <label for=\"floatingInput\">Nombre de la Marca</label>\r\n                    </div>\r\n                    <div class=\"form-floating mb-3\">\r\n                        <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la Modelo\" formControlName=\"name\">\r\n                        <label for=\"floatingInput\">Nombre de la Modelo</label>\r\n                    </div>\r\n                  </form> -->\r\n                  <form [formGroup]=\"modeloform\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-4\">\r\n                      <div class=\"form-floating mb-3\">\r\n                              <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                              formControlName=\"category\" id=\"floatingSelect\">\r\n                              <option [value]=\"category.name\" *ngFor=\"let category of categories\">{{ category.name }}</option>\r\n                            </select>\r\n                            <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar Categoria</label>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"col-4\">\r\n                          <div class=\"form-floating mb-3\">\r\n                            <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                               formControlName=\"marca\" id=\"floatingSelect\">\r\n                               <option [value]=\"marca.name\" *ngFor=\"let marca of marcas\">{{ marca.name }}</option>\r\n                              </select>\r\n                              <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar marca</label>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                          <div class=\"col-8\">\r\n                            <div class=\"form-floating mb-6\">\r\n                              <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la modelo\" formControlName=\"name\">\r\n                              <label for=\"floatingInput\">Nombre de la modelo</label>\r\n                            </div>\r\n                          </div>\r\n                  </div>\r\n                        <button mat-button [disabled]=\"!modeloform.valid\" (click)=\"onGuardar()\">Guardar</button>\r\n              </form>\r\n            </mat-card-actions>\r\n        </mat-card>\r\n    </div>\r\n  </ng-template>\r\n  <ng-template #deleteModal>\r\n    <mat-card>\r\n        <mat-card-title>\r\n            Desea continuar?\r\n        </mat-card-title>\r\n        <mat-card-actions align=\"end\">\r\n            <button mat-button (click)=\"onEliminar()\">Eliminar</button>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n  </ng-template>"
+module.exports = "<input class=\"form-control\" type=\"text\" name=\"filterModelos\" placeholder=\"Buscar Modelos\" [(ngModel)]=\"filterModelos\">\r\n<table class=\"table table-hover\">\r\n  <thead>\r\n    <tr class=\"text-center\">\r\n      <th>Categoria</th>\r\n      <th>Marca</th>\r\n      <th>Modelo</th>\r\n      <th>Accion</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr\r\n      *ngFor=\"let element of dataSource  | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } | marcas:filterModelos\"\r\n      class=\"text-center\">\r\n      <td>{{element.category}}</td>\r\n      <td>{{element.marca}}</td>\r\n      <td>{{element.name}}</td>\r\n\r\n      <td>\r\n        <button class=\"btn\"\r\n          (click)=\"openEditModal(element.id, editModal, element.marca, element.name, element.category)\"><i\r\n            class=\"material-icons\">\r\n            edit</i></button>\r\n        <a class=\"btn \"><i class=\"material-icons\" (click)=\"openDeleteModal(element.id, deleteModal)\">delete</i></a>\r\n\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n<pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n</pagination-controls>\r\n\r\n<ng-template #editModal>\r\n  <div class=\"body\">\r\n    <mat-card>\r\n      <mat-card-title>\r\n        Editar Modelo\r\n      </mat-card-title>\r\n      <mat-card-actions>\r\n        \r\n        <form [formGroup]=\"modeloform\">\r\n          <div class=\"row\">\r\n            <div class=\"col-6\">\r\n              <div class=\"form-floating mb-3\">\r\n                <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                  formControlName=\"category\" id=\"floatingSelect\">\r\n                  <option [value]=\"category.name\" *ngFor=\"let category of categories\">{{ category.name }}</option>\r\n                </select>\r\n                <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar Categoria</label>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-6\">\r\n              <div class=\"form-floating mb-3\">\r\n                <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                  formControlName=\"marca\" id=\"floatingSelect\">\r\n                  <option [value]=\"marca.name\" *ngFor=\"let marca of marcas\">{{ marca.name }}</option>\r\n                </select>\r\n                <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar marca</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-12\">\r\n              <div class=\"form-floating mb-6\">\r\n                <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la modelo\"\r\n                  formControlName=\"name\">\r\n                <label for=\"floatingInput\">Nombre de la modelo</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <button mat-button [disabled]=\"!modeloform.valid\" (click)=\"onGuardar()\">Guardar</button>\r\n        </form>\r\n      </mat-card-actions>\r\n    </mat-card>\r\n  </div>\r\n</ng-template>\r\n<ng-template #deleteModal>\r\n  <mat-card>\r\n    <mat-card-title>\r\n      Desea continuar?\r\n    </mat-card-title>\r\n    <mat-card-actions align=\"end\">\r\n      <button mat-button (click)=\"onEliminar()\">Eliminar</button>\r\n    </mat-card-actions>\r\n  </mat-card>\r\n</ng-template>"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ var ListModelosRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n    width: 100%;\r\n  }\r\n.body{\r\n  justify-content: center;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vbW9kZWxvcy9saXN0LW1vZGVsb3MvbGlzdC1tb2RlbG9zLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0VBQ2I7QUFDRjtFQUNFLHVCQUF1QjtBQUN6QiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL21vZGVsb3MvbGlzdC1tb2RlbG9zL2xpc3QtbW9kZWxvcy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidGFibGUge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgfVxyXG4uYm9keXtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufSJdfQ== */"
+module.exports = "table {\r\n    width: 100%;\r\n  }\r\n.body{\r\n  justify-content: center;\r\n}\r\n.info{\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  width: 60%;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vbW9kZWxvcy9saXN0LW1vZGVsb3MvbGlzdC1tb2RlbG9zLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0VBQ2I7QUFDRjtFQUNFLHVCQUF1QjtBQUN6QjtBQUNBO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0Qix1QkFBdUI7RUFDdkIsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9tb2RlbG9zL2xpc3QtbW9kZWxvcy9saXN0LW1vZGVsb3MuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gIH1cclxuLmJvZHl7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuLmluZm97XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHdpZHRoOiA2MCU7XHJcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xyXG59Il19 */"
 
 /***/ }),
 
@@ -110,7 +110,9 @@ var ListModelosComponent = /** @class */ (function () {
         this.marcaService = marcaService;
         this.categoriaService = categoriaService;
         this.displayedColumns = ['category', 'marca', 'modelo', 'actions'];
+        this.dataSource = [];
         this.pageActual = 1;
+        this.filterModelos = '';
         this.modelosService.modelos.subscribe(function (resp) {
             _this.dataSource = resp;
         });
@@ -195,6 +197,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _list_modelos_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./list-modelos.component */ "./src/app/admin/modelos/list-modelos/list-modelos.component.ts");
 /* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/__ivy_ngcc__/dist/ngx-pagination.js");
+/* harmony import */ var src_app_pipes_pipes_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/pipes/pipes.module */ "./src/app/pipes/pipes.module.ts");
+
 
 
 
@@ -218,7 +222,9 @@ var ListModelosModule = /** @class */ (function () {
                 _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableModule"],
                 _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
+                src_app_pipes_pipes_module__WEBPACK_IMPORTED_MODULE_10__["PipesModule"]
             ],
             exports: [_list_modelos_component__WEBPACK_IMPORTED_MODULE_8__["ListModelosComponent"]]
         })
@@ -522,6 +528,90 @@ var NewModelosModule = /** @class */ (function () {
         })
     ], NewModelosModule);
     return NewModelosModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pipes/marcas.pipe.ts":
+/*!**************************************!*\
+  !*** ./src/app/pipes/marcas.pipe.ts ***!
+  \**************************************/
+/*! exports provided: MarcasPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MarcasPipe", function() { return MarcasPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+var MarcasPipe = /** @class */ (function () {
+    function MarcasPipe() {
+    }
+    MarcasPipe.prototype.transform = function (value, arg) {
+        var resultProduct = [];
+        for (var _i = 0, value_1 = value; _i < value_1.length; _i++) {
+            var Vehicle = value_1[_i];
+            if (Vehicle.name != null) {
+                if (Vehicle.name.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+                    //console.log("si");
+                    resultProduct.push(Vehicle);
+                }
+            }
+            else {
+                if (Vehicle.marca.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+                    //console.log("si");
+                    resultProduct.push(Vehicle);
+                }
+            }
+        }
+        return resultProduct;
+    };
+    MarcasPipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+            name: 'marcas'
+        })
+    ], MarcasPipe);
+    return MarcasPipe;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pipes/pipes.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/pipes/pipes.module.ts ***!
+  \***************************************/
+/*! exports provided: PipesModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PipesModule", function() { return PipesModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _marcas_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./marcas.pipe */ "./src/app/pipes/marcas.pipe.ts");
+
+
+
+
+var PipesModule = /** @class */ (function () {
+    function PipesModule() {
+    }
+    PipesModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"]],
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
+            ], exports: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"]]
+        })
+    ], PipesModule);
+    return PipesModule;
 }());
 
 
