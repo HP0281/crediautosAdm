@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~admin-categorias-categorias-module~admin-marcas-marcas-module~nuevo-nuevo-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~admin-categorias-categorias-module~admin-marcas-marcas-module~listar-productos-listar-produc~27223d11"],{
 
 /***/ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js":
 /*!**********************************************************************!*\
@@ -1032,4 +1032,4 @@ MatIconModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInje
 /***/ })
 
 }]);
-//# sourceMappingURL=default~admin-categorias-categorias-module~admin-marcas-marcas-module~nuevo-nuevo-module-es5.js.map
+//# sourceMappingURL=default~admin-categorias-categorias-module~admin-marcas-marcas-module~listar-productos-listar-produc~27223d11-es5.js.map

@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let element of dataSource  | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } | marcas:filterVersiones"
+      *ngFor="let element of dataSource | name:filterVersiones | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } "
       class="text-center">
       <td>{{element.category}}</td>
       <td>{{element.marca}}</td>

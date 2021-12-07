@@ -9,17 +9,10 @@ export class MarcasPipe implements PipeTransform {
     const resultProduct=[];
     
     for(const Vehicle of value){
-      if (Vehicle.name != null) {
-        if(Vehicle.name.toLowerCase().indexOf(arg.toLowerCase())>-1){
-          //console.log("si");
-          resultProduct.push(Vehicle);
-        }
-      } else {
         if(Vehicle.marca.toLowerCase().indexOf(arg.toLowerCase())>-1){
           //console.log("si");
           resultProduct.push(Vehicle);
         }
-      }
      
     }
     return resultProduct;

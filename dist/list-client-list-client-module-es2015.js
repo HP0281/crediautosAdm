@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container table-responsive\" >\n    <button style=\"margin-bottom: 10px; margin-left: 0px;\" class=\"btn btn-warning text-white\">\n        <i class=\"material-icons text-white\">restore_page\n        </i> Refrescar Tabla\n    </button>\n\n    <div class=\"card min\">\n        <div class=\"card-header\">\n            <h3>LISTADO DE CLIENTES</h3>\n\n        </div>\n        <input class=\"form-control\" type=\"text\" name=\"filterProducto\" placeholder=\"Buscar Cliente\">\n        <div class=\"card-body\">\n            <table class=\"table table-hover\">\n                <thead>\n                    <tr class=\"text-center\">\n                        <th>Nombre</th>\n                        <th>cedula</th>\n                        <th>telefono</th>\n                        <th>vehiculos</th>\n                        <th>Placa</th>\n                        <th>fecha soat</th>\n                        <th>fecha tecnomecanica</th>\n                        <th>accion</th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr class=\"text-center\">\n                        <td>vehicled</td>\n                        <td>vehiclearca</td>\n                        <td>vehicleodelo</td>\n                        <td><a class=\"btn \"><i class=\"material-icons\">visibility</i></a></td>\n                        <td>vehiclelaca</td>\n                        <td>dsad</td>\n                        <td>sds</td>\n                        <td>\n                            <a class=\"btn \"><i class=\"material-icons\">\n                                edit</i></a>\n                            <a class=\"btn \"><i class=\"material-icons\">person_add</i></a>\n                            <a class=\"btn \"><i class=\"material-icons\">delete</i></a>\n\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n        <!-- <div *ngIf=\"failEliminado\" class=\"float-left\">\n            <p class=\"p-3 bg-danger text-white rounded\">Error: msjErr</p>\n        </div>\n        <div *ngIf=\"eliminado\" class=\"float-left\">\n            <p class=\"p-3 bg-success text-white rounded\">OK: msjOK</p>\n        </div>\n        <div *ngIf=\"failActualizado\" class=\"float-left\">\n            <p class=\"p-3 bg-danger text-white rounded\" style=\"margin: 10px\">Error: msjErr</p>\n        </div>\n        <div *ngIf=\"actualizado\" class=\"float-left\">\n            <p class=\"p-3 bg-success text-white rounded\" style=\"margin: 10px\">OK: msjOK</p>\n        </div>-->\n    </div>\n    \n</div>"
+module.exports = "<div class=\"container table-responsive\" >\r\n    <button style=\"margin-bottom: 10px; margin-left: 0px;\" class=\"btn btn-warning text-white\">\r\n        <i class=\"material-icons text-white\">restore_page\r\n        </i> Refrescar Tabla\r\n    </button>\r\n\r\n    <div class=\"card min\">\r\n        <div class=\"card-header\">\r\n            <h3>LISTADO DE CLIENTES</h3>\r\n\r\n        </div>\r\n        <input class=\"form-control\" type=\"text\" name=\"filterProducto\" placeholder=\"Buscar Cliente\">\r\n        <div class=\"card-body\">\r\n            <table class=\"table table-hover\">\r\n                <thead>\r\n                    <tr class=\"text-center\">\r\n                        <th>Nombre</th>\r\n                        <th>cedula</th>\r\n                        <th>telefono</th>\r\n                        <th>vehiculos</th>\r\n                        <th>accion</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr class=\"text-center\" *ngFor=\"let cliente of clientes\">\r\n                        <td>{{ cliente.apname }}</td>\r\n                        <td>{{ cliente.identificacion }}</td>\r\n                        <td>{{ cliente.phone }}</td>\r\n                        <td><a class=\"btn \" (click)=\"vehicles(cliente.id)\"><i class=\"material-icons\">visibility</i></a></td>\r\n                        <td>\r\n                            <a class=\"btn \"><i class=\"material-icons\">\r\n                                edit</i></a>\r\n                            <a class=\"btn \"><i class=\"material-icons\">person_add</i></a>\r\n                            <a class=\"btn \"><i class=\"material-icons\">delete</i></a>\r\n\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n        </div>\r\n        <!-- <div *ngIf=\"failEliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\">Error: msjErr</p>\r\n        </div>\r\n        <div *ngIf=\"eliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\">OK: msjOK</p>\r\n        </div>\r\n        <div *ngIf=\"failActualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\" style=\"margin: 10px\">Error: msjErr</p>\r\n        </div>\r\n        <div *ngIf=\"actualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\" style=\"margin: 10px\">OK: msjOK</p>\r\n        </div>-->\r\n    </div>\r\n    \r\n</div>"
 
 /***/ }),
 
@@ -68,20 +68,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListClientComponent", function() { return ListClientComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_services_user_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/user-service.service */ "./src/app/services/user-service.service.ts");
+
+
 
 
 let ListClientComponent = class ListClientComponent {
-    constructor() { }
+    constructor(userSv, dialog) {
+        this.userSv = userSv;
+        this.dialog = dialog;
+        this.userSv.user.subscribe(resp => {
+            this.clientes = resp;
+        });
+    }
     ngOnInit() {
     }
+    vehicles(id) {
+    }
 };
+ListClientComponent.ctorParameters = () => [
+    { type: src_app_services_user_service_service__WEBPACK_IMPORTED_MODULE_3__["UserServiceService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
+];
 ListClientComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-list-client',
         template: __webpack_require__(/*! raw-loader!./list-client.component.html */ "./node_modules/raw-loader/index.js!./src/app/layout/components/modules/clientes/list-client/list-client.component.html"),
         styles: [__webpack_require__(/*! ./list-client.component.css */ "./src/app/layout/components/modules/clientes/list-client/list-client.component.css")]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_services_user_service_service__WEBPACK_IMPORTED_MODULE_3__["UserServiceService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
 ], ListClientComponent);
 
 
@@ -107,6 +124,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var src_app_shared_material_material_material_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/material/material/material.module */ "./src/app/shared/material/material/material.module.ts");
+
 
 
 
@@ -127,7 +146,8 @@ ListClientModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _list_client_routing_module__WEBPACK_IMPORTED_MODULE_3__["ListClientRoutingModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
-            ngx_pagination__WEBPACK_IMPORTED_MODULE_5__["NgxPaginationModule"]
+            ngx_pagination__WEBPACK_IMPORTED_MODULE_5__["NgxPaginationModule"],
+            src_app_shared_material_material_material_module__WEBPACK_IMPORTED_MODULE_9__["MaterialModule"]
         ], exports: [_list_client_component__WEBPACK_IMPORTED_MODULE_4__["ListClientComponent"]]
     })
 ], ListClientModule);

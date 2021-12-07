@@ -121,6 +121,7 @@ let NuevoProductoComponent = class NuevoProductoComponent {
         else {
             this.formPrincipal.patchValue(this.vehicle);
             this.llenarformularios();
+            console.log(this.vehicle.id);
         }
     }
     onContinue(paso) {
@@ -510,14 +511,14 @@ let NuevoProductoComponent = class NuevoProductoComponent {
         console.log(this.formPrincipal.get('unicodueño').value);
     }
     onguardar() {
-        var _a;
         if (this.formPrincipal.valid) {
             const vehicle = this.formPrincipal.value;
-            const vehicleid = ((_a = this.vehicle) === null || _a === void 0 ? void 0 : _a._id) || null;
+            const vehicleid = this.vehicle.id || null;
             this.vehicleService.onSaveVehicle(vehicle, vehicleid);
+            console.log(vehicleid);
             //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
             alert('registro creado correctamente');
-            this.router.navigate['/inicio'];
+            this.router.navigate(['/productos/listar-productos']);
         }
     }
     onLogout() {

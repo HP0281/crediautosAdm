@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"center-loader\" *ngIf=\"loader\">\r\n    <strong>Cargando\r\n        <span class=\"loader__dot\">.</span>\r\n        <span class=\"loader__dot\">.</span>\r\n        <span class=\"loader__dot\">.</span></strong>\r\n</div>\r\n\r\n<div class=\"container table-responsive\" *ngIf=\"!loader\">\r\n    <button style=\"margin-bottom: 10px; margin-left: 0px;\" class=\"btn btn-warning text-white\" (click)=\"ngOnInit()\">\r\n        <i class=\"material-icons text-white\">restore_page\r\n        </i> Refrescar Tabla\r\n    </button>\r\n\r\n    <div class=\"card min\">\r\n        <div class=\"card-header\">\r\n            <h3>LISTADO DE PRODUCTOS</h3>\r\n\r\n        </div>\r\n        <input class=\"form-control\" type=\"text\" name=\"filterProducto\" placeholder=\"Buscar Producto\" [(ngModel)]=\"filterMarcas\">\r\n        <div class=\"card-body\">\r\n            <table class=\"table table-hover\">\r\n                <thead>\r\n                    <tr class=\"text-center\">\r\n                        <th>Vendedor</th>\r\n                        <th>Marca</th>\r\n                        <th>Modelo</th>\r\n                        <th>Version</th>\r\n                        <th>Año</th>\r\n                        <th>Placa</th>\r\n                        <th>Publicar</th>\r\n                        <th>Promocion</th>\r\n                        <th>Valor</th>\r\n                        <th>Accion</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let vehicle of vehicles | filtarmarca:filterMarcas | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } \"  class=\"text-center\">\r\n                        <td>{{vehicle.Vendedor}}</td>\r\n                        <td>{{vehicle.marca}}</td>\r\n                        <td>{{vehicle.modelo}}</td>\r\n                        <td>{{vehicle.version}}</td>\r\n                        <td>{{vehicle.year}}</td>\r\n                        <td>{{vehicle.placa}}</td>\r\n                        <td>  <label class=\"switch-wrap switch-success ml-2\">\r\n                            <input type=\"checkbox\" [checked]=\"vehicle.status\" (change)=\"status(vehicle,cambiandoModal)\" />\r\n                            <div class=\"switch\"></div>\r\n                        </label></td>\r\n                        <td><label class=\"switch-wrap switch-danger ml-2\">\r\n                            <input type=\"checkbox\" [checked]=\"vehicle.promocion\" (change)=\"promocion(vehicle,cambiandoModal)\"/>\r\n                            <div class=\"switch\"></div>\r\n                        </label></td>\r\n                        <td>{{vehicle.valor}}</td>\r\n                        <td>\r\n                            <button (click)=\"modificarProducto(vehicle)\" class=\"btn\"><i class=\"material-icons\">\r\n                                edit</i></button>\r\n                            <a class=\"btn \"><i class=\"material-icons\">visibility</i></a>\r\n                            <a class=\"btn \"><i class=\"material-icons\">delete</i></a>\r\n\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n            <pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n                </pagination-controls>\r\n        </div>\r\n        <!-- <div *ngIf=\"failEliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\">Error: {{msjErr}}</p>\r\n        </div>\r\n        <div *ngIf=\"eliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\">OK: {{msjOK}}</p>\r\n        </div>\r\n        <div *ngIf=\"failActualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\" style=\"margin: 10px\">Error: {{msjErr}}</p>\r\n        </div>\r\n        <div *ngIf=\"actualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\" style=\"margin: 10px\">OK: {{msjOK}}</p>\r\n        </div>-->\r\n    </div>\r\n    \r\n</div>\r\n<ng-template #cambiandoModal>\r\n    <div class=\"center-loader\" *ngIf=\"loaderEstado\">\r\n        <strong>Cambiando estado\r\n                <span class=\"loader__dot\">.</span>\r\n                <span class=\"loader__dot\">.</span>\r\n                <span class=\"loader__dot\">.</span></strong>\r\n    </div>\r\n</ng-template>"
+module.exports = "<div class=\"center-loader\" *ngIf=\"loader\">\r\n    <strong>Cargando\r\n        <span class=\"loader__dot\">.</span>\r\n        <span class=\"loader__dot\">.</span>\r\n        <span class=\"loader__dot\">.</span></strong>\r\n</div>\r\n\r\n<div class=\"container table-responsive\" *ngIf=\"!loader\">\r\n    <button style=\"margin-bottom: 10px; margin-left: 0px;\" class=\"btn btn-warning text-white\" (click)=\"ngOnInit()\">\r\n        <i class=\"material-icons text-white\">restore_page\r\n        </i> Refrescar Tabla\r\n    </button>\r\n\r\n    <div class=\"card min\">\r\n        <div class=\"card-header\">\r\n            <h3>LISTADO DE PRODUCTOS</h3>\r\n\r\n        </div>\r\n        <input class=\"form-control\" type=\"text\" name=\"filterProducto\" placeholder=\"Buscar Producto\" [(ngModel)]=\"filterMarcas\">\r\n        <div class=\"card-body\">\r\n            <table class=\"table table-hover\">\r\n                <thead>\r\n                    <tr class=\"text-center\">\r\n                        <th>Vendedor</th>\r\n                        <th>Publicación</th>\r\n                        <th>Marca</th>\r\n                        <th>Modelo</th>\r\n                        <th>Version</th>\r\n                        <th>Año</th>\r\n                        <th>Placa</th>\r\n                        <th>Publicar</th>\r\n                        <th>Promocion</th>\r\n                        <th>Valor</th>\r\n                        <th>Accion</th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let vehicle of vehicles | filtarmarca:filterMarcas | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } \"  class=\"text-center\">\r\n                        <td>{{vehicle.vendedor}}</td>\r\n                        <td>{{vehicle.desc}}</td>\r\n                        <td>{{vehicle.marca}}</td>\r\n                        <td>{{vehicle.modelo}}</td>\r\n                        <td>{{vehicle.version}}</td>\r\n                        <td>{{vehicle.year}}</td>\r\n                        <td>{{vehicle.placa}}</td>\r\n                        <td>  <label class=\"switch-wrap switch-success ml-2\">\r\n                            <input type=\"checkbox\" [checked]=\"vehicle.status\" (change)=\"status(vehicle,cambiandoModal)\" />\r\n                            <div class=\"switch\"></div>\r\n                        </label></td>\r\n                        <td><label class=\"switch-wrap switch-danger ml-2\">\r\n                            <input type=\"checkbox\" [checked]=\"vehicle.promocion\" (change)=\"promocion(vehicle,cambiandoModal)\"/>\r\n                            <div class=\"switch\"></div>\r\n                        </label></td>\r\n                        <td>{{vehicle.valor}}</td>\r\n                        <td>\r\n                            <button (click)=\"modificarProducto(vehicle)\" class=\"btn\"><i class=\"material-icons\">\r\n                                edit</i></button>\r\n                            <a class=\"btn \" ><i class=\"material-icons\">visibility</i></a>\r\n                            <a class=\"btn \" (click)=\"msgDelete(deleteModal, vehicle.id, vehicle.desc )\" ><i class=\"material-icons\">delete</i></a>\r\n\r\n                        </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n            <pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n                </pagination-controls>\r\n        </div>\r\n        <!-- <div *ngIf=\"failEliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\">Error: {{msjErr}}</p>\r\n        </div>\r\n        <div *ngIf=\"eliminado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\">OK: {{msjOK}}</p>\r\n        </div>\r\n        <div *ngIf=\"failActualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-danger text-white rounded\" style=\"margin: 10px\">Error: {{msjErr}}</p>\r\n        </div>\r\n        <div *ngIf=\"actualizado\" class=\"float-left\">\r\n            <p class=\"p-3 bg-success text-white rounded\" style=\"margin: 10px\">OK: {{msjOK}}</p>\r\n        </div>-->\r\n    </div>\r\n    \r\n</div>\r\n<ng-template #cambiandoModal>\r\n    <div class=\"center-loader\" *ngIf=\"loaderEstado\">\r\n        <strong>Cambiando estado\r\n                <span class=\"loader__dot\">.</span>\r\n                <span class=\"loader__dot\">.</span>\r\n                <span class=\"loader__dot\">.</span></strong>\r\n    </div>\r\n</ng-template>\r\n<ng-template #deleteModal>\r\n    <mat-card *ngIf=\"!isloading\">\r\n        <mat-card-title>\r\n            Eliminar Producto\r\n        </mat-card-title>\r\n        <mat-card-subtitle>\r\n            Esta a punto de eliminar el siguiente Producto: \r\n        </mat-card-subtitle>\r\n        <mat-card-content>\r\n            {{ nombreProduct }}\r\n        </mat-card-content>\r\n        <mat-card-actions align=\"end\">\r\n            <button mat-button (click)=\"delete()\">Eliminar</button>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <mat-spinner *ngIf=\"isloading\"></mat-spinner>\r\n    <mat-icon *ngIf=\"icon\">check_circle</mat-icon>\r\n</ng-template>"
 
 /***/ }),
 
@@ -91,6 +91,9 @@ var ListarProductosComponent = /** @class */ (function () {
         this.loaderEstado = false;
         this.pageActual = 1;
         this.filterMarcas = '';
+        this.nombreProduct = '';
+        this.idProduct = '';
+        this.isloading = false;
         this.navigationExtras = {
             state: {
                 value: null
@@ -138,8 +141,20 @@ var ListarProductosComponent = /** @class */ (function () {
     ListarProductosComponent.prototype.modificarProducto = function (vehicle) {
         //localStorage.setItem("idVehicle", vehicle.id + "");
         this.navigationExtras.state.value = vehicle;
-        debugger;
         this.router.navigate(["productos/editar-producto"], this.navigationExtras);
+    };
+    ListarProductosComponent.prototype.msgDelete = function (modal, vehicleid, nombre) {
+        this.nombreProduct = nombre;
+        this.idProduct = vehicleid;
+        this.serviceModal.open(modal);
+    };
+    ListarProductosComponent.prototype.delete = function () {
+        var _this = this;
+        this.isloading = true;
+        this.vehicleService.onDeleteVehicles(this.idProduct).then(function (resp) {
+            _this.isloading = false;
+            _this.serviceModal.dismissAll();
+        });
     };
     ListarProductosComponent.prototype.isAdmin = function () {
     };
@@ -188,6 +203,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pipe_listar_producto_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pipe/listar-producto.pipe */ "./src/app/layout/components/modules/productos/listar-productos/pipe/listar-producto.pipe.ts");
 /* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/__ivy_ngcc__/dist/ngx-pagination.js");
 /* harmony import */ var _pipe_filtar_marca_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pipe/filtar-marca.pipe */ "./src/app/layout/components/modules/productos/listar-productos/pipe/filtar-marca.pipe.ts");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/progress-spinner.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+
+
+
+
+
+
 
 
 
@@ -211,7 +238,14 @@ var ListarProductosModule = /** @class */ (function () {
                 _listar_producto_routing_module__WEBPACK_IMPORTED_MODULE_7__["ListarProductoRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
-                ngx_pagination__WEBPACK_IMPORTED_MODULE_9__["NgxPaginationModule"]
+                ngx_pagination__WEBPACK_IMPORTED_MODULE_9__["NgxPaginationModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_11__["MatCardModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialogModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_14__["MatFormFieldModule"],
+                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_15__["MatProgressSpinnerModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_16__["MatIconModule"],
             ], exports: [_pipe_filtar_marca_pipe__WEBPACK_IMPORTED_MODULE_10__["FiltarMarcaPipe"]]
         })
     ], ListarProductosModule);

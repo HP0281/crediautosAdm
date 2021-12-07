@@ -1,14 +1,14 @@
 <div class="body">
-    <div class="body-page">
+    <div class="col-12">
         <div class="title">
             <h5>Agregar nuevo modelo</h5>
         </div>
-        <div class="form">
+        <div class="container col-9">
             <form [formGroup]="modeloForm">
-                <div class="row">
+                <div class="row ">
                     <div class="col-4">
                         <div class="form-floating mb-3">
-                            <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            <select class="form-control form-select form-select-lg mb-3" (change)="filtroMarca()" aria-label=".form-select-lg example"
                              formControlName="category" id="floatingSelect">
                              <option [value]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
                             </select>

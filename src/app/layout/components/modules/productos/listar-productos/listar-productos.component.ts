@@ -27,6 +27,9 @@ export class ListarProductosComponent implements OnInit {
   loaderEstado=false;
   pageActual: number = 1;
   filterMarcas = '';
+  nombreProduct='';
+  idProduct = '';
+  isloading = false;
 
   navigationExtras : NavigationExtras = {
     state:{
@@ -87,8 +90,20 @@ export class ListarProductosComponent implements OnInit {
   modificarProducto(vehicle) {
     //localStorage.setItem("idVehicle", vehicle.id + "");
     this.navigationExtras.state.value = vehicle;
-    debugger
     this.router.navigate(["productos/editar-producto"], this.navigationExtras);
+  }
+
+  msgDelete(modal,vehicleid: string, nombre:string){
+    this.nombreProduct = nombre;
+    this.idProduct = vehicleid;
+    this.serviceModal.open(modal);
+  }
+  delete(){
+    this.isloading = true;
+    this.vehicleService.onDeleteVehicles(this.idProduct).then(resp =>{
+      this.isloading = false;
+      this.serviceModal.dismissAll();
+    })
   }
 
   isAdmin() {
