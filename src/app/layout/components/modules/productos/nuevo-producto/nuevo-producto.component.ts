@@ -322,7 +322,7 @@ export class NuevoProductoComponent implements OnInit {
       case 'entradausb':  this.formPrincipal.get('entradausb').setValue(valor);  break;
       case 'eds':  this.formPrincipal.get('eds').setValue(valor);  break;
       case 'cubiertaplaton':  this.formPrincipal.get('cubiertaplaton').setValue(valor);  break;
-      case 'plana':  this.formPrincipal.get('plana').setValue(valor);  break;
+      case 'plana':  this.formPrincipal.get('plana').setValue(valor);  break; 
       case 'estribos':  this.formPrincipal.get('estribos').setValue(valor);  break;
       case 'exploradoras':  this.formPrincipal.get('exploradoras').setValue(valor);  break;
       case 'llantasn':  this.formPrincipal.get('llantasn').setValue(valor);  break;
