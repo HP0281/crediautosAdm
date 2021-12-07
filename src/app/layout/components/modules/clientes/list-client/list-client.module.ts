@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from 'src/app/shared/material/material/material.module';
+import { ClientesmodalModule } from 'src/app/admin/modals/clientesmodal/clientesmodal.module';
+import { ConfirmacionModule } from 'src/app/admin/modals/confirmacion/confirmacion.module';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { MaterialModule } from 'src/app/shared/material/material/material.module
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    MaterialModule
+    MaterialModule,
+    ClientesmodalModule,
+    ConfirmacionModule
   ],exports:[ListClientComponent]
 })
 export class ListClientModule { }
