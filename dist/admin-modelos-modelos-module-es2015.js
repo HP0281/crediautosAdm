@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<input class=\"form-control\" type=\"text\" name=\"filterModelos\" placeholder=\"Buscar Modelos\" [(ngModel)]=\"filterModelos\">\r\n<table class=\"table table-hover\">\r\n  <thead>\r\n    <tr class=\"text-center\">\r\n      <th>Categoria</th>\r\n      <th>Marca</th>\r\n      <th>Modelo</th>\r\n      <th>Accion</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr\r\n      *ngFor=\"let element of dataSource  | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } | marcas:filterModelos\"\r\n      class=\"text-center\">\r\n      <td>{{element.category}}</td>\r\n      <td>{{element.marca}}</td>\r\n      <td>{{element.name}}</td>\r\n\r\n      <td>\r\n        <button class=\"btn\"\r\n          (click)=\"openEditModal(element.id, editModal, element.marca, element.name, element.category)\"><i\r\n            class=\"material-icons\">\r\n            edit</i></button>\r\n        <a class=\"btn \"><i class=\"material-icons\" (click)=\"openDeleteModal(element.id, deleteModal)\">delete</i></a>\r\n\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n<pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n</pagination-controls>\r\n\r\n<ng-template #editModal>\r\n  <div class=\"body\">\r\n    <mat-card>\r\n      <mat-card-title>\r\n        Editar Modelo\r\n      </mat-card-title>\r\n      <mat-card-actions>\r\n        \r\n        <form [formGroup]=\"modeloform\">\r\n          <div class=\"row\">\r\n            <div class=\"col-6\">\r\n              <div class=\"form-floating mb-3\">\r\n                <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                  formControlName=\"category\" id=\"floatingSelect\">\r\n                  <option [value]=\"category.name\" *ngFor=\"let category of categories\">{{ category.name }}</option>\r\n                </select>\r\n                <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar Categoria</label>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-6\">\r\n              <div class=\"form-floating mb-3\">\r\n                <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                  formControlName=\"marca\" id=\"floatingSelect\">\r\n                  <option [value]=\"marca.name\" *ngFor=\"let marca of marcas\">{{ marca.name }}</option>\r\n                </select>\r\n                <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar marca</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-12\">\r\n              <div class=\"form-floating mb-6\">\r\n                <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la modelo\"\r\n                  formControlName=\"name\">\r\n                <label for=\"floatingInput\">Nombre de la modelo</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <button mat-button [disabled]=\"!modeloform.valid\" (click)=\"onGuardar()\">Guardar</button>\r\n        </form>\r\n      </mat-card-actions>\r\n    </mat-card>\r\n  </div>\r\n</ng-template>\r\n<ng-template #deleteModal>\r\n  <mat-card>\r\n    <mat-card-title>\r\n      Desea continuar?\r\n    </mat-card-title>\r\n    <mat-card-actions align=\"end\">\r\n      <button mat-button (click)=\"onEliminar()\">Eliminar</button>\r\n    </mat-card-actions>\r\n  </mat-card>\r\n</ng-template>"
+module.exports = "<input class=\"form-control\" type=\"text\" name=\"filterModelos\" placeholder=\"Buscar Modelos\" [(ngModel)]=\"filterModelos\">\r\n<table class=\"table table-hover\">\r\n  <thead>\r\n    <tr class=\"text-center\">\r\n      <th>Categoria</th>\r\n      <th>Marca</th>\r\n      <th>Modelo</th>\r\n      <th>Accion</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr\r\n      *ngFor=\"let element of dataSource | name:filterModelos | paginate: {id:'listar', itemsPerPage: 5, currentPage: pageActual } \"\r\n      class=\"text-center\">\r\n      <td *ngIf=\"element.category === 'Carros y Camionetas ' \"><h1>aquiiii</h1></td>\r\n      <td>{{element.category}}</td>\r\n      \r\n      <td>{{element.marca}}</td>\r\n      <td>{{element.name}}</td>\r\n\r\n      <td>\r\n        <button class=\"btn\"\r\n          (click)=\"openEditModal(element.id, editModal, element.marca, element.name, element.category)\"><i\r\n            class=\"material-icons\">\r\n            edit</i></button>\r\n        <a class=\"btn \"><i class=\"material-icons\" (click)=\"openDeleteModal(element.id, deleteModal)\">delete</i></a>\r\n\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n<pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n</pagination-controls>\r\n\r\n<ng-template #editModal>\r\n  <div class=\"body\">\r\n    <mat-card>\r\n      <mat-card-title>\r\n        Editar Modelo\r\n      </mat-card-title>\r\n      <mat-card-actions>\r\n        \r\n        <form [formGroup]=\"modeloform\">\r\n          <div class=\"row\">\r\n            <div class=\"col-6\">\r\n              <div class=\"form-floating mb-3\">\r\n                <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                  formControlName=\"category\" id=\"floatingSelect\">\r\n                  <option [value]=\"category.name\" *ngFor=\"let category of categories\">{{ category.name }}</option>\r\n                </select>\r\n                <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar Categoria</label>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-6\">\r\n              <div class=\"form-floating mb-3\">\r\n                <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                  formControlName=\"marca\" id=\"floatingSelect\">\r\n                  <option [value]=\"marca.name\" *ngFor=\"let marca of marcas\">{{ marca.name }}</option>\r\n                </select>\r\n                <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar marca</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-12\">\r\n              <div class=\"form-floating mb-6\">\r\n                <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la modelo\"\r\n                  formControlName=\"name\">\r\n                <label for=\"floatingInput\">Nombre de la modelo</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <button mat-button [disabled]=\"!modeloform.valid\" (click)=\"onGuardar()\">Guardar</button>\r\n        </form>\r\n      </mat-card-actions>\r\n    </mat-card>\r\n  </div>\r\n</ng-template>\r\n<ng-template #deleteModal>\r\n  <mat-card>\r\n    <mat-card-title>\r\n      Desea continuar?\r\n    </mat-card-title>\r\n    <mat-card-actions align=\"end\">\r\n      <button mat-button (click)=\"onEliminar()\">Eliminar</button>\r\n    </mat-card-actions>\r\n  </mat-card>\r\n</ng-template>"
 
 /***/ }),
 
@@ -123,6 +123,7 @@ let ListModelosComponent = class ListModelosComponent {
         this.initForm();
     }
     openEditModal(id, modal, marca, modelo, category) {
+        console.log("este id modelo", id);
         this.idactual = id;
         marca != null ? this.modeloform.get('marca').setValue(marca) : "";
         modelo != null ? this.modeloform.get('name').setValue(modelo) : "";
@@ -528,17 +529,9 @@ let MarcasPipe = class MarcasPipe {
     transform(value, arg) {
         const resultProduct = [];
         for (const Vehicle of value) {
-            if (Vehicle.name != null) {
-                if (Vehicle.name.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
-                    //console.log("si");
-                    resultProduct.push(Vehicle);
-                }
-            }
-            else {
-                if (Vehicle.marca.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
-                    //console.log("si");
-                    resultProduct.push(Vehicle);
-                }
+            if (Vehicle.marca.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+                //console.log("si");
+                resultProduct.push(Vehicle);
             }
         }
         return resultProduct;
@@ -549,6 +542,42 @@ MarcasPipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         name: 'marcas'
     })
 ], MarcasPipe);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pipes/name.pipe.ts":
+/*!************************************!*\
+  !*** ./src/app/pipes/name.pipe.ts ***!
+  \************************************/
+/*! exports provided: NamePipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NamePipe", function() { return NamePipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let NamePipe = class NamePipe {
+    transform(value, arg) {
+        const resultProduct = [];
+        for (const Vehicle of value) {
+            if (Vehicle.name.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+                //console.log("si");
+                resultProduct.push(Vehicle);
+            }
+        }
+        return resultProduct;
+    }
+};
+NamePipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'name'
+    })
+], NamePipe);
 
 
 
@@ -568,6 +597,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _marcas_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./marcas.pipe */ "./src/app/pipes/marcas.pipe.ts");
+/* harmony import */ var _name_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./name.pipe */ "./src/app/pipes/name.pipe.ts");
+
 
 
 
@@ -576,10 +607,10 @@ let PipesModule = class PipesModule {
 };
 PipesModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"]],
+        declarations: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"], _name_pipe__WEBPACK_IMPORTED_MODULE_4__["NamePipe"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
-        ], exports: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"]]
+        ], exports: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"], _name_pipe__WEBPACK_IMPORTED_MODULE_4__["NamePipe"]]
     })
 ], PipesModule);
 

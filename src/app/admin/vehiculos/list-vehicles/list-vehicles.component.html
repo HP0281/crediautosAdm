@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let element of data | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } | marcas:filterVehicles"
+      *ngFor="let element of data | marcas:filterVehicles | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } "
       class="text-center">
       <td>{{element.categoria}}</td>
       <td>{{element.marca}}</td>

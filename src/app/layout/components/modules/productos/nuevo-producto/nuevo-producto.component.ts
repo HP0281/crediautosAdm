@@ -83,6 +83,7 @@ export class NuevoProductoComponent implements OnInit {
     }else{
       this.formPrincipal.patchValue(this.vehicle);
       this.llenarformularios();
+      console.log(this.vehicle.id)
     }
   }
   
@@ -353,11 +354,12 @@ export class NuevoProductoComponent implements OnInit {
   onguardar(){
     if (this.formPrincipal.valid) {
       const vehicle = this.formPrincipal.value;
-      const vehicleid = this.vehicle?._id || null;
+      const vehicleid = this.vehicle.id || null;
       this.vehicleService.onSaveVehicle(vehicle, vehicleid);
+      console.log(vehicleid);
       //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
       alert('registro creado correctamente');
-      this.router.navigate['/inicio'];
+      this.router.navigate(['/productos/listar-productos']);
     }
     
   }
@@ -386,7 +388,8 @@ export class NuevoProductoComponent implements OnInit {
   }
   getModelos(marca:string){
     console.log('resultado marcas');
-    this.modelosService.getModelosforMarca(marca).subscribe((resp:any)=>{
+    let c =this.formPrincipal.get('categoria').value;
+    this.modelosService.getModelosforMarca(marca, c).subscribe((resp:any)=>{
       console.log(resp);
       this.modelos = resp;
     })

@@ -22,6 +22,7 @@
                 <thead>
                     <tr class="text-center">
                         <th>Vendedor</th>
+                        <th>Publicación</th>
                         <th>Marca</th>
                         <th>Modelo</th>
                         <th>Version</th>
@@ -35,7 +36,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let vehicle of vehicles | filtarmarca:filterMarcas | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } "  class="text-center">
-                        <td>{{vehicle.Vendedor}}</td>
+                        <td>{{vehicle.vendedor}}</td>
+                        <td>{{vehicle.desc}}</td>
                         <td>{{vehicle.marca}}</td>
                         <td>{{vehicle.modelo}}</td>
                         <td>{{vehicle.version}}</td>
@@ -53,8 +55,8 @@
                         <td>
                             <button (click)="modificarProducto(vehicle)" class="btn"><i class="material-icons">
                                 edit</i></button>
-                            <a class="btn "><i class="material-icons">visibility</i></a>
-                            <a class="btn "><i class="material-icons">delete</i></a>
+                            <a class="btn " ><i class="material-icons">visibility</i></a>
+                            <a class="btn " (click)="msgDelete(deleteModal, vehicle.id, vehicle.desc )" ><i class="material-icons">delete</i></a>
 
                         </td>
                     </tr>
@@ -85,4 +87,22 @@
                 <span class="loader__dot">.</span>
                 <span class="loader__dot">.</span></strong>
     </div>
+</ng-template>
+<ng-template #deleteModal>
+    <mat-card *ngIf="!isloading">
+        <mat-card-title>
+            Eliminar Producto
+        </mat-card-title>
+        <mat-card-subtitle>
+            Esta a punto de eliminar el siguiente Producto: 
+        </mat-card-subtitle>
+        <mat-card-content>
+            {{ nombreProduct }}
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button (click)="delete()">Eliminar</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-spinner *ngIf="isloading"></mat-spinner>
+    <mat-icon *ngIf="icon">check_circle</mat-icon>
 </ng-template>

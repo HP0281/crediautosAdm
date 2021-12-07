@@ -19,11 +19,12 @@ export class ListTipoCamionComponent implements OnInit {
   isloading=false;
   icon=false;
   pageActual: number = 1;
+  filterMarcas: string ='';
 
   constructor(private marcaService: MarcasService, private dialog: NgbModal,
     private fb: FormBuilder,
     private categoriaService: CategoriasService) { 
-    this.marcaService.marcas.subscribe(resp => {
+    this.marcaService.getMarcaByCategoria('Camiones').subscribe(resp => {
       this.marcas = resp;
     })
     this.categoriaService.categories.subscribe(resp => {

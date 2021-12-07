@@ -46,4 +46,9 @@ export class MarcasService {
       map(actions => actions.map(a => a.payload.doc.data() as Marca))
    );
  }
+ getMarcaByCategoria(name:string){
+  return this.afs.collection(('marcas'), ref => ref.where('category','==', name)).snapshotChanges().pipe(
+    map(actions => actions.map(a => a.payload.doc.data() as Marca))
+  );
+}
 }

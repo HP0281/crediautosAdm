@@ -18,21 +18,15 @@
                         <th>cedula</th>
                         <th>telefono</th>
                         <th>vehiculos</th>
-                        <th>Placa</th>
-                        <th>fecha soat</th>
-                        <th>fecha tecnomecanica</th>
                         <th>accion</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td>vehicled</td>
-                        <td>vehiclearca</td>
-                        <td>vehicleodelo</td>
-                        <td><a class="btn "><i class="material-icons">visibility</i></a></td>
-                        <td>vehiclelaca</td>
-                        <td>dsad</td>
-                        <td>sds</td>
+                    <tr class="text-center" *ngFor="let cliente of clientes">
+                        <td>{{ cliente.apname }}</td>
+                        <td>{{ cliente.identificacion }}</td>
+                        <td>{{ cliente.phone }}</td>
+                        <td><a class="btn " (click)="vehicles(cliente.id)"><i class="material-icons">visibility</i></a></td>
                         <td>
                             <a class="btn "><i class="material-icons">
                                 edit</i></a>
