@@ -47,7 +47,7 @@ export class VehiclesService {
     );
   }
   getVehiclesByIdVendor(id:string){
-    return this.afs.collection(('vehicles'), ref => ref.where('vendedor','==', id)).valueChanges();
+    return this.afs.collection(('vehicles'), ref => ref.where('vendedorId','==', id)).valueChanges();
   }
   
   getVehiclesById(id:string){

@@ -10,6 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from 'src/app/shared/material/material/material.module';
 import { ClientesmodalModule } from 'src/app/admin/modals/clientesmodal/clientesmodal.module';
 import { ConfirmacionModule } from 'src/app/admin/modals/confirmacion/confirmacion.module';
+import { VehiclesModalModule } from 'src/app/admin/modals/vehicles-modal/vehicles-modal.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ConfirmacionModule } from 'src/app/admin/modals/confirmacion/confirmaci
     NgxPaginationModule,
     MaterialModule,
     ClientesmodalModule,
-    ConfirmacionModule
+    ConfirmacionModule,
+    VehiclesModalModule
   ],exports:[ListClientComponent]
 })
 export class ListClientModule { }
