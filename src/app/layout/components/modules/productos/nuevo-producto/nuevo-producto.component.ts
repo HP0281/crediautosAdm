@@ -3,7 +3,7 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 
 
@@ -21,6 +21,10 @@ import { VersionesService } from 'src/app/services/versiones.service';
 import { finalize } from 'rxjs/operators';
 
 import { AngularFireStorage } from '@angular/fire/storage';
+import { FileItem } from 'src/app/models/file-item';
+import { ImageService } from 'src/app/services/image/image.service';
+import { Image } from 'src/app/models/image.interface';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-nuevo-producto',
@@ -31,11 +35,11 @@ export class NuevoProductoComponent implements OnInit {
 
   paso:number;
   progreso:number;
-  category:string;
-  marca: string;
-  modelo:string;
-  year:string;
-  version: string;
+  category;
+  marca;
+  modelo;
+  year;
+  version;
 
   vehicleForm: FormGroup; 
   kilometrajeForm: FormGroup; 
@@ -43,7 +47,7 @@ export class NuevoProductoComponent implements OnInit {
   formPrincipal: FormGroup;
   valorform: FormGroup;
 
-  vehicle: any;
+  vehicle: Vehicle;
 
   headers: string[];
   categories: String[];
@@ -53,9 +57,28 @@ export class NuevoProductoComponent implements OnInit {
   versions : string[];
   
   cargo:boolean = false;
+  cargoI:boolean = false;
 
   uploadProgress: Observable<number>;
   uploadURL: Observable<string>;
+
+  files: FileItem [] = [];
+  isOverDrop = false;
+
+  imageError: string;
+  isImageSaved: boolean;
+  cardImageBase64: string = "";
+  navigatiionExtras : NavigationExtras = {
+    state:{
+      value:null
+    }
+  }
+  
+
+  filterMarcas: string;
+  filterModelo: string;
+  filterYear: string;
+  nuevo= true;
   
 
   constructor(private fb: FormBuilder, public vehicleService: VehiclesService, private router: Router, private auth: AuthServiceService,
@@ -63,16 +86,17 @@ export class NuevoProductoComponent implements OnInit {
     private marcasService: MarcasService,
     private modelosService: ModelosService,
     private versionService: VersionesService,
+    private readonly storageSvc: ImageService,
     private _storage: AngularFireStorage ) { 
     const navigation = router.getCurrentNavigation();
     this.vehicle = navigation.extras?.state?.value;
+    this.nuevo =navigation.extras?.state?.nuevo;
     this.initForm();
     console.log(auth._userinfo);
     this.paso = 1;
     this.progreso=0;
     this.headers=['pqr'];
     this.getCategories();
-    this.getMarcas();
     this.years =[];
    
   }
@@ -86,7 +110,17 @@ export class NuevoProductoComponent implements OnInit {
       console.log(this.vehicle.id)
     }
   }
-  
+  llenarformularios(){
+    this.valorform.get('valor').setValue(this.vehicle.valor);
+    this.vehicleForm.get('marcamodelo').setValue(this.vehicle.desc);
+    this.kilometrajeForm.get('kilometraje').setValue(this.vehicle.kilometraje);
+    this.colorForm.get('color').setValue(this.vehicle.color);
+    this.category = this.vehicle.categoria;
+    this.marca = this.vehicle.marca;
+    this.modelo = this.vehicle.modelo;
+    this.version = this.vehicle.version;
+    this.year = this.vehicle.year;
+  }
   onContinue(paso:string){
     switch (paso) {
       case 'titulo':
@@ -97,12 +131,13 @@ export class NuevoProductoComponent implements OnInit {
         case 'category':
         if (this.category) {
           this.progreso++;
+          this.getMarcas();
         }
         break;
         case 'marca':
           if(this.marca){
             this.progreso++;
-            this.getModelos(this.marca);
+            this.getModelos(this.marca,this.category);
             this.getVehicles(this.auth._userinfo.uid);
         }
         break;
@@ -124,7 +159,9 @@ export class NuevoProductoComponent implements OnInit {
         }
         break;
       case 'kilometraje':
-        if (this.kilometrajeForm.get('kilometraje').value) {
+        console.log("una entra al progreso")
+        if (parseInt(this.kilometrajeForm.get('kilometraje').value) >=0) {
+          console.log("entra al progreso")
           this.progreso++;
         }
         break;
@@ -133,8 +170,7 @@ export class NuevoProductoComponent implements OnInit {
           this.progreso++;
           this.paso++;
           this.patchvalues();
-        };
-        break;
+        }
       case 'valor':
         console.log(this.valorform.get('valor').value)
         if(this.valorform.get('valor').value){
@@ -180,26 +216,16 @@ export class NuevoProductoComponent implements OnInit {
     this.version = version;
 
   }
-  llenarformularios(){
-    this.valorform.get('valor').setValue(this.vehicle.valor);
-    this.vehicleForm.get('marcamodelo').setValue(this.vehicle.desc);
-    this.kilometrajeForm.get('kilometraje').setValue(this.vehicle.kilometraje);
-    this.colorForm.get('color').setValue(this.vehicle.color);
-    this.category = this.vehicle.categoria;
-    this.marca = this.vehicle.marca;
-    this.modelo = this.vehicle.modelo;
-    this.version = this.vehicle.version;
-    this.year = this.vehicle.year;
-  }
   initForm(){
     this.valorform = this.fb.group({
       valor : new FormControl('', [Validators.required])
     })
     this.vehicleForm = this.fb.group({
-      marcamodelo : new FormControl('', [Validators.required])
+      marcamodelo : new FormControl('', [Validators.required]),
+      descripcion : new FormControl('', [Validators.required])
     })
     this.kilometrajeForm = this.fb.group({
-      kilometraje: new FormControl('', [Validators.required])
+      kilometraje: new FormControl(0, [Validators.required])
     })
     this.colorForm = this.fb.group({
       color: new FormControl('',[Validators.required])
@@ -218,8 +244,11 @@ export class NuevoProductoComponent implements OnInit {
       carroceria: new FormControl('', [Validators.required]),
       cilindrada: new FormControl('', [Validators.required]),
       placa: new FormControl('', [Validators.required]),
+      color: new FormControl('', [Validators.required]),
+      vendedor: new FormControl(JSON.parse(localStorage.getItem('nombre'))),
+      vendedorId: new FormControl(localStorage.getItem('userid')),
+      state: new FormControl('creado'),
       categoria: new FormControl(''),
-      vendedor: new FormControl(''),
       urlimg:new FormControl(''),
       unicodueño: new FormControl(''),
       tecno: new FormControl(''),
@@ -276,8 +305,11 @@ export class NuevoProductoComponent implements OnInit {
       testdrivD: new FormControl(''),
       dochome: new FormControl(''),
       desc: new FormControl(''),
-      valor : new FormControl('')
-      
+      valor : new FormControl(''),
+      status: new FormControl(false),
+      promocion: new FormControl(false),
+      descripcion: new FormControl(''),
+      kilometraje: new FormControl(0)
     })
   }
   asignarvalue(nomvar: string, valor: any){
@@ -323,7 +355,7 @@ export class NuevoProductoComponent implements OnInit {
       case 'entradausb':  this.formPrincipal.get('entradausb').setValue(valor);  break;
       case 'eds':  this.formPrincipal.get('eds').setValue(valor);  break;
       case 'cubiertaplaton':  this.formPrincipal.get('cubiertaplaton').setValue(valor);  break;
-      case 'plana':  this.formPrincipal.get('plana').setValue(valor);  break; 
+      case 'plana':  this.formPrincipal.get('plana').setValue(valor);  break;
       case 'estribos':  this.formPrincipal.get('estribos').setValue(valor);  break;
       case 'exploradoras':  this.formPrincipal.get('exploradoras').setValue(valor);  break;
       case 'llantasn':  this.formPrincipal.get('llantasn').setValue(valor);  break;
@@ -345,23 +377,102 @@ export class NuevoProductoComponent implements OnInit {
       case 'urlimg' : this.formPrincipal.get('urlimg').setValue(valor); break;
       case 'desc' : this.formPrincipal.get('desc').setValue(valor); break;
       case 'valor' : this.formPrincipal.get('valor').setValue(valor); break;
+      case 'descripcion' : this.formPrincipal.get('descripcion').setValue(valor); break;
+      case 'color' : this.formPrincipal.get('color').setValue(valor); break;
+      case 'kilometraje' : this.formPrincipal.get('kilometraje').setValue(valor); break;
       case 'categoria' : this.formPrincipal.get('categoria').setValue(valor); break;
       default:
         break;
       }
       console.log(this.formPrincipal.get('unicodueño').value);
   }
-  onguardar(){
-    if (this.formPrincipal.valid) {
-      const vehicle = this.formPrincipal.value;
-      const vehicleid = this.vehicle.id || null;
-      this.vehicleService.onSaveVehicle(vehicle, vehicleid);
-      console.log(vehicleid);
-      //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
-      alert('registro creado correctamente');
-      this.router.navigate(['/productos/listar-productos']);
+  async onguardar() {
+    if (this.files.length>0 && this.cargoI) {
+      if (this.formPrincipal.valid) {
+        const vehicle = this.formPrincipal.value;
+        const vehicleid = this.vehicle?.id || null;
+        await this.vehicleService.onSaveVehicle(vehicle, vehicleid);
+        let id = JSON.parse(localStorage.getItem('idVehicle'));
+          for (let index = 0; index < this.files.length; index++) {
+            let url;
+            console.log("id vehicle", id);
+            await this.fileChangeEvent(this.files[index].fileActual);
+            this.files[index].downloadURL.subscribe( async Url => {
+              let img : Image = {idvehicle: id, urlimg: Url}
+            const imageid = img?.id || null;
+            console.log("antes del s", img , imageid, url);
+            await this.storageSvc.onSaveImage(img, imageid);
+            })
+            
+          }
+          this.navigatiionExtras.state.value = vehicle;
+          this.router.navigate(['/userInfo'], this.navigatiionExtras);
+        //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
+        alert('registro creado correctamente');
+        
+      }
+    } else {
+      alert('No sean cargado las fotos de tu vehículo');
     }
     
+    
+  }
+  fileChangeEvent(fileInput: any) {
+    console.log("entra al 64", fileInput)
+    this.imageError = null;
+    if (fileInput) {
+      console.log("entra al if")
+        // Size Filter Bytes
+        const max_size = 20971520;
+        const allowed_types = ['image/png', 'image/jpeg'];
+        const max_height = 15200;
+        const max_width = 25600;
+
+        if (fileInput.size > max_size) {
+            this.imageError =
+                'Maximum size allowed is ' + max_size / 1000 + 'Mb';
+
+            return false;
+        }
+
+        if (!_.includes(allowed_types, fileInput.type)) {
+            this.imageError = 'Only Images are allowed ( JPG | PNG )';
+            return false;
+        }
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+            const image = new Image();
+            image.src = e.target.result;
+            image.onload = rs => {
+                const img_height = rs.currentTarget['height'];
+                const img_width = rs.currentTarget['width'];
+
+                console.log(img_height, img_width);
+
+
+                if (img_height > max_height && img_width > max_width) {
+                    this.imageError =
+                        'Maximum dimentions allowed ' +
+                        max_height +
+                        '*' +
+                        max_width +
+                        'px';
+                    return false;
+                } else {
+                    const imgBase64Path = e.target.result;
+                    this.isImageSaved = true;
+                    return this.cardImageBase64 = imgBase64Path;
+                    // this.previewImagePath = imgBase64Path;
+                }
+            };
+        };
+
+        reader.readAsDataURL(fileInput);
+    }
+}
+  onUpload(): void {
+    this.storageSvc.uploadImage(this.files);
+    this.cargoI = true;
   }
   onLogout(){
     this.auth.logOut();
@@ -371,9 +482,12 @@ export class NuevoProductoComponent implements OnInit {
     this.asignarvalue('modelo', this.modelo);
     this.asignarvalue('version', this.version );
     this.asignarvalue('year', this.year);
+    this.asignarvalue('color', this.colorForm.get('color').value)
     this.asignarvalue('vendedor', this.auth._userinfo.uid);
+    this.asignarvalue('descripcion',this.vehicleForm.get('descripcion').value);
     this.asignarvalue('categoria', this.category);
     this.asignarvalue('desc', this.vehicleForm.get('marcamodelo').value);
+    this.asignarvalue('kilometraje', parseInt(this.kilometrajeForm.get('kilometraje').value));
   }
   getCategories(){
     this.categoryService.categories.subscribe((resp:any)=>{
@@ -382,14 +496,13 @@ export class NuevoProductoComponent implements OnInit {
     })
   }
   getMarcas(){
-    this.marcasService.marcas.subscribe((resp:any)=>{
+    this.marcasService.getMarcaByCategoria(this.category).subscribe((resp:any)=>{
       this.marcas = resp;
     })
   }
-  getModelos(marca:string){
+  getModelos(marca:string,categoria:string){
     console.log('resultado marcas');
-    let c =this.formPrincipal.get('categoria').value;
-    this.modelosService.getModelosforMarca(marca, c).subscribe((resp:any)=>{
+    this.modelosService.getModelosforMarca(marca,categoria).subscribe((resp:any)=>{
       console.log(resp);
       this.modelos = resp;
     })
@@ -415,6 +528,7 @@ export class NuevoProductoComponent implements OnInit {
     }
   }
   uploadImg(event){
+    
     const file = event.target.files[0];
     const randomId = Math.random().toString(36).substring(2);
     const filepath = `images/${randomId}`;
@@ -454,5 +568,18 @@ export class NuevoProductoComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  filtarMarcas(value: string){
+    console.log(value)
+    this.filterMarcas= value
+  }
+  filtrarModelos(value: string){
+    console.log(value)
+    this.filterModelo= value
+  }
+  filtrarYear(value: string){
+    console.log(value)
+    this.filterYear= value
   }
 }

@@ -1806,15 +1806,15 @@ a.btn.disabled,fieldset:disabled a.btn{
 .btn-primary{
     color:#fff;
     background-color:#e51e1d;
-    border-color:#e51e1d
+    border-color:#c40000
 }
 .btn-primary:hover{
     color:#fff;
-    background-color:#3579ff;
-    border-color:#2870ff
+    background-color:#ff0000;
+    border-color:#c40000
 }
 .btn-primary:focus,.btn-primary.focus{
-    box-shadow:0 0 0 .2rem rgba(116,162,255,0.5)
+    box-shadow:0 0 0 .2rem rgba(255, 116, 116, 0.5)
 }
 .btn-primary.disabled,.btn-primary:disabled{
     color:#fff;
@@ -1823,11 +1823,11 @@ a.btn.disabled,fieldset:disabled a.btn{
 }
 .btn-primary:not(:disabled):not(.disabled):active,.btn-primary:not(:disabled):not(.disabled).active,.show>.btn-primary.dropdown-toggle{
     color:#fff;
-    background-color:#2870ff;
-    border-color:#1b68ff
+    background-color:#c40000;
+    border-color:#c40000
 }
 .btn-primary:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-primary.dropdown-toggle:focus{
-    box-shadow:0 0 0 .2rem rgba(116,162,255,0.5)
+    box-shadow:0 0 0 .2rem rgba(255, 116, 116, 0.5)
 }
 .btn-secondary{
     color:#fff;
@@ -3736,7 +3736,7 @@ a.badge:hover,a.badge:focus{
 }
 a.badge-primary:hover,a.badge-primary:focus{
     color:#fff;
-    background-color:#2870ff
+    background-color:#c40000
 }
 a.badge-primary:focus,a.badge-primary.focus{
     outline:0;
@@ -4949,7 +4949,7 @@ a.close.disabled{
     background-color:#e51e1d !important
 }
 a.bg-primary:hover,a.bg-primary:focus,button.bg-primary:hover,button.bg-primary:focus{
-    background-color:#2870ff !important
+    background-color:#c40000 !important
 }
 .bg-secondary{
     background-color:#6c757d !important
@@ -8761,21 +8761,21 @@ body.sidebar-fill .sidebar .nav .nav-item.dropdown.show>.dropdown-toggle .icon{
 @keyframes countersmall{
     0{
         transform:scale(1);
-        opacity:1
+        opacity:1;
     }
     100%{
         transform:scale(3);
-        opacity:0
+        opacity:0;
     }
 }
 @keyframes countersmall2{
     0{
         transform:scale(1);
-        opacity:1
-    }
+        opacity:1;
+    },
     100%{
         transform:scale(3);
-        opacity:0
+        opacity:0;
     }
 }
 .submenu .navbar .navbar-nav .nav-item .nav-link{
@@ -10796,8 +10796,9 @@ table.dataTable>tbody>tr.child ul.dtr-details{
 .gallery-top .swiper-slide{
     background-size:cover
 }
+
 .gallery-thumbs{
-    height:100px;
+    height:100px !important;
     margin:1px
 }
 .gallery-thumbs .swiper-slide{

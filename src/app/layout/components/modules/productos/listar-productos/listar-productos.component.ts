@@ -33,7 +33,8 @@ export class ListarProductosComponent implements OnInit {
 
   navigationExtras : NavigationExtras = {
     state:{
-      value:null
+      value:null,
+      nuevo:true
     }
   };
   constructor(
