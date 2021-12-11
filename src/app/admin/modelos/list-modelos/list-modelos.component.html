@@ -10,9 +10,11 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let element of dataSource  | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual } | marcas:filterModelos"
+      *ngFor="let element of dataSource | name:filterModelos | paginate: {id:'listar', itemsPerPage: 5, currentPage: pageActual } "
       class="text-center">
+      <td *ngIf="element.category === 'Carros y Camionetas ' "><h1>aquiiii</h1></td>
       <td>{{element.category}}</td>
+      
       <td>{{element.marca}}</td>
       <td>{{element.name}}</td>
 

@@ -41,6 +41,7 @@ export class ListModelosComponent implements OnInit {
   }
 
   openEditModal(id:string, modal, marca: string, modelo: string, category:string){
+    console.log("este id modelo",id)
     this.idactual = id;
     marca != null ? this.modeloform.get('marca').setValue(marca): "";
     modelo != null ? this.modeloform.get('name').setValue(modelo): "";

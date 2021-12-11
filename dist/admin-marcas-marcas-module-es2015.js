@@ -18,7 +18,7 @@ module.exports = "<div class=\"row\">\n    hola\n    <div class=\"col-12\">\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-12\">\r\n        <div class=\"info\">\r\n            <input class=\"form-control\" type=\"text\" name=\"filterMarcas\" placeholder=\"buscar Marca\" [(ngModel)]=\"filterMarcas\">\r\n            <mat-card *ngFor=\"let marca of marcas| paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual }  | marcas:filterMarcas \">\r\n                <mat-card-title>{{ marca.name }}</mat-card-title>\r\n                <mat-card-description>{{ marca.category }}</mat-card-description>\r\n                <mat-card-actions align=\"end\">\r\n                    <button mat-button (click)=\"onEditar(marca.id, editmodal, marca.name, marca.category )\">Editar</button>\r\n                    <button mat-button (click)=\"openDeleteModal(deleteModal, marca.id, marca.name)\" >Eliminar</button>\r\n                </mat-card-actions>\r\n            </mat-card>\r\n            <pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n            </pagination-controls>\r\n        </div>\r\n    </div>\r\n</div>\r\n<ng-template #editmodal>\r\n    <mat-card>\r\n        <mat-card-title>\r\n            Editar Categoria\r\n        </mat-card-title>\r\n        <mat-card-actions >\r\n            <form action=\"\" [formGroup]=\"marcaForm\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-6\">\r\n                        <div class=\"form-floating mb-3\">\r\n                          <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                             formControlName=\"category\" id=\"floatingSelect\">\r\n                             <option [value]=\"category.name\" *ngFor=\"let category of categories\">{{ category.name }}</option>\r\n                            </select>\r\n                            <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar categoria</label>\r\n                          </div>\r\n                    </div>\r\n                    <div class=\"col-6\">\r\n                        \r\n                    <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la categoria\" formControlName=\"name\">\r\n\r\n                    </div>\r\n                </div>\r\n            </form>\r\n           \r\n            <button mat-button [disabled]=\"!marcaForm.valid\" (click)=\"onGuardar(marcaeditid, confirModal)\">Guardar</button>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-template>\r\n<ng-template #deleteModal>\r\n    <mat-card *ngIf=\"!isloading && !icon\">\r\n        <mat-card-title>\r\n            Eliminar Categoria\r\n        </mat-card-title>\r\n        <mat-card-subtitle>\r\n            Esta a punto de eliminar la siguiente Marca: \r\n        </mat-card-subtitle>\r\n        <mat-card-content>\r\n            {{ deletemarca }}\r\n        </mat-card-content>\r\n        <mat-card-actions align=\"end\">\r\n            <button mat-button (click)=\"onEliminar(marcaDeleteid)\">Eliminar</button>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <mat-spinner *ngIf=\"isloading\"></mat-spinner>\r\n    <mat-icon *ngIf=\"icon\">check_circle</mat-icon>\r\n</ng-template>\r\n<ng-template #confirModal>\r\n    <mat-card>\r\n        <mat-card-title>Registro Modificado</mat-card-title>\r\n    </mat-card>\r\n</ng-template>"
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-12\">\r\n        <div class=\"info\">\r\n            <input class=\"form-control\" type=\"text\" name=\"filterMarcas\" placeholder=\"buscar Marca\" [(ngModel)]=\"filterMarcas\">\r\n            <mat-card *ngFor=\"let marca of marcas | name:filterMarcas  | paginate: {id:'listar', itemsPerPage: 10, currentPage: pageActual }  \">\r\n                <mat-card-title>{{ marca.name }}</mat-card-title>\r\n                <mat-card-description>{{ marca.category }}</mat-card-description>\r\n                <mat-card-actions align=\"end\">\r\n                    <button mat-button (click)=\"onEditar(marca.id, editmodal, marca.name, marca.category )\">Editar</button>\r\n                    <button mat-button (click)=\"openDeleteModal(deleteModal, marca.id, marca.name)\" >Eliminar</button>\r\n                </mat-card-actions>\r\n            </mat-card>\r\n            <pagination-controls id=\"listar\" (pageChange)=\"pageActual = $event\" responsive=\"true\">\r\n            </pagination-controls>\r\n        </div>\r\n    </div>\r\n</div>\r\n<ng-template #editmodal>\r\n    <mat-card>\r\n        <mat-card-title>\r\n            Editar Categoria\r\n        </mat-card-title>\r\n        <mat-card-actions >\r\n            <form action=\"\" [formGroup]=\"marcaForm\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-6\">\r\n                        <div class=\"form-floating mb-3\">\r\n                          <select class=\"form-control form-select form-select-lg mb-3\" aria-label=\".form-select-lg example\"\r\n                             formControlName=\"category\" id=\"floatingSelect\">\r\n                             <option [value]=\"category.name\" *ngFor=\"let category of categories\">{{ category.name }}</option>\r\n                            </select>\r\n                            <label for=\"floatingSelect\" class=\"lblfloat\">Seleccionar categoria</label>\r\n                          </div>\r\n                    </div>\r\n                    <div class=\"col-6\">\r\n                        \r\n                    <input type=\"text\" class=\"form-control\" id=\"floatingInput\" placeholder=\"Nombre de la categoria\" formControlName=\"name\">\r\n\r\n                    </div>\r\n                </div>\r\n            </form>\r\n           \r\n            <button mat-button [disabled]=\"!marcaForm.valid\" (click)=\"onGuardar(marcaeditid, confirModal)\">Guardar</button>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-template>\r\n<ng-template #deleteModal>\r\n    <mat-card *ngIf=\"!isloading && !icon\">\r\n        <mat-card-title>\r\n            Eliminar Categoria\r\n        </mat-card-title>\r\n        <mat-card-subtitle>\r\n            Esta a punto de eliminar la siguiente Marca: \r\n        </mat-card-subtitle>\r\n        <mat-card-content>\r\n            {{ deletemarca }}\r\n        </mat-card-content>\r\n        <mat-card-actions align=\"end\">\r\n            <button mat-button (click)=\"onEliminar(marcaDeleteid)\">Eliminar</button>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <mat-spinner *ngIf=\"isloading\"></mat-spinner>\r\n    <mat-icon *ngIf=\"icon\">check_circle</mat-icon>\r\n</ng-template>\r\n<ng-template #confirModal>\r\n    <mat-card>\r\n        <mat-card-title>Registro Modificado</mat-card-title>\r\n    </mat-card>\r\n</ng-template>"
 
 /***/ }),
 
@@ -941,17 +941,9 @@ let MarcasPipe = class MarcasPipe {
     transform(value, arg) {
         const resultProduct = [];
         for (const Vehicle of value) {
-            if (Vehicle.name != null) {
-                if (Vehicle.name.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
-                    //console.log("si");
-                    resultProduct.push(Vehicle);
-                }
-            }
-            else {
-                if (Vehicle.marca.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
-                    //console.log("si");
-                    resultProduct.push(Vehicle);
-                }
+            if (Vehicle.marca.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+                //console.log("si");
+                resultProduct.push(Vehicle);
             }
         }
         return resultProduct;
@@ -962,6 +954,42 @@ MarcasPipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         name: 'marcas'
     })
 ], MarcasPipe);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pipes/name.pipe.ts":
+/*!************************************!*\
+  !*** ./src/app/pipes/name.pipe.ts ***!
+  \************************************/
+/*! exports provided: NamePipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NamePipe", function() { return NamePipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let NamePipe = class NamePipe {
+    transform(value, arg) {
+        const resultProduct = [];
+        for (const Vehicle of value) {
+            if (Vehicle.name.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+                //console.log("si");
+                resultProduct.push(Vehicle);
+            }
+        }
+        return resultProduct;
+    }
+};
+NamePipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'name'
+    })
+], NamePipe);
 
 
 
@@ -981,6 +1009,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _marcas_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./marcas.pipe */ "./src/app/pipes/marcas.pipe.ts");
+/* harmony import */ var _name_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./name.pipe */ "./src/app/pipes/name.pipe.ts");
+
 
 
 
@@ -989,10 +1019,10 @@ let PipesModule = class PipesModule {
 };
 PipesModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"]],
+        declarations: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"], _name_pipe__WEBPACK_IMPORTED_MODULE_4__["NamePipe"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
-        ], exports: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"]]
+        ], exports: [_marcas_pipe__WEBPACK_IMPORTED_MODULE_3__["MarcasPipe"], _name_pipe__WEBPACK_IMPORTED_MODULE_4__["NamePipe"]]
     })
 ], PipesModule);
 

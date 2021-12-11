@@ -21,10 +21,7 @@ export class NewModelosComponent implements OnInit {
       this.categoriaService.categories.subscribe(resp=>{
         this.categories = resp;
       })
-    this.marcaService.marcas.subscribe((resp:any)=>{
-      this.marcas = resp;
-      console.log(resp)
-    })
+    
     this.initForm();
   }
 
@@ -36,6 +33,13 @@ export class NewModelosComponent implements OnInit {
       category: new FormControl('', Validators.required),
       marca: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required])
+    })
+  }
+  filtroMarca(){
+    let categoria = this.modeloForm.get('category').value;
+    this.marcaService.getMarcaByCategoria(categoria).subscribe((resp:any)=>{
+      this.marcas = resp;
+      console.log(resp)
     })
   }
   onGuardar(){

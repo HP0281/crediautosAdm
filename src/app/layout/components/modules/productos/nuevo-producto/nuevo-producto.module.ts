@@ -6,10 +6,12 @@ import{NuevoProductoRoutingModule}from './nuevo-producto-routing.module';
 import {FormsModule, ReactiveFormsModule}from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MyfilterpipePipe } from './myfilterpipe.pipe';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 @NgModule({
-  declarations: [NuevoProductoComponent],
+  declarations: [NuevoProductoComponent, MyfilterpipePipe],
   imports: [
     CommonModule,
     TranslateModule,
@@ -17,7 +19,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    PipesModule
   ]
 })
 export class NuevoProductoModule { }

@@ -3,12 +3,12 @@
         <div class="title">
             <h5>Agregar nueva version</h5>
         </div>
-        <div class="form">
+        <div class="container col-9">
             <form [formGroup]="versionForm">
                 <div class="row">
                     <div class="col-6">
                         <div class="form-floating mb-3">
-                            <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            <select class="form-control form-select form-select-lg mb-3" (change)="filtroMarca()" aria-label=".form-select-lg example"
                              formControlName="category" id="floatingSelect" style="padding-top: 1.525rem;">
                              <option [value]="category.name" *ngFor="let category of categories">{{ category.name }}</option>
                             </select>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-6">
                         <div class="form-floating mb-3">
-                            <select class="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            <select class="form-control form-select form-select-lg mb-3" (change)="filtroModelo()" aria-label=".form-select-lg example"
                              formControlName="marca" id="floatingSelect" style="padding-top: 1.525rem;">
                              <option [value]="marca.name" *ngFor="let marca of marcas">{{ marca.name }}</option>
                             </select>

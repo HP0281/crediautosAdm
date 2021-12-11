@@ -24,7 +24,7 @@ export class ListMarcasComponent implements OnInit {
   constructor(private marcaService: MarcasService, private dialog: NgbModal,
     private fb: FormBuilder,
     private categoriaService: CategoriasService) { 
-    this.marcaService.marcas.subscribe(resp => {
+    this.marcaService.getMarcaByCategoria('Carros y Camionetas').subscribe(resp => {
       this.marcas = resp;
     })
     this.categoriaService.categories.subscribe(resp => {

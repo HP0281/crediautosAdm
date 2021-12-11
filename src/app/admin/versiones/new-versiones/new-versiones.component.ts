@@ -21,12 +21,6 @@ export class NewVersionesComponent implements OnInit {
   constructor(private fb: FormBuilder, private marcaService: MarcasService,
     private modeloService: ModelosService, private versionService: VersionesService,
     private categoriService: CategoriasService) { 
-      this.marcaService.marcas.subscribe((resp:any)=> {
-        this.marcas = resp;
-      });
-      this.modeloService.modelos.subscribe((resp:any)=>{
-        this.modelos = resp;
-      });
       this.categoriService.categories.subscribe((resp:any)=>{
         this.categories = resp;
       });
@@ -42,6 +36,21 @@ export class NewVersionesComponent implements OnInit {
       name: new FormControl('',[Validators.required]),
       marca: new FormControl('',[Validators.required]),
       modelo: new FormControl('',[Validators.required])
+    })
+  }
+  filtroMarca(){
+    let categoria = this.versionForm.get('category').value;
+    this.marcaService.getMarcaByCategoria(categoria).subscribe((resp:any)=>{
+      this.marcas = resp;
+      console.log(resp)
+    })
+  }
+  filtroModelo(){
+    let categoria = this.versionForm.get('category').value;
+    let marca = this.versionForm.get('marca').value;
+    this.modeloService.getModelosforMarca(marca,categoria).subscribe((resp:any)=>{
+      this.modelos = resp;
+      console.log(resp)
     })
   }
   onGuardar(){

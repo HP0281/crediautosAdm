@@ -31,7 +31,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', component: _clientes_component__WEBPACK_IMPORTED_MODULE_3__["ClientesComponent"], pathMatch: 'prefix' },
-    { path: 'listar', loadChildren: () => Promise.all(/*! import() | list-client-list-client-module */[__webpack_require__.e("default~admin-marcas-marcas-module~admin-modelos-modelos-module~admin-vehiculos-vehiculos-module~adm~3b92aaa7"), __webpack_require__.e("list-client-list-client-module")]).then(__webpack_require__.bind(null, /*! ./list-client/list-client.module */ "./src/app/layout/components/modules/clientes/list-client/list-client.module.ts")).then(m => m.ListClientModule) },
+    { path: 'listar', loadChildren: () => Promise.all(/*! import() | list-client-list-client-module */[__webpack_require__.e("default~admin-categorias-categorias-module~admin-marcas-marcas-module~admin-modelos-modelos-module~a~952bf1bd"), __webpack_require__.e("default~admin-categorias-categorias-module~admin-marcas-marcas-module~admin-modelos-modelos-module~a~1b5ebd30"), __webpack_require__.e("default~admin-categorias-categorias-module~admin-marcas-marcas-module~list-client-list-client-module~d3e30e97"), __webpack_require__.e("default~admin-marcas-marcas-module~admin-modelos-modelos-module~admin-vehiculos-vehiculos-module~adm~3b92aaa7"), __webpack_require__.e("default~list-client-list-client-module~listar-listar-module~login-login-module~nuevo-nuevo-module"), __webpack_require__.e("list-client-list-client-module")]).then(__webpack_require__.bind(null, /*! ./list-client/list-client.module */ "./src/app/layout/components/modules/clientes/list-client/list-client.module.ts")).then(m => m.ListClientModule) },
 ];
 let ClientesRoutingModule = class ClientesRoutingModule {
 };
