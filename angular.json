@@ -29,17 +29,23 @@
               "src/styles/material-icons/material-icons.css",
               "src/assets/jquery-jvectormap/jquery-jvectormap-2.0.3.css",
               "src/assets/flags/css/flag-icon.min.css",
+              "src/assets/swiper/css/swiper.min.css",
+              "src/assets/daterangepicker-master/daterangepicker.css",
               "src/styles/style-darkblue-dark.css",
-              "src/styles/custom_style.css",
-              "src/assets/swiper/css/swiper.min.css"
+              "src/styles/custom_style.css"
+              
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/chart.js/dist/Chart.js",
+              "src/assets/swiper/js/swiper.min.js",
               "src/assets/jquery-jvectormap/jquery-3.3.1.min.js",
               "src/assets/jquery-jvectormap/jquery-jvectormap.js",
               "src/assets/jquery-jvectormap/jquery-jvectormap-world-mill-en.js",
-              "src/assets/swiper/js/swiper.min.js"
+             
+              "src/assets/main/galeria.js",
+              "src/assets/main/main.js",
+              "src/assets/main/style-picker.js"
             ]
           },
           "configurations": {

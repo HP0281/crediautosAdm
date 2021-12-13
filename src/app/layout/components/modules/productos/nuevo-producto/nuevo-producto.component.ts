@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
@@ -25,6 +25,7 @@ import { FileItem } from 'src/app/models/file-item';
 import { ImageService } from 'src/app/services/image/image.service';
 import { Image } from 'src/app/models/image.interface';
 import * as _ from 'lodash';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-nuevo-producto',
@@ -79,6 +80,7 @@ export class NuevoProductoComponent implements OnInit {
   filterModelo: string;
   filterYear: string;
   nuevo= true;
+  imagenes = [];
   
 
   constructor(private fb: FormBuilder, public vehicleService: VehiclesService, private router: Router, private auth: AuthServiceService,
@@ -86,6 +88,8 @@ export class NuevoProductoComponent implements OnInit {
     private marcasService: MarcasService,
     private modelosService: ModelosService,
     private versionService: VersionesService,
+    private _renderer2: Renderer2, 
+    @Inject(DOCUMENT) private _document: Document,
     private readonly storageSvc: ImageService,
     private _storage: AngularFireStorage ) { 
     const navigation = router.getCurrentNavigation();
@@ -102,13 +106,38 @@ export class NuevoProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     if (typeof this.vehicle ==='undefined') {
      // this.router.navigate(['publicarForm']);
     }else{
       this.formPrincipal.patchValue(this.vehicle);
       this.llenarformularios();
+      this.storageSvc.getimageByID(this.vehicle.id).subscribe(resp =>{
+        this.imagenes = resp;
+        console.log("imagenes",this.imagenes)
+      });
       console.log(this.vehicle.id)
     }
+  }
+  scrollSlide(){
+    const fila = document.querySelector('.contenedor-carrousel');
+    const ancho = document.querySelector('.contenedor-carrousel').clientWidth;
+    const publicaciones = document.querySelector('.publicacion');
+    const flechaizquierda = document.querySelector('.flecha-izquierda');
+    const flechaderecha = document.querySelector('.flecha-derecha');
+    console.log(ancho);
+    flechaizquierda.addEventListener('click', () => {
+    fila.scrollLeft -= ancho;
+    console.log('clickizuiqerda');
+    });
+
+    flechaderecha.addEventListener('click', () => {
+    fila.scrollLeft += ancho;
+    });
+    
+  }
+  delateImage(imagen){
+    this.storageSvc.onDelateImage(imagen);
   }
   llenarformularios(){
     this.valorform.get('valor').setValue(this.vehicle.valor);

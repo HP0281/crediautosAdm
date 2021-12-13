@@ -1,4 +1,4 @@
-<div class="container-fluid page" *ngIf="nuevo">
+<div class="container-fluid page" *ngIf="!nuevo">
     <div class="body">
         <div class="container form row m-auto">
             <div class="title col-md-8 col-xs-11 m-auto">
@@ -1337,7 +1337,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid page" *ngIf="!nuevo">
+<div class="container-fluid page" *ngIf="nuevo">
     <div class="body">
         <div class="container form row m-auto">
             <div class="title col-md-8 col-xs-11 m-auto">
@@ -2594,47 +2594,35 @@
                 </div>
             </div>
             <div class="uploadimg target col-xs-11 col-md-12 ">
-                <h4>Selecciona la foto principal de tu vehículo</h4>
+                <h4>Foto principal de tu vehículo</h4>
+<br>
+                <img [src]="vehicle.urlimg" class="imgg"alt="" srcset="">
+                <br><br>
+                <h4>¿Desea cambiar la foto principal?</h4>
                 <input type="file" (change)="uploadImg($event)" accept="image/*">
                 <progress max="100" [value]="uploadProgress | async"></progress>
                 
-                <div class="container main-container" id="main-container">
-                    <h3 class="font-weight-light mt-3 mb-4">
-                        Galeria
-                    </h3>
-                    <div class="card text-left shadow-sm border-0 mb-4">
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="col-12 col-md-12 col-lg-10 text-center align-item-center ">
-                                    <!-- Swiper -->
-                                    <div class="swiper-container gallery-top">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide" style="background-image:url(../../../../../../assets/images/product-1.jpg)"></div>
-                                            <div class="swiper-slide" style="background-image:url(../../../../../../assets/images/product-2.jpg)"></div>
-                                            <div class="swiper-slide" style="background-image:url(../../../../../../assets/images/product-1.jpg)"></div>
-                                            <div class="swiper-slide" style="background-image:url(../../../../../../assets/images/product-2.jpg)"></div>
-                                        </div>
-                                        <!-- Add Arrows -->
-                                        <div class="swiper-button-next swiper-button-white"></div>
-                                        <div class="swiper-button-prev swiper-button-white"></div>
-                                    </div>
-                                    <div class="swiper-container gallery-thumbs">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide" style="background-image:url(../../../../../../assets/images/product-1.jpg)"></div>
-                                            <div class="swiper-slide" style="background-image:url(../../../../../../assets/images/product-2.jpg)"></div>
-                                            <div class="swiper-slide" style="background-image:url(../../../../../../assets/images/product-1.jpg)"></div>
-                                            <div class="swiper-slide" style="background-image:url(../../../../../../assets/images/product-2.jpg)"></div>
+                <div class="publicaciones-recomendadas contenedor">
+                    <div class="contenedor-principal">
+                        <button role="button" id="flecha-izquierda" class="flecha-izquierda swiper-button-next"><i class="ArrowForwardIos"></i></button>
+                
+                        <div class="contenedor-carrousel">
+                            <div class="carrousel ">
+                                <div class="publicacion" *ngFor="let imagen of imagenes">
+                                    <div routerLinkActive="activo"><img [src]="imagen.urlimg" alt=""
+                                        >
+                                        <div class="description">
+                                            <button (click)="delateImage(imagen.id)" class="btn btn-danger m-auto">Borrar Foto</button>
                                         </div>
                                     </div>
+                                    
                                 </div>
+                                
                             </div>
                         </div>
+                
+                        <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="ArrowForwardIos"></i></button>
                     </div>
-    
-                    
-                    <br>
-                    <br>
-                    
                 </div>
 
                 <div class="row mt-3 mb-3">
@@ -2708,26 +2696,3 @@
         </div>
     </div>
 </div>
-<script>
-    'use strict'
-    $(document).ready(function() {
-        var galleryThumbs = new Swiper('.gallery-thumbs', {
-            spaceBetween: 1,
-            slidesPerView: 4,
-            freeMode: true,
-            watchSlidesVisibility: true,
-            watchSlidesProgress: true,
-        });
-        var galleryTop = new Swiper('.gallery-top', {
-            spaceBetween: 1,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            thumbs: {
-                swiper: galleryThumbs
-            }
-        });
-    });
-
-</script>

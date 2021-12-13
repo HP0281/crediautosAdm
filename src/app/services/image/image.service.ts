@@ -45,7 +45,7 @@ export class ImageService {
   private generateFileName(name: string): string {
     return `${this.MEDIA_STORAGE_PATH}/${new Date().getTime()}_${name}`;
   }
-
+  
   onSaveImage(image: Image, imagenid: string): Promise<void>{
     return new Promise(async (resolve, reject ) => {
       try {
@@ -54,6 +54,17 @@ export class ImageService {
         console.log(data); 
         const result = await this.imageCollection.doc(id).set(data);
         console.log("si guarda",data, id)
+        resolve(result);
+      } catch (error) {
+        reject(error.message);
+      }
+    });
+  }
+  onDelateImage(id:string): Promise<void>{
+    return new Promise(async (resolve, reject ) => {
+      try {
+        const result = await this.imageCollection.doc(id).delete();
+        console.log("si guarda",id)
         resolve(result);
       } catch (error) {
         reject(error.message);
