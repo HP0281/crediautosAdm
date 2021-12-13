@@ -4,6 +4,7 @@
  * Copyright 2019-2019 Maxartkiller.com
  * Licensed: You must have a valid license purchased only from maxartkiller.com in order to legally use the theme for your project.
  */
+        
 
 $(document).ready(function () {
     /* page navigation on load */
