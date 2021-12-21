@@ -37,7 +37,9 @@ export class ProductosComponent implements OnInit {
   promociones(){
     this.router.navigate(["productos/promociones"]);
   }
-  
+  nuevaPromocion(){
+    this.router.navigate(["productos/nueva-promocion"]);
+  }
   asignarPermisos() {
     
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { ProductosComponent } from '../../productos.component';
+
 
 @Component({
   selector: 'app-promociones',
@@ -30,7 +31,7 @@ export class PromocionesComponent implements OnInit {
   idImagen:number=1;
 
   @ViewChild('ModalModificar', { static: false }) ModalModificar;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
     
@@ -42,6 +43,9 @@ export class PromocionesComponent implements OnInit {
     console.log(this.imgDefecto);
     this.isButtonImage=!this.isButtonImage;
    
+  }
+  listar(){
+    this.router.navigate(["productos/promociones/listar-promocion"]);
   }
   capturarProducto() {
     

@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'nuevo-producto', loadChildren: () => import('./nuevo-producto/nuevo-producto.module').then(m => m.NuevoProductoModule)},
   { path: 'listar-productos', loadChildren: () => import('./listar-productos/listar-productos.module').then(m => m.ListarProductosModule)},
   { path: 'galeria-productos', loadChildren: () => import('./galeria-productos/galeria-productos.module').then(m => m.GaleriaProductosModule)},
-  { path: 'promociones', loadChildren: () => import('./promociones/promociones/promociones.module').then(m => m.PromocionesModule)},
+  { path: 'promociones', loadChildren: () => import('./promociones/promociones.module').then(m => m.PromocionesModule)},
+  { path: 'nueva-promocion', loadChildren: () => import('./nueva-promocion/nueva-promocion.module').then(m => m.NuevaPromocionModule)},
+  { path: 'editar-promocion', loadChildren: () => import('./editar-promocion/editar-promocion.module').then(m => m.EditarPromocionModule)},
   { path: 'editar-producto', loadChildren: () => import('../productos/nuevo-producto/nuevo-producto.module').then(m => m.NuevoProductoModule)},
   {path: '**', redirectTo: 'dasboard', pathMatch: 'full'}
 ]
