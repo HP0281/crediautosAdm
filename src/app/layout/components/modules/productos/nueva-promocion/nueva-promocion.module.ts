@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PromocionesComponent } from './promociones.component';
+import { NuevaPromocionComponent } from './nueva-promocion.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { NuevoProductoRoutingModule } from '../../nuevo-producto/nuevo-producto-routing.module';
+import { NuevaPromocionRoutingModule } from './nueva-promocion-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PromocionesRoutingModule } from './promociones-routing.module';
+
+
 
 @NgModule({
-  declarations: [PromocionesComponent],
+  declarations: [NuevaPromocionComponent],
   imports: [
     CommonModule,
     TranslateModule,
-    PromocionesRoutingModule,
+    NuevaPromocionRoutingModule,
     FormsModule,
     HttpClientModule
   ]
 })
-export class PromocionesModule { }
+export class NuevaPromocionModule { }
