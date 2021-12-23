@@ -1,6 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Promocion } from 'src/app/models/promocion.interface';
+import { PromocionesService } from 'src/app/services/promociones.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmacionComponent } from 'src/app/admin/modals/confirmacion/confirmacion.component';
 
 
 
@@ -11,6 +19,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PromocionesComponent implements OnInit {
 
+  promociones: Promocion[];
+  promoform: FormGroup;
+  uploadProgress: Observable<number>;
+  uploadURL: Observable<any>;
+  cargo:boolean= true;
+  promo: Promocion;
+  msjOK: string = "Registro modificado correctamente";
 
   productoSeleccionado:"";
   loader = true;
@@ -27,11 +42,18 @@ export class PromocionesComponent implements OnInit {
   base64Data: any;
 
   msjErr="";
-  msjOK="";
   idImagen:number=1;
 
   @ViewChild('ModalModificar', { static: false }) ModalModificar;
-  constructor(private router:Router) { }
+  constructor(private router:Router, private promoService: PromocionesService,
+    public dialog: NgbModal, private fb: FormBuilder,
+    private _storage: AngularFireStorage,
+    public matdialog: MatDialog) { 
+    this.promoService.promos.subscribe(resp=>{
+      this.promociones = resp;
+    })
+    this.initForm();
+  }
 
   ngOnInit() {
     
@@ -50,15 +72,40 @@ export class PromocionesComponent implements OnInit {
   capturarProducto() {
     
   }
-  modificarPromocion(promocion,modal){
-    
+  modificarPromocion(promocion, modal){
+    this.promoform.patchValue(promocion);
+    this.promoform.get('img').setValue(promocion.img);
+    this.dialog.open(modal);
+    this.promo = promocion;
  
   }
-  seleccionarImagen(modal) {
+  seleccionarImagen(event, modal){
     
+    const file = event.target.files[0];
+    const randomId = Math.random().toString(36).substring(2);
+    const filepath = `images/${randomId}`;
+    const fileref = this._storage.ref(filepath);
+    const task = this._storage.upload(filepath, file);
+    this.uploadProgress = task.percentageChanges();
+    
+    task.snapshotChanges().pipe(
+      finalize(() => {this.uploadURL = fileref.getDownloadURL();
+      this.cargo = true;
+      this.uploadURL.subscribe((resp:any)=>{
+         this.promoform.get('img').setValue(resp);
+      })
+    }
+      )
+    ).subscribe();
   }
-  guardarPromocion(){
-   
+
+  guardarProducto(){
+    if (this.promoform.valid) {
+      this.promoService.onSavePromo(this.promoform.value, this.promo.id).then( resp=>{
+        this.creado = true;
+        this.dialog.dismissAll();
+      });
+    }
   }
   cargarImagenes(){
     
@@ -66,4 +113,27 @@ export class PromocionesComponent implements OnInit {
   selecionImagen(imagen){
     
    }
+  initForm(){
+    this.promoform = this.fb.group({
+      name: new FormControl('', [Validators.required]),
+      desc: new FormControl('', [Validators.required]),
+      //stock: new FormControl('', [Validators.required]),
+      precio: new FormControl('', [Validators.required]),
+      img: new FormControl('', [Validators.required])
+    })
+  }
+  eliminarPromocion(promocion){
+    this.promoService.onDeletePromo(promocion.id).then(
+      resp =>{
+        const dialogref = this.matdialog.open(ConfirmacionComponent, {
+          width: "250px",
+          data: {
+            message: "Registro eliminado",
+            noresp: true,
+            cancel: "Continuar"
+          }
+        });
+      }
+    );
+  }
 }

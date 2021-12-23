@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NuevaPromocionComponent } from './nueva-promocion.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { NuevaPromocionRoutingModule } from './nueva-promocion-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     TranslateModule,
     NuevaPromocionRoutingModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ]
 })

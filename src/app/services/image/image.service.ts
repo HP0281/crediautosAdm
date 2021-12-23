@@ -77,4 +77,8 @@ export class ImageService {
       map(actions => actions.map(a => a as Image))
     );
    }
+
+    generateId(): String{
+     return this.afs.createId();
+   }
 }
