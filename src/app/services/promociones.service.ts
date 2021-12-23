@@ -8,8 +8,7 @@ import { Promocion } from '../models/promocion.interface';
   providedIn: 'root'
 })
 export class PromocionesService {
-  user: Observable<any[]>;
-  userAdmin: Observable<any[]>;
+  promos: Observable<any[]>;
 
   private promocioncollection: AngularFirestoreCollection<Promocion>;
  
@@ -44,7 +43,7 @@ export class PromocionesService {
   }
   
   private getPromos(): void{
-    this.user = this.promocioncollection.snapshotChanges().pipe(
+    this.promos = this.promocioncollection.snapshotChanges().pipe(
        map(actions => actions.map(a => a.payload.doc.data() as any))
      );
   }
