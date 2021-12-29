@@ -6,6 +6,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nueva-promocion',
@@ -26,7 +27,8 @@ export class NuevaPromocionComponent implements OnInit {
     private imageService: ImageService,
     private promoService: PromocionesService,
     private _storage: AngularFireStorage,
-    public dialog :NgbModal ) { 
+    public dialog :NgbModal,
+    private router: Router ) { 
 
     this.initForm();
   }
@@ -40,6 +42,7 @@ export class NuevaPromocionComponent implements OnInit {
       desc: new FormControl('', [Validators.required]),
       //stock: new FormControl('', [Validators.required]),
       precio: new FormControl('', [Validators.required]),
+      url: new FormControl('', [Validators.required]),
       img: new FormControl('', [Validators.required])
     })
   }
@@ -74,6 +77,7 @@ export class NuevaPromocionComponent implements OnInit {
     if (this.promoform.valid) {
       this.promoService.onSavePromo(this.promoform.value).then( resp=>{
         this.creado = true});
+        this.router.navigate(['/productos/promociones']);
     }
   }
 }

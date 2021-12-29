@@ -119,7 +119,8 @@ export class PromocionesComponent implements OnInit {
       desc: new FormControl('', [Validators.required]),
       //stock: new FormControl('', [Validators.required]),
       precio: new FormControl('', [Validators.required]),
-      img: new FormControl('', [Validators.required])
+      img: new FormControl('', [Validators.required]),
+      url: new FormControl('', [Validators.required])
     })
   }
   eliminarPromocion(promocion){
